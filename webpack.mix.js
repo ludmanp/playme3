@@ -71,7 +71,7 @@ mix.version();
  * BrowserSync
  */
 mix.browserSync({
-    proxy: 'typicms.test',
+    proxy: process.env.APP_URL,
     open: false,
     notify: false,
     ui: false,
