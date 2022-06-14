@@ -1,0 +1,36 @@
+.link {
+    font-size: var(--sFontBody);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cPrimary);
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &.focus-visible {
+        box-shadow: var(--focusRing);
+    }
+}
+
+.link_withImage {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.link_withImageAfter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.link_currentLang {
+    font-weight: 600;
+}
+
+.link_uppercase {
+    text-transform: uppercase;
+}

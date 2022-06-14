@@ -1,0 +1,111 @@
+.factLink {
+    display: flex;
+    height: 390px;
+    width: 390px!important;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    color: var(--cWhite);
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    &:hover {
+        .factLink__overlay, .factLinkBlock {
+            display: none;
+        }
+
+        .factLink__circles {
+            display: block;
+        }
+    }
+}
+
+.factLink__overlay {
+    background:  url('../img/home/overlay.png') center no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.factLink__circles {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+
+.factLink__outerCircle {
+    width: 388px;
+    height: 388px;
+    border-radius: 50%;
+    border: 1px solid var(--cGreen);
+    position: absolute;
+    animation: scaleIn 2s infinite cubic-bezier(.36, .11, .89, .32);
+    animation-delay: -1s
+}
+
+.factLink__innerCircle {
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    border: 1px solid var(--cGreen);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.factLink__info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-direction: column;
+}
+
+.factLink__fact {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 6px 6px 33px rgba(42, 168, 74, 0.59);
+    height: 194px;
+    width: 194px;
+    border-radius: 50%;
+    background: var(--cGreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        padding: 0 30px;
+        text-align: center;
+        line-height: 1.85;
+    }
+}
+
+.factLink__number {
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+.factLink__description {
+    font-size: var(--sH2);
+    font-weight: 700;
+}
+
+.factLink__image {
+    position: relative;
+}

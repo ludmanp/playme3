@@ -1,0 +1,30 @@
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~slick-carousel/slick/slick.scss";
+@import 'custom/variables';
+@import 'custom/core';
+@import 'custom/typography';
+
+// Common
+@import 'custom/common/button';
+@import 'custom/common/link';
+@import 'custom/common/heading';
+@import 'custom/common/tags';
+@import 'custom/common/checkbox';
+@import 'custom/common/container';
+@import 'custom/common/contentBlock';
+@import 'custom/common/modal';
+@import 'custom/common/header/header';
+@import 'custom/common/footer/footer';
+
+//home
+@import 'custom/layout/home/videoBlock';
+@import 'custom/layout/home/facts';
+@import 'custom/layout/home/factLink';
+@import 'custom/layout/home/clients';
+@import 'custom/layout/home/services';
+@import 'custom/layout/home/serviceCard';
+@import 'custom/layout/home/partners';
+@import 'custom/layout/home/blog';
+@import 'custom/layout/home/blogCard';
+
+

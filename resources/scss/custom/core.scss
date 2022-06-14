@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.02em;
+    color: var(--cPrimary);
+}
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    color: var(--cText);
+    overflow-x: hidden;
+    background: url('../img/bgtexture.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.page__main {
+    flex-grow: 1;
+}

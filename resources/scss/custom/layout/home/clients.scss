@@ -1,0 +1,20 @@
+.clientsBlock {
+
+}
+
+.clientsBlock__Link {
+    height: 84px;
+    display: flex!important;
+    align-items: center;
+}
+
+.clientsBlock__carousel {
+    margin-top: 72px;
+    margin-bottom: 128px;
+
+    .slick-track {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+}

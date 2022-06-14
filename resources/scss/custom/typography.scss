@@ -1,0 +1,89 @@
+p {
+    margin-top: 0;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a,
+.link {
+    text-decoration: none;
+    outline: none;
+    transition-duration: var(--tFast);
+    transition-timing-function: var(--tfStandart);
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &.focus-visible {
+        box-shadow: var(--focusRing);
+    }
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+
+    &.focus-visible {
+        box-shadow: var(--focusRing);
+    }
+}
+
+.link_inline {
+    color: currentColor;
+}
+
+.text {
+    font-weight: 500;
+}
+
+.title {
+    font-size: var(--sTitle);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: var(--sH3);
+    }
+}
+
+.h1 {
+    font-size: var(--sH1);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    margin: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: var(--sH2);
+    }
+}
+
+.h2 {
+    font-size: var(--sH2);
+    font-weight: 700;
+    line-height: 1.375;
+    letter-spacing: 0.02em;
+    margin: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: var(--sH3);
+    }
+}
+
+.h3 {
+    font-size: var(--sH3);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: var(--sFontLarge);
+    }
+}
+

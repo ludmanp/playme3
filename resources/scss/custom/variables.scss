@@ -1,0 +1,46 @@
+:root {
+    --cPrimary: #525252;
+    --cWhite: #ffffff;
+    --cSecondary: #CEEFC8;
+    --cGreen: #2AA84A;
+
+    --focusRing: 0 0 0 3px rgba(209, 165, 86, 1);
+    --focusRingWarm: 0 0 0 3px rgba(221, 214, 201, 1);
+
+    --sRadius: 6px;
+    --sRadiusSmall: 4px;
+    --sRadiusBig: 8px;
+    --sRadiusHuge: 24px;
+
+    --sContainer: 1200px;
+    --sContainerNarrow: 895px;
+
+    --sFontTiny: 0.625rem; //10px
+    --sFontSmall: 0.75rem; //12px
+    --sFontMediumSmall: 0.8125rem; //13px
+    --sFontMedium: 0.875rem; //14px
+    --sFontBody: 1rem; //16px
+    --sFontLarge: 1.125rem; //18px
+
+    --sTitle: 2rem; //30px
+    --sH1: 2.5rem; //40px
+    --sH2: 1.5rem; //24px
+    --sH3: 1.25rem; //20px
+
+    --tGeneric: 200ms;
+    --tFast: 100ms;
+    --tfEaseOut: cubic-bezier(0.1, 1, 0.3, 1);
+    --tfStandart: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --zAbove: 200;
+    --zMenu: 500;
+    --zAboveMenu: 700;
+    --zOverlay: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --tGeneric: 0ms;
+        --tFast: 0ms;
+    }
+}

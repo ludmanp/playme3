@@ -1,0 +1,66 @@
+.serviceCard {
+    width: 376px;
+    display: flex;
+    flex-direction: column;
+    color: var(--cPrimary);
+
+    &:hover, &:active {
+        text-decoration: none;
+
+        .serviceDescription {
+            color: var(--cWhite);
+            background: var(--cGreen);
+            box-shadow: 6px 6px 33px rgba(42, 168, 74, 0.59);
+        }
+
+        .serviceDescription__subheader {
+            &::after {
+                background: var(--cWhite);
+            }
+        }
+    }
+}
+
+.serviceDescription {
+    padding: 56px 40px;
+    border-radius: var(--sRadiusHuge);
+
+    p {
+        margin: 0;
+    }
+}
+
+.serviceDescription__header {
+    font-size: var(--sH2);
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.serviceDescription__subheader {
+    font-size: var(--sFontLarge);
+    line-height: 1.55;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    position: relative;
+    font-weight: 600;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 64px;
+        height: 1px;
+        background: var(--cPrimary);
+    }
+}
+
+.serviceDescription__services {
+    height: 184px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    p {
+        line-height: 1.5;
+    }
+}

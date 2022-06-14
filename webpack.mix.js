@@ -6,6 +6,7 @@ const mix = require('laravel-mix');
  */
 mix.sass('resources/scss/admin.scss', 'public/css');
 mix.sass('resources/scss/public.scss', 'public/css');
+mix.sass('resources/scss/custom.scss', 'public/css');
 
 /**
  * Compile JS
@@ -92,6 +93,18 @@ mix.options({
 // mix.webpackConfig({
 //     plugins: [new LiveReloadPlugin()],
 // });
+
+mix.webpackConfig(webpack => {
+    return {
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery',
+            })
+        ]
+    };
+});
 
 /**
  * Source maps
