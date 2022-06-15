@@ -11,6 +11,7 @@
         <x-layout.home.services></x-layout.home.services>
         <x-layout.home.partners></x-layout.home.partners>
         <x-layout.home.blog></x-layout.home.blog>
+        <x-layout.home.contacts></x-layout.home.contacts>
     </x-common.container>
 @endsection
 @section('footer')

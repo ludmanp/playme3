@@ -1,0 +1,17 @@
+.inputField {
+    display: flex;
+
+    input {
+        width: 100%;
+        font-size: var(--sFontBody);
+        line-height: 1.5;
+        padding: 8px;
+        border: 2px solid var(--cInputBorder);
+        border-radius: var(--sRadiusBig);
+        color: var(--cPrimary);
+
+        &::placeholder {
+            color: var(--cPlaceholder);
+        }
+    }
+}

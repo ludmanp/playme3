@@ -1,0 +1,47 @@
+.contactsBlock {
+}
+
+.contactsBlock__content {
+    margin-top: 80px;
+    display: flex;
+}
+
+.contactsBlock__formBlock {
+    margin-top: 50px;
+}
+
+.contactsBlock__formBlock,
+.contactsBlock__image {
+    width: 50%;
+}
+
+.contactsBlock__form {
+    margin-top: 72px;
+    padding: 80px 24px 60px;
+    background: radial-gradient(89.96% 254.88% at 137.53% 0%, #a8dcde 0%, rgba(168, 220, 222, 0) 100%),
+        radial-gradient(96.61% 280.8% at -31.5% -51.67%, #c588da 0%, rgba(219, 202, 225, 0) 100%),
+        rgba(255, 255, 255, 0.2);
+    max-width: 512px;
+    width: 100%;
+    border-radius: var(--sRadiusHuge);
+
+    h3 {
+        font-size: 2.25rem;
+        margin: 0 0 16px;
+    }
+
+    p {
+        margin: 0 0 24px;
+        font-size: var(--sH2);
+        line-height: 1.5;
+    }
+
+    input, textarea {
+        margin: 0 0 16px;
+    }
+}
+
+.contactsBlock__formAction {
+    margin-top: 32px;
+    display: flex;
+}

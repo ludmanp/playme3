@@ -1,10 +1,7 @@
-<a href="{{ $href ?? '' }}" class="link{{
-        useModifiers('link', [
-            'withImage'=>$withImage??false,
-            'withImageAfter'=>$withImageAfter??false,
-            'currentLang'=>$currentLang??false,
+<button type="{{ $attributes['type'] ?? 'button' }}" class="button{{
+        useModifiers('button', [
             'uppercase'=>$uppercase??false,
-            'inlineText'=>$inlineText??false,
+            'withImage'=>$withImage??false,
             ])
         }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
     @if ($icon ?? '')
@@ -16,4 +13,4 @@
         <span class="link__icon">{{$iconAfter}}</span>
     @endif
 
-</a>
+</button>

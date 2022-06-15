@@ -34,3 +34,8 @@
 .link_uppercase {
     text-transform: uppercase;
 }
+
+.link_inlineText {
+    display: inline-flex;
+    color: var(--cGreen);
+}
