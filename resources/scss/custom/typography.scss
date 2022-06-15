@@ -11,6 +11,7 @@ a,
     outline: none;
     transition-duration: var(--tFast);
     transition-timing-function: var(--tfStandart);
+    font-family: "Montserrat", sans-serif;
 
     &:hover,
     &:focus {
@@ -23,6 +24,7 @@ a,
 }
 
 button {
+    font-family: "Montserrat", sans-serif;
     border: none;
     background: inherit;
     cursor: pointer;
