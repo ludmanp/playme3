@@ -3253,3 +3253,7 @@ footer {
 .orderForm__recommendationsList .green {
   color: var(--cGreen);
 }
+
+.orderForm__action {
+  margin-top: 24px;
+}
