@@ -25,3 +25,44 @@
     gap: 14px;
 }
 
+.button_tag {
+    background: radial-gradient(53.53% 192.57% at 117.76% 86.27%, rgba(168, 220, 222, 0.25) 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(138.74% 390.41% at 48.6% -163.73%, rgba(219, 202, 225, 0.25) 0%, rgba(219, 202, 225, 0) 100%), linear-gradient(0deg, #B3D0B0, #B3D0B0), #C4C4C4;;
+    border-radius: 32px;
+    color: var(--cPrimary);
+    display: inline-flex;
+    padding: 8px 24px;
+    font-weight: 400;
+
+    &:hover {
+        background: linear-gradient(0deg, #2AA84A, #2AA84A), #C4C4C4;
+        color: var(--cWhite);
+    }
+}
+
+.button_tagActive {
+    font-weight: 400;
+    border-radius: 32px;
+    display: inline-flex;
+    padding: 8px 24px;
+    background: linear-gradient(0deg, #2AA84A, #2AA84A), #C4C4C4;
+    color: var(--cWhite);
+}
+
+.button_white {
+    font-size: var(--sFontMedium);
+    border-radius: 16px;
+    background: var(--cWhite);
+    line-height: 1.5;
+    padding: 11px 24px;
+}
+
+.button_alignEnd {
+    align-self: end;
+}
+
+.button_green {
+    margin-top: 8px;
+    color: var(--cGreen);
+    padding: 8px 0;
+    gap: 8px;
+}

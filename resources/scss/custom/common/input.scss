@@ -1,17 +1,67 @@
 .inputField {
     display: flex;
+    flex-direction: column;
 
     input {
-        width: 100%;
         font-size: var(--sFontBody);
         line-height: 1.5;
         padding: 8px;
         border: 2px solid var(--cInputBorder);
         border-radius: var(--sRadiusBig);
         color: var(--cPrimary);
+        font-family: "Montserrat", sans-serif;
 
         &::placeholder {
             color: var(--cPlaceholder);
         }
+    }
+
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
+.inputField_column {
+    flex-direction: column;
+}
+
+.inputField__label {
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: var(--sFontLarge);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.inputField__label_big {
+    font-size: var(--sH2);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.inputField_location {
+    input {
+        padding-left: 42px;
+        background: url('../img/location.svg') 8px center no-repeat;
+    }
+}
+
+.inputField_date {
+    input {
+        max-width: 92px;
+        padding-left: 42px;
+        background: url('../img/calendar.svg') 8px center no-repeat;
+    }
+}
+
+.inputField_time {
+    input {
+        max-width: 37px;
+        padding-left: 42px;
+        background: url("../img/time.svg") 8px center no-repeat;
     }
 }

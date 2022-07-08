@@ -7,13 +7,13 @@
     &:hover, &:active {
         text-decoration: none;
 
-        .serviceDescription {
+        .serviceCard {
             color: var(--cWhite);
             background: var(--cGreen);
             box-shadow: 6px 6px 33px rgba(42, 168, 74, 0.59);
         }
 
-        .serviceDescription__subheader {
+        .serviceCard__subheader {
             &::after {
                 background: var(--cWhite);
             }
@@ -21,7 +21,7 @@
     }
 }
 
-.serviceDescription {
+.serviceCard {
     padding: 56px 40px;
     border-radius: var(--sRadiusHuge);
 
@@ -30,13 +30,13 @@
     }
 }
 
-.serviceDescription__header {
+.serviceCard__header {
     font-size: var(--sH2);
     font-weight: 600;
     margin-bottom: 32px;
 }
 
-.serviceDescription__subheader {
+.serviceCard__subheader {
     font-size: var(--sFontLarge);
     line-height: 1.55;
     padding-bottom: 16px;
@@ -54,7 +54,7 @@
     }
 }
 
-.serviceDescription__services {
+.serviceCard__services {
     height: 184px;
     display: flex;
     flex-direction: column;

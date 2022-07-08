@@ -29,7 +29,7 @@
     justify-content: space-between;
 }
 
-.blogCard__author {
+.blog__author, .blog__date {
     display: flex;
     font-size: var(--sFontMedium);
     gap: 8px;
@@ -37,7 +37,7 @@
     font-weight: 600;
 }
 
-.blogCard__authorImage {
+.blog__authorImage {
     height: 24px;
     width: 24px;
     border-radius: 50%;

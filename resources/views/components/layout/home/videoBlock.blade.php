@@ -3,7 +3,7 @@
         <div class='videoBlock__info'>
             <h1>СОЗДАЕМ ВИДЕО</h1>
             <div class='videoBlock__infoDescription'>
-                <x-common.contentBlock>
+                <x-common.contentBlock :thin="true">
                     <x-slot name="header">
                         <h2>ДЛЯ ВАС И ВАШЕГО БИЗНЕСА</h2>
                     </x-slot>

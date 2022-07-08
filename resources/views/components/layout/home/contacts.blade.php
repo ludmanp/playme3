@@ -13,22 +13,18 @@
                 <x-common.input :placeholder="'Имя'" type='text'></x-common.input>
                 <x-common.input :placeholder="'E-mail'" type='email'></x-common.input>
                 <x-common.input :placeholder="'Телефон'" type='tel'></x-common.input>
-                <x-common.textarea :placeholder="'Телефон'"></x-common.textarea>
-                <div class='contactsBlock__checkbox'>
-                    <x-common.checkbox>
-                        <x-slot name="checkboxText">
-                            Я согласен на обработку <x-common.link :inlineText="true" href='#'>персональных данных</x-common.link>
-                        </x-slot>
-                    </x-common.checkbox>
-                </div>
-                <div class='contactsBlock__formAction'>
-                    <x-common.button type='submit' :withImage="true" :uppercase="true">
-                        <x-slot name="icon">
-                            <x-icons.running></x-icons.running>
-                        </x-slot>
-                        отправить
-                    </x-common.button>
-                </div>
+                <x-common.textarea :placeholder="'Коментарий'"></x-common.textarea>
+                <x-common.checkbox>
+                    <x-slot name="checkboxText">
+                        Я согласен на обработку <x-common.link :inlineText="true" href='#'>персональных данных</x-common.link>
+                    </x-slot>
+                </x-common.checkbox>
+                <x-common.button type='submit' :withImage="true" :uppercase="true">
+                    <x-slot name="icon">
+                        <x-icons.running></x-icons.running>
+                    </x-slot>
+                    отправить
+                </x-common.button>
             </form>
         </div>
         <div class='contactsBlock__image'>

@@ -1,0 +1,43 @@
+.participantBlock {
+    width: 264px!important;
+    display: flex!important; //overwrite slick
+    border-radius: var(--sRadiusBig);
+    gap: 8px;
+    overflow: hidden;
+    background: radial-gradient(110.58% 199.07% at 104.89% 18.02%, #A8DCDE 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(107.66% 303.29% at -42.55% 88.74%, #C588DA 0%, rgba(219, 202, 225, 0) 100%);
+}
+
+.participantsBlock__image {
+    max-width: 64px;
+    width: 100%;
+    border-radius: var(--sRadiusBig);
+    overflow: hidden;
+
+    img {
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: auto auto;
+    }
+}
+
+.participantBlock__name {
+    font-size: var(--sFontBody);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.participantsBlock__info {
+    align-self: center;
+}
+
+.participantBlock__position {
+    font-size: var(--sFontLarge);
+    text-transform: uppercase;
+    color: var(--cGreen);
+    line-height: 1.5;
+    font-weight: 600;
+}

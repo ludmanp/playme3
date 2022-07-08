@@ -1,0 +1,32 @@
+.tabDescription {
+    &:last-of-type {
+        margin-bottom: 104px;
+    }
+}
+
+.tabDescription__image {
+    max-width: 856px;
+    width: 100%;
+    border-radius: var(--sRadiusHuge);
+    overflow: hidden;
+
+    img {
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: auto auto;
+    }
+}
+
+.tabDescription__description {
+    font-size: var(--sFontLarge);
+    margin: 24px 0 0;
+    line-height: 1.5;
+}
+
+.tabDescription__action {
+    margin: 24px 0;
+    display: flex;
+}

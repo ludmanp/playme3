@@ -1,16 +1,16 @@
 <div>
     <a class="serviceCard" href='{{ $link ?? '' }}'>
-        <div class='serviceDescription'>
-            <div class='serviceDescription__header'>
+        <div class='serviceCard'>
+            <div class='serviceCard__header'>
                 <p>{{ $header ?? '' }}</p>
             </div>
-            <div class='serviceDescription__subheader'>
+            <div class='serviceCard__subheader'>
                 <p>{{ $subheader ?? '' }}</p>
             </div>
-            <div class='serviceDescription__services'>
+            <div class='serviceCard__services'>
                 {{ $services ?? '' }}
             </div>
-            <div class='serviceDescription__image'>
+            <div class='serviceCard__image'>
                 <img src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>
             </div>
         </div>

@@ -14,9 +14,10 @@
 <div class="checkboxItem{{
         useModifiers('checkboxItem', [
             'smallText'=>$smallText??false,
+            'greenText'=>$greenText??false,
             ])
         }} {{$attributes['class']}}">
-    <label class="checkboxBlock">{{ $checkboxText ?? '' }}
+    <label class="checkboxBlock">
         @if(($withDefault ?? false) && ($attributes['name'] ?? false))
             <input type="hidden" name="{{ $attributes['name'] }}" value="0"/>
         @endif
@@ -27,5 +28,6 @@
            {{ $attributes->except(['name', 'id', 'checked', 'value', 'withOld', 'withDefault']) }} @if($checked) checked @endif
         />
         <span class="checkbox__checkmark"></span>
+        <span class="checkbox__text">{{ $checkboxText ?? '' }}</span>
     </label>
 </div>

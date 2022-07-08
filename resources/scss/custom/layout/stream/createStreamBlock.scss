@@ -1,0 +1,91 @@
+.stream__container {
+    margin-top: 78px;
+    margin-bottom: 128px;
+}
+
+.createStreamBlock {
+    margin-top: 48px;
+    background: var(--cWhite);
+    border-radius: var(--sRadiusHuge);
+    padding: 32px;
+}
+
+.createStreamForm {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+
+    input[type="date"] {
+        max-width: 92px;
+        padding-left: 42px;
+        background: url('../img/calendar.svg') 8px center no-repeat;
+    }
+
+    input[type="time"] {
+        max-width: 37px;
+        padding-left: 42px;
+        background: url('../img/time.svg') 8px center no-repeat;
+    }
+}
+
+.createStreamForm__col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.createStreamForm__timetable {
+    display: flex;
+    gap: 38px;
+
+    p {
+        margin: 0 0 16px;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+}
+
+.createStreamForm__timetableCol {
+    display: flex;
+    gap: 8px;
+}
+
+.createStreamForm__preview {
+    height: 262px;
+    display: flex;
+    border-radius: var(--sRadiusHuge);
+    background: #7D7D7D;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.createStreamForm__file {
+    label {
+        text-transform: uppercase;
+        background: var(--cWhite);
+        padding: 8px 24px;
+        border-radius: var(--sRadiusLarge);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+
+    input {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.createStreamForm__checkboxes {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,16 @@
+.clientsSearch__block {
+    margin-top: 80px;
+}
+
+.clientsSearch__cards {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.clientsSearch__action {
+    margin: 32px 0 128px;
+    display: flex;
+    justify-content: center;
+}
