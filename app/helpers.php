@@ -34,3 +34,18 @@ if (!function_exists('getMigrationFileName')) {
         return $migrations[0] ?? $directory.date('Y_m_d_His').'_'.$name.'.php';
     }
 }
+
+if (!function_exists('useModifiers')) {
+    function useModifiers(string $base, array $mods): string
+    {
+        $className = '';
+
+        foreach ($mods as $mod => $applies) {
+            if ($applies) {
+                $className .= ' '.$base.'_'.$mod;
+            }
+        }
+
+        return $className;
+    }
+}

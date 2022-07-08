@@ -1,0 +1,37 @@
+.contentBlock {
+    padding-left: 104px;
+    display: flex;
+    flex-direction:column;
+    max-width: 750px;
+}
+
+.contentBlock__header {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: -104px;
+        content: '';
+        height: 2px;
+        width: 64px;
+        background: var(--cGreen);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    h3 {
+        font-size: var(--sH2);
+        margin: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}
+
+.contentBlock__content {
+    margin-top: 16px;
+}
+
+.contentBlock__actions {
+    display: flex;
+    margin-top: 40px;
+}
