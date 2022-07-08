@@ -1,0 +1,38 @@
+.blogArticleHeader__infoBlocks {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    & > div {
+        flex-basis: 100%;
+    }
+}
+
+.blogArticleHeader__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.blogArticleHeader__info {
+    display: flex;
+    gap: 84px;
+    justify-content: flex-end;
+}
+
+.blogArticleHeader__location  {
+    margin-bottom: 16px;
+    line-height: 1.5;
+    display: flex;
+    gap: 13px;
+}
+
+.blogArticleHeader__header {
+    h3 {
+        font-size: var(--sH2);
+        font-weight: 500;
+        margin: 0 0 24px;
+        text-transform: uppercase;
+    }
+}

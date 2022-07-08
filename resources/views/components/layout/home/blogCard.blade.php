@@ -4,13 +4,13 @@
     </div>
     <div class='blogCard__content'>
         <div class='blogCard__info'>
-            <div class='blogCard__author'>
-                <div class='blogCard__authorImage'>
+            <div class='blog__author'>
+                <div class='blog__authorImage'>
                     <img src='{{ $authorImage ?? '' }}' alt='{{ $authorImageAlt ?? '' }}'>
                 </div>
-                <span class='blogCard__authorName'>{{ $author ?? '' }}</span>
+                <span class='blog__authorName'>{{ $author ?? '' }}</span>
             </div>
-            <div class='blogCard__author'>{{ $date ?? '' }}</div>
+            <div class='blog__date'>{{ $date ?? '' }}</div>
         </div>
         <div class='blogCard__tags'>
            {{ $tags ?? '' }}

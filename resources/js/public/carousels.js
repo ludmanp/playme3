@@ -31,4 +31,17 @@ export const InitCarousels = () => {
         arrows:false,
     });
 
+    $(".participantsBlock__carousel").slick({
+        infinite: false,
+        variableWidth: true,
+        arrows:false,
+        margin: 32,
+    });
+
+    $(".clientsAdditional__carousel").slick({
+        infinite: false,
+        variableWidth: true,
+        arrows:false,
+        margin: 32,
+    });
 }

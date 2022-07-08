@@ -1,0 +1,33 @@
+.blog__container {
+    padding-bottom: 128px;
+}
+
+.blog__content {
+    gap: 32px;
+    margin-top: 38px;
+    display: flex;
+}
+
+.blog__cards {
+    & > div:not(:last-of-type) {
+        margin-bottom: 32px;
+    }
+}
+
+.blogCard__oneAndHalf {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: minmax(300px, 560px) auto;
+}
+
+.blog__cardsAction {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.blogCard__three {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+}

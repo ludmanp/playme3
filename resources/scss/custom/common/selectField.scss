@@ -1,0 +1,17 @@
+.selectField {
+    margin-bottom: 16px;
+
+    label {
+        margin-right: 16px;
+    }
+
+    select {
+        line-height: 1.5;
+        padding: 8px;
+        border: 2px solid var(--cInputBorder);
+        border-radius: var(--sRadiusBig);
+        background: url("../img/select-arrow.svg") no-repeat 24px;
+        appearance: none;
+        width: 47px;
+    }
+}

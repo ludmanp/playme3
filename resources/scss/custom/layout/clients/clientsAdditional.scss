@@ -1,0 +1,20 @@
+.clientsAdditional__block {
+    margin-top: 80px;
+    margin-bottom: 128px;
+}
+
+.clientsAdditional__carousel {
+    margin-top: 48px;
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+
+        & > div {
+            height: 100%;
+        }
+    }
+}

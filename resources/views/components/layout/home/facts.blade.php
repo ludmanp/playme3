@@ -1,5 +1,5 @@
 <div class='factsBlock'>
-    <x-common.contentBlock>
+    <x-common.contentBlock :thin="true">
         <x-slot name="header">
             <h3>Факты</h3>
         </x-slot>

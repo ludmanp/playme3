@@ -1,0 +1,23 @@
+.cabinetStream__block {
+    background: var(--cWhite);
+    border-radius: var(--sRadiusHuge);
+    padding: 24px;
+}
+
+.cabinetStream__date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cabinetStream__header {
+    font-weight: 600;
+    margin: 24px 0;
+    font-size: var(--sFontLarge);
+    line-height: 1.45;
+}
+
+.cabinetStream__actions {
+    display: flex;
+    gap: 16px;
+}

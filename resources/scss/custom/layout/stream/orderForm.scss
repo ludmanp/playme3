@@ -1,0 +1,74 @@
+.orderForm__block {
+    margin-top: 48px;
+    background: var(--cWhite);
+    border-radius: var(--sRadiusHuge);
+    padding: 32px;
+}
+
+.orderForm__formHeader {
+    font-size: var(--sH2);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 600;
+}
+
+.orderForm__row {
+    margin-top: 32px;
+    padding-top: 8px;
+    margin-bottom: 16px;
+    border-top: 2px solid var(--cGreen);
+
+    .orderForm__row_contacts {
+        &:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.orderForm__formSubheader {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 24px 0 16px;
+}
+
+.orderForm__row_timetable {
+    display: flex;
+    gap: 32px;
+}
+
+.orderForm__row_contacts {
+    display: flex;
+    gap: 16px;
+}
+
+.orderForm__row_contacts__col {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 100%;
+    gap: 16px;
+
+    & > * {
+        flex-basis: 100%;
+    }
+
+    .inputField {
+        flex-grow: 1;
+    }
+}
+
+.orderForm__recommendation__header {
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 8px;
+}
+
+.orderForm__recommendationsList {
+    p {
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .green {
+        color: var(--cGreen);
+    }
+}

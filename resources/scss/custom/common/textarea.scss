@@ -1,11 +1,19 @@
 .textareaField {
     display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: var(--sFontLarge);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
 
     textarea {
-        width: 100%;
         font-size: var(--sFontBody);
         line-height: 1.5;
         padding: 8px;
+        height: 44px;
         border: 2px solid var(--cInputBorder);
         border-radius: var(--sRadiusBig);
         color: var(--cPrimary);
@@ -15,5 +23,11 @@
         &::placeholder {
             color: var(--cPlaceholder);
         }
+    }
+}
+
+.textareaField_wide {
+    textarea {
+        height: 126px;
     }
 }

@@ -2,13 +2,27 @@
     display: block;
     position: relative;
     padding-left: 40px;
-    padding-top: 3px;
-    margin-bottom: 12px;
+    padding-top: 2px;
     cursor: pointer;
     font-size: var(--sFontMedium);
     color: var(--cPrimary);
-    line-height: 1.2;
+    line-height: 1.42;
     user-select: none;
+
+    a {
+        font-size: var(--sFontMedium);
+    }
+}
+
+.checkboxItem {
+    display: flex;
+    height: 24px;
+    margin-bottom: 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
 }
 
 .checkboxBlock input {
@@ -23,8 +37,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 22px;
-    width: 22px;
+    height: 20px;
+    width: 20px;
     background-color: var(--cWhite);
     border: 2px solid var(--cGreen);
     border-radius: var(--sRadiusBig);
@@ -49,7 +63,7 @@
 }
 
 .checkboxBlock .checkbox__checkmark:after {
-    left: 7px;
+    left: 6px;
     top: 2px;
     width: 5px;
     height: 10px;
@@ -61,5 +75,15 @@
 .checkboxItem_smallText {
     .checkboxBlock {
         font-size: var(--sFontMediumSmall);
+    }
+}
+
+.checkboxItem_greenText {
+    .checkbox__text {
+        font-weight: 600;
+    }
+
+    .checkboxBlock input:checked ~ .checkbox__text{
+        color: var(--cGreen);
     }
 }

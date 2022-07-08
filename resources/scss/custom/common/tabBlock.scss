@@ -1,0 +1,78 @@
+.tabBlock__container {
+    margin-top: 38px;
+    display: flex;
+    gap: 32px;
+}
+
+.tabBlock__subheader {
+    margin-bottom: 48px;
+    margin-left: 144px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: -104px;
+        content: '';
+        height: 2px;
+        width: 64px;
+        background: var(--cGreen);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    h3 {
+        font-size: var(--sH2);
+        margin: 0;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+}
+
+.tabBlock__tablist {
+    display: flex;
+    flex-direction: column;
+    max-width: 302px;
+    width: 100%;
+}
+
+.tabBlock__tablistHeader {
+    text-align: right;
+}
+
+.tabBlock__tabPanels {
+    padding-top: 5px;
+    width: 836px;
+}
+
+.tabBlock__tablistButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.tabBlock__tabpanel {
+    &.is-hidden {
+        display: none;
+    }
+}
+
+.tabBlock__filters {
+    margin-bottom: 32px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.tabBlock__filter {
+    background: radial-gradient(53.53% 192.57% at 117.76% 86.27%, rgba(168, 220, 222, 0.25) 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(138.74% 390.41% at 48.6% -163.73%, rgba(219, 202, 225, 0.25) 0%, rgba(219, 202, 225, 0) 100%), linear-gradient(0deg, #B3D0B0, #B3D0B0), #C4C4C4;;
+    border-radius: 32px;
+    color: var(--cPrimary);
+    display: inline-flex;
+    padding: 8px 24px;
+
+    &.services__filter_active, &:hover {
+        background: linear-gradient(0deg, #2AA84A, #2AA84A), #C4C4C4;
+        color: var(--cWhite);
+    }
+}
+

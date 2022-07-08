@@ -41,6 +41,7 @@
         "webpack": "^5.0.0"
     },
     "dependencies": {
+        "a11y-dialog": "^7.5.0",
         "owl.carousel": "^2.3.4",
         "slick-carousel": "^1.8.1"
     }

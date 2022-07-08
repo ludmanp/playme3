@@ -1,0 +1,41 @@
+.portfolioLink {
+    display: flex;
+}
+
+.portfolioLink__image {
+    width: 264px;
+    height: 100px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+        content: 'Подробнее';
+        color: var(--cWhite);
+        font-size: var(--sFontLarge);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover {
+        &::before {
+            display: flex;
+        }
+    }
+
+    img {
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: auto auto;
+    }
+}

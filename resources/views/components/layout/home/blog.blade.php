@@ -13,28 +13,29 @@
                 Maecenas sollicitudin pulvinar at elementum scelerisque purus, elit.
             </x-slot>
             <x-slot name="tags">
-                <div class='blogCard__tag'>
-                    <a href='#'>#ВидеосъёмкаМерроприятий</a>
-                </div>
-                <div class='blogCard__tag'>
-                    <a href='#'>#Видео</a>
-                </div>
-                <div class='blogCard__tag'>
-                    <a href='#'>#ВидеосъёмкаМерроприятий</a>
-                </div>
-                <div class='blogCard__tag'>
-                    <a href='#'>#Видеосъёмка</a>
-                </div>
-                <div class='blogCard__tag'>
-                    <a href='#'>Мерроприятия</a>
-                </div>
+                <x-common.link :tag="true">
+                    #ВидеосъёмкаМерроприятий
+                </x-common.link>
+                <x-common.link :tag="true">
+                    #Видео
+                </x-common.link>
+                <x-common.link :tag="true">
+                    #ВидеосъёмкаМерроприятий
+                </x-common.link>
+                <x-common.link :tag="true">
+                    #Видеосъёмка
+                </x-common.link>
+                <x-common.link :tag="true">
+                    #Мерроприятия
+                </x-common.link>
+
             </x-slot>
             <x-slot name="action">
                 <x-common.link :withImage="true" :uppercase="true">
                     <x-slot name="icon">
                         <x-icons.running></x-icons.running>
                     </x-slot>
-                    Связаться
+                    Читать
                 </x-common.link>
             </x-slot>
         </x-layout.home.blogCard>
@@ -46,19 +47,19 @@
                 Maecenas sollicitudin pulvinar at elementum scelerisque purus, elit.
             </x-slot>
             <x-slot name="tags">
-                <div class='blogCard__tag'>
-                    <a href='#'>#ВидеосъёмкаМерроприятий</a>
-                </div>
-                <div class='blogCard__tag'>
-                    <a href='#'>#Видео</a>
-                </div>
+                <x-common.link :tag="true">
+                    #ВидеосъёмкаМерроприятий
+                </x-common.link>
+                <x-common.link :tag="true">
+                    #Видео
+                </x-common.link>
             </x-slot>
             <x-slot name="action">
                 <x-common.link :withImage="true" :uppercase="true">
                     <x-slot name="icon">
                         <x-icons.running></x-icons.running>
                     </x-slot>
-                    Связаться
+                    Читать
                 </x-common.link>
             </x-slot>
         </x-layout.home.blogCard>
