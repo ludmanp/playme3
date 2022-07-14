@@ -8,11 +8,11 @@
                     <h3>личный кабинет</h3>
                 </x-slot>
                 <x-slot name="subheader">
-                    <h3>заказать съемку</h3>
+                    <h3>название №ххххх</h3>
                 </x-slot>
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
-                <form action='' class='orderForm__form'>
+                <div class='orderForm__form'>
                     <h2 class='orderForm__formHeader'>ЗАКАЗАТЬ СЪЕМКУ</h2>
                     <div class='orderForm__row'>
                         <p class='orderForm__formSubheader'>Общее описание трансляции</p>
@@ -60,28 +60,8 @@
                         <x-common.textarea :placeholder="'Общее описание'"></x-common.textarea>
                         <p class='orderForm__formSubheader'>Место съемки</p>
                         <x-common.input :location="true" :placeholder="'Адрес'"></x-common.input>
-                        <x-common.button :withImage="true" :green="true">
-                            <x-slot name="icon">
-                                <x-icons.plus></x-icons.plus>
-                            </x-slot>
-                            Добавить адрес
-                        </x-common.button>
                         <p class='orderForm__formSubheader'>Дата съемки</p>
                         <x-common.input :date="true" :placeholder="'01.01.2022'"></x-common.input>
-                        <x-common.button :withImage="true" :green="true">
-                            <x-slot name="icon">
-                                <x-icons.plus></x-icons.plus>
-                            </x-slot>
-                            Добавить адрес
-                        </x-common.button>
-                        <div class='orderForm__action'>
-                            <x-common.button type='button' :withImage="true" :uppercase="true">
-                                <x-slot name="icon">
-                                    <x-icons.running></x-icons.running>
-                                </x-slot>
-                                Придумайте все сами
-                            </x-common.button>
-                        </div>
                     </div>
                     <div class='orderForm__row'>
                         <p class='orderForm__formSubheader'>ПОДГОТОВКА К СЪЕМКЕ</p>
@@ -242,13 +222,13 @@
                             </div>
                         </div>
                     </div>
-                    <x-common.button type='submit' :withImage="true" :uppercase="true">
+                    <x-common.button :withImage="true" :uppercase="true">
                         <x-slot name="icon">
                             <x-icons.running></x-icons.running>
                         </x-slot>
-                        заказать съемку
+                        вернуться в личный кабинет
                     </x-common.button>
-                </form>
+                </div>
             </x-layout.stream.orderForm>
         </div>
     </x-common.container>

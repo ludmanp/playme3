@@ -20,10 +20,31 @@
     width: 100%;
     display: flex;
     margin-bottom: 80px;
+
+    @media screen and (max-width:1279px) {
+        flex-direction: column
+    }
 }
 
 .videoBlock__info, .videoBlock__image {
-    width: 50%;
+    @media screen and (min-width: 1280px) {
+        width: 50%;
+    }
+}
+
+.videoBlock__image {
+    display: none;
+
+    @media screen and (min-width:1280px) {
+        display: block;
+    }
+}
+
+.videoBlock__image_tablet {
+    display: block;
+    @media screen and (min-width:1280px) {
+        display: none;
+    }
 }
 
 .videoBlock__info {

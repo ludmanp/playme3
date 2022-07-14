@@ -12,7 +12,7 @@
                 </x-slot>
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
-                <div action='' class='orderForm__form'>
+                <div class='orderForm__form'>
                     <h2 class='orderForm__formHeader'>ЗАКАЗАТЬ ТРАНСЛЯЦИЮ</h2>
                     <div class='orderForm__row'>
                         <p class='orderForm__formSubheader'>Общее описание трансляции</p>
@@ -196,6 +196,12 @@
                             </div>
                         </div>
                     </div>
+                    <x-common.button :withImage="true" :uppercase="true">
+                        <x-slot name="icon">
+                            <x-icons.running></x-icons.running>
+                        </x-slot>
+                        вернуться в личный кабинет
+                    </x-common.button>
                 </div>
             </x-layout.stream.orderForm>
         </div>

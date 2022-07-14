@@ -5,6 +5,8 @@
     max-width: 560px!important;
     height: inherit;
     width: 100%;
+    display: flex!important;
+    flex-direction: column;
 }
 
 .projectCard__block_transparent {
@@ -32,6 +34,9 @@
 
 .projectCard__content {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .projectCard__tags {
@@ -76,6 +81,7 @@
 .projectCard__description {
     line-height: 1.5;
     margin-bottom: 16px;
+    flex-grow: 1;
 }
 
 .projectCard__action {

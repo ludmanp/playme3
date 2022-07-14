@@ -30,9 +30,14 @@
                     </x-slot>
                 </x-common.link>
             </div>
+            <x-common.button class='header__hamburger' :withImage="true" :uppercase="true">
+                <x-icons.hamburger></x-icons.hamburger>
+            </x-common.button>
         </div>
     </x-common.container>
 </header>
+
+<x-common.mobileMenu></x-common.mobileMenu>
 
 <x-common.modal :loginModal="true" id="loginModal" :wide="false" :title="'Log in'">
     <x-slot name="header">

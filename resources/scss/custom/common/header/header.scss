@@ -10,13 +10,27 @@ header {
     display: flex;
     gap: 24px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
 }
 
 .header__actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     gap: 22px;
+    align-items: center;
+
+    @media screen and (min-width: 1280px) {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+.header__hamburger {
+    @media screen and (min-width: 1280px) {
+        display: none;
+    }
 }
 
 .header__languages {
@@ -31,6 +45,10 @@ header {
 
     a {
         font-weight: 600;
+    }
+
+    @media screen and (max-width: 767px) {
+        display: none;
     }
 }
 
