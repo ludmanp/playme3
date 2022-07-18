@@ -1,22 +1,36 @@
 export const InitClientGallery = () => {
-    let itemMain = $('#itemMain');
+    const numberOfSlides = $('.clientGallery__carouselDot').length;
 
-    itemMain
-        .owlCarousel({
-            items: 1,
-            slideSpeed: 2000,
-            appendDots: $('#carousel-custom-dots'),
-            nav: false,
-            autoWidth:true,
-            autoplay: false,
-            center: true,
-            dots: true,
-            loop: false,
-            responsiveRefreshRate: 200,
-        })
+    $('.clientGallery__slider').slick({
+        autoplay: false,
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        arrows: false,
+        dots: false,
+        asNavFor: '.clientGallery__carouselDots',
+    });
 
-    $('.owl-dot').click(function () {
-        itemMain.trigger('to.owl.carousel', [$(this).index(), 300]);
+    $('.clientGallery__carouselDots').slick({
+        autoplay: false,
+        slidesToShow: numberOfSlides,
+        slidesToScroll: 1,
+        asNavFor: '.clientGallery__slider',
+        dots: true,
+        focusOnSelect: true,
+        variableWidth: true,
+    });
+
+// Remove active class from all thumbnail slides
+    $('.clientGallery__carouselDots .slick-slide').removeClass('slick-active');
+
+// Set active class to first thumbnail slides
+    $('.clientGallery__carouselDots .slick-slide').eq(0).addClass('slick-active');
+
+// On before slide change match active thumbnail to current slide
+    $('.clientGallery__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        let mySlideNumber = nextSlide;
+        $('.clientGallery__carouselDots .slick-slide').removeClass('slick-active');
+        $('.clientGallery__carouselDots .slick-slide').eq(mySlideNumber).addClass('slick-active');
     });
 
 }

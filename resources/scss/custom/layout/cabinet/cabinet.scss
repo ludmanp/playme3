@@ -1,5 +1,15 @@
 .cabinet__container {
-    padding-bottom: 128px;
+    padding-bottom: 72px;
+    margin-top: 12px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-top: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 57px;
+        padding-bottom: 128px;
+    }
 
     form {
         h4 {
@@ -11,26 +21,92 @@
         }
 
         .cabinet__formRow:not(:last-of-type) {
-            margin-bottom: 32px;
+            margin-bottom: 16px;
+
+            @media screen and (min-width: 768px) and (max-width: 1279px) {
+                margin-bottom: 24px;
+            }
+
+            @media screen and (min-width: 1280px) {
+                margin-bottom: 32px;
+            }
         }
     }
 }
 
 .cabinet__form__userInfo {
-    margin-top: 48px;
-    width: 100%;
+    margin: 24px 28px 0;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 32px 80px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 48px 0 0;
+        width: 100%;
+    }
+}
+
+.cabinet__form__password {
+    margin: 24px 28px 0;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 32px 80px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 48px 0 0;
+        width: 100%;
+    }
 }
 
 .cabinet__formRow {
     display: flex;
     width: 100%;
-    gap: 40px;
+    gap: 16px;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        gap: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+.cabinet__formRow_row {
+    @media screen and (max-width: 767px) {
+        align-items: flex-start;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .cabinet__formColumn {
+        &:last-of-type {
+            width: auto;
+            flex-shrink: 0;
+        }
+    }
 }
 
 .cabinet__formColumn {
     display: flex;
     width: 100%;
-    gap: 40px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        gap: 40px;
+    }
 
     .inputField {
         flex-basis: 100%;
@@ -51,23 +127,77 @@
 }
 
 .cabinet__orderActions {
-    margin-top: 48px;
     display: flex;
     gap: 32px;
+
+    @media screen and (max-width: 767px) {
+        margin: 48px 28px 0;
+    }
+
+    @media screen and (min-width:768px) and (max-width: 1279px) {
+        margin: 48px 80px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 48px 0 0;
+    }
+
+    & > .button {
+        flex-basis: 100%;
+        justify-content: flex-start;
+    }
 }
 
 .cabinet__streams {
-    margin-bottom: 32px;
-    margin-top: 48px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    margin: 24px 28px;
+    gap: 24px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        gap: 16px;
+        margin: 32px 80px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 32px 0 48px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    & + .button {
+        @media screen and (max-width: 767px) {
+            margin: 0 28px;
+        }
+
+        @media screen and (min-width:768px) and (max-width: 1279px) {
+            margin: 0 80px;
+        }
+    }
 }
 
 .cabinet__orders {
-    margin-bottom: 32px;
-    margin-top: 48px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    margin: 24px 28px 40px;
+    gap: 24px;
+
+    @media screen and (min-width: 768px) {
+        margin: 32px 80px 48px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 32px 0 48px;
+    }
+
+    & + .button {
+        @media screen and (max-width: 767px) {
+            margin: 0 28px;
+        }
+
+        @media screen and (min-width:768px) and (max-width: 1279px) {
+            margin: 0 80px;
+        }
+    }
 }

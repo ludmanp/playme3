@@ -1,4 +1,17 @@
 .tabNavBlock {
     flex-shrink: 0;
-    width: 264px;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 32px;
+    }
+
+    @media screen and (max-width: 1279px) {
+        flex-wrap: wrap;
+        display: flex;
+        gap: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 264px;
+    }
 }

@@ -1,5 +1,5 @@
 <div class='videoBlock'>
-    <x-common.container>
+    <x-common.container :fullWidth="true">
         <div class='videoBlock__content'>
             <div class='videoBlock__info'>
                 <h1>СОЗДАЕМ ВИДЕО</h1>
@@ -44,4 +44,12 @@
             </div>
         </button>
     </x-common.container>
+</div>
+<div class='videoBlock__action_mob'>
+    <x-common.link :withImage="true" :uppercase="true">
+        <x-slot name="icon">
+            <x-icons.running></x-icons.running>
+        </x-slot>
+        Связаться
+    </x-common.link>
 </div>

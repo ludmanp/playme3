@@ -1,6 +1,18 @@
 .text__container {
-    margin-top: 78px;
-    margin-bottom: 128px;
+    @media screen and (max-width: 1279px) {
+        margin: 24px 80px 72px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 78px;
+        margin-bottom: 128px;
+    }
+
+    .contentBlock {
+        @media screen and (max-width: 1279px) {
+            padding-left: 50px;
+        }
+    }
 
     .subheader {
         font-size: var(--sFontLarge);

@@ -11,6 +11,10 @@
         color: var(--cPrimary);
         font-family: "Montserrat", sans-serif;
 
+        @media screen and (max-width: 1279px) {
+            padding: 6px 8px;
+        }
+
         &::placeholder {
             color: var(--cPlaceholder);
         }

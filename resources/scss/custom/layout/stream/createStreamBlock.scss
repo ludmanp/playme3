@@ -1,19 +1,60 @@
 .stream__container {
-    margin-top: 78px;
-    margin-bottom: 128px;
+    padding-bottom: 72px;
+    margin-top: 12px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-top: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 57px;
+        padding-bottom: 128px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        .contentBlock {
+            flex-direction: row;
+
+            .contentBlock__header {
+                margin-right: 16px;
+            }
+        }
+    }
 }
 
 .createStreamBlock {
-    margin-top: 48px;
     background: var(--cWhite);
     border-radius: var(--sRadiusHuge);
     padding: 32px;
+
+    @media screen and (max-width: 767px) {
+        margin: 24px 28px 0;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 32px 80px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 48px 0 0;
+    }
 }
 
 .createStreamForm {
-    display: grid;
     gap: 32px;
-    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: 768px) {
+        display: grid;
+    }
+
+    @media screen and (min-width: 1280px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     input[type="date"]::-webkit-inner-spin-button,
     input[type="time"]::-webkit-inner-spin-button,
@@ -39,12 +80,27 @@
 .createStreamForm__col {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+
+    @media screen and (max-width: 1279px) {
+        gap: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 32px;
+    }
 }
 
 .createStreamForm__timetable {
     display: flex;
-    gap: 38px;
+    gap: 16px;
+
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: 768px) {
+        gap: 38px;
+    }
 
     p {
         margin: 0 0 16px;
@@ -59,12 +115,19 @@
 }
 
 .createStreamForm__preview {
-    height: 262px;
     display: flex;
     border-radius: var(--sRadiusHuge);
     background: #7D7D7D;
     justify-content: center;
     align-items: flex-end;
+
+    @media screen and (max-width: 767px) {
+        padding: 50px 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 262px;
+    }
 }
 
 .createStreamForm__file {
@@ -74,7 +137,10 @@
         padding: 8px 24px;
         border-radius: var(--sRadiusLarge);
         font-weight: 500;
-        margin-bottom: 16px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 16px;
+        }
     }
 
     input {

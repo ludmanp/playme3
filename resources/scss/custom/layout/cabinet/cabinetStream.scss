@@ -12,12 +12,28 @@
 
 .cabinetStream__header {
     font-weight: 600;
-    margin: 24px 0;
     font-size: var(--sFontLarge);
     line-height: 1.45;
+
+    @media screen and (max-width: 1279px) {
+        margin: 16px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 24px 0;
+    }
 }
 
 .cabinetStream__actions {
     display: flex;
     gap: 16px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media screen and (min-width: 1280px) {
+        flex-direction: row;
+    }
 }

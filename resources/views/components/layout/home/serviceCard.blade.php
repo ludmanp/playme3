@@ -1,5 +1,5 @@
 <div>
-    <a class="serviceCard" href='{{ $link ?? '' }}'>
+    <a class="serviceCard__container" href='{{ $link ?? '' }}'>
         <div class='serviceCard'>
             <div class='serviceCard__header'>
                 <p>{{ $header ?? '' }}</p>

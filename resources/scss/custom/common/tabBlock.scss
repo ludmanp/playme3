@@ -29,10 +29,15 @@
 }
 
 .tabBlock__tablist {
-    display: flex;
-    flex-direction: column;
-    max-width: 302px;
-    width: 100%;
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        max-width: 302px;
+        width: 100%;
+    }
+
 }
 
 .tabBlock__tablistHeader {
@@ -40,8 +45,76 @@
 }
 
 .tabBlock__tabPanels {
-    padding-top: 5px;
-    width: 836px;
+    @media screen and (max-width: 767px) {
+        background: var(--cWhite);
+        border-radius: var(--sRadiusHuge);
+        padding: 16px;
+        overflow: hidden;
+    }
+
+    @media screen and (min-width:768px) {
+        width: 836px;
+    }
+
+    .contentBlock {
+        @media screen and (min-width: 1280px) {
+            margin-left: 40px;
+        }
+    }
+}
+
+.tabBlock__header {
+    position: relative;
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--cGreen);
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-top: 32px;
+        padding-left: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-left: 40px;
+        padding-left: 104px;
+    }
+
+
+    &::before {
+        @media screen and (min-width: 768px) {
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 48px;
+            background: var(--cGreen);
+            left: 0;
+            top: 9px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1279px) {
+            width: 32px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 64px;
+            top: 13px;
+        }
+    }
+
+    h3 {
+        font-size: var(--sH2);
+        margin: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @media screen and (max-width: 1279px) {
+            font-size: var(--sFontBody);
+        }
+    }
 }
 
 .tabBlock__tablistButtons {
@@ -49,8 +122,20 @@
     flex-direction: column;
 }
 
+.tabBlock__header__icon {
+    @media screen and (min-width:768px) {
+        display: none;
+    }
+}
 
 .tabBlock__tabpanel {
+    margin-top: 24px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 20px;
+    }
+
+
     &.is-hidden {
         display: none;
     }
@@ -61,6 +146,10 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 1279px) {
+        margin-top: 16px;
+    }
 }
 
 .tabBlock__filter {

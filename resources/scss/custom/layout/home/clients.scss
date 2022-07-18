@@ -1,16 +1,35 @@
-.clientsBlock {
-
+.clients__container {
+    @media screen and (max-width: 1279px) {
+        margin-top: 26px;
+    }
 }
 
 .clients__link {
-    height: 84px;
     display: flex!important;
     align-items: center;
+
+    @media screen and (min-width: 1280px) {
+        height: 84px;
+    }
+
+    img {
+        @media screen and (max-width: 1279px) {
+            max-width: 148px;
+        }
+    }
 }
 
 .clientsBlock__carousel {
-    margin-top: 72px;
-    margin-bottom: 128px;
+    margin: 24px 28px 40px;
+
+    @media screen and (min-width: 767px) and (max-width:1279px) {
+        margin: 32px 80px 96px;
+    }
+
+    @media screen and (min-width:1280px) {
+        margin-top: 72px;
+        margin-bottom: 128px;
+    }
 
     .slick-track {
         display: flex;

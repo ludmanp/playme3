@@ -13,7 +13,7 @@
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
                 <div class='orderForm__form'>
-                    <h2 class='orderForm__formHeader'>ЗАКАЗАТЬ ТРАНСЛЯЦИЮ</h2>
+                    <h2 class='orderForm__formHeader'>название №ххххх</h2>
                     <div class='orderForm__row'>
                         <p class='orderForm__formSubheader'>Общее описание трансляции</p>
                         <x-common.textarea :placeholder="'Общее описание трансляции'"></x-common.textarea>

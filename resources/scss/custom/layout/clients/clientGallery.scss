@@ -1,7 +1,16 @@
 .clientGallery__block {
-    max-width: 560px;
     width: 100%;
     overflow: hidden;
+
+    @media screen and (min-width: 1280px) {
+        max-width: 560px;
+    }
+}
+
+.clientGallery__slider {
+    &.slick-slider .slick-slide {
+        margin: 0;
+    }
 }
 
 .clientGallery__carousel {
@@ -26,11 +35,16 @@
         width: 90px;
         height: 90px;
     }
+
 }
 
 .clientGallery__item {
-    width: 560px;
-    height: 212px;
+    width: 100%;
+
+    @media screen and (min-width: 1280px) {
+        width: 560px;
+        height: 212px;
+    }
 
     img {
         max-height: 100%;
@@ -40,17 +54,75 @@
         display: block;
         margin: auto auto;
     }
+
+    .videoBlock__button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .clientGallery__carouselDots {
-    margin-top: 16px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: 16px 32px;
+
+    .slick-track {
+        gap: 16px 0;
+        display: flex!important;
+        flex-wrap: wrap;
+        width: 100%!important;
+
+        @media screen and (min-width: 768px) {
+            display: flex!important;
+            flex-wrap: wrap;
+            width: 100%!important;
+        }
+    }
+
+    &.slick-slider {
+        .slick-slide {
+            margin: 0;
+
+            &:nth-of-type(3n + 2) {
+                margin: 0 16px;
+            }
+
+            @media screen and (max-width: 400px) {
+                width: 29.5%;
+            }
+
+            @media screen and (min-width: 401px) and (max-width: 463px) {
+                width: 30%;
+            }
+
+            @media screen and (min-width: 464px) and (max-width: 530px) {
+                width: 30.6%;
+            }
+
+            @media screen and (min-width: 530px) and (max-width: 600px) {
+                width: 31%;
+            }
+
+            @media screen and (min-width: 601px) and (max-width: 767px) {
+                width: 31%;
+            }
+
+            @media screen and (min-width: 768px) {
+                width: 31.5%;
+            }
+
+            @media screen and (min-width: 1280px) {
+                width: 31.4%;
+            }
+
+            & > div {
+                display: flex;
+            }
+        }
+    }
 
     .owl-dot {
-        max-width: 164px;
-        height: 62px;
         width: 100%;
         border-radius: var(--sRadiusBig);
         overflow: hidden;
@@ -75,4 +147,96 @@
             margin: auto auto;
         }
     }
+}
+
+.clientGallery__item {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+    margin: 0;
+
+    img {
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: auto auto;
+    }
+}
+.clientGallery__item:hover .clientGallery__item-panel.clientGallery__item-top {
+    bottom: 0;
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+.clientGallery__item-panel.clientGallery__item-top {
+    top: auto;
+}
+.clientGallery__item-background {
+    background: rgba(0,0,0,.8);
+    transform: translateY(100%);
+    opacity: 0;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    transition-property: opacity,transform,filter;
+}
+.clientGallery__item-panel {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: #fff;
+}
+.clientGallery__item>:first-child,
+.clientGallery__item-panel>:last-child {
+    margin-bottom: 0;
+}
+.clientGallery__item:hover{
+    cursor: pointer;
+}
+.clientGallery__item:hover:after {
+    background-image: url(http://shrani.si/f/2Q/ze/2CtEIRsH/youtubeplayred1.png);
+}
+.clientGallery__item:after {
+    background-image: url(http://shrani.si/f/3o/DK/1A24SBYG/youtubeplaydark1.png);
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 54px;
+    height: 38px;
+    background-size: cover;
+}
+.clientGallery__carouselDots {
+    margin-top: 10px;
+}
+.clientGallery__carouselDots .slick-slide {
+    cursor: pointer;
+    outline: none;
+}
+.clientGallery__carouselDots .slick-slide.slick-current.slick-active {
+    opacity: 1;
+}
+
+.clientGallery__carouselDots img {
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: auto auto;
+}
+.clientGallery__carouselDots .slick-slide:first-child img {
+    margin-left: 0;
+}
+.clientGallery__carouselDots .slick-slide:last-child img {
+    margin-right: 0;
 }

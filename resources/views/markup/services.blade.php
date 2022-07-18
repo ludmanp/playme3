@@ -4,48 +4,53 @@
     <x-common.container>
         <div class='services__container'>
             <div class="services__tabs">
-                <x-common.contentBlock :row="true">
+                <x-common.contentBlock>
                     <x-slot name="header">
                         <h3>Наши услуги</h3>
                     </x-slot>
-                    <x-slot name="subheader">
-                        <h3>подготовка к съемке</h3>
+                    <x-slot name="content">
+                        <div class="tabBlock__tablist">
+
+                            <x-common.tabNav>
+                                <x-common.link href='#' class='active' :tab="true">
+                                    <x-slot name="icon">
+                                        <x-icons.runningsmall></x-icons.runningsmall>
+                                    </x-slot>
+                                    <span class="focus">подготовка к съемке</span>
+                                </x-common.link>
+                                <x-common.link href='#' :tab="true">
+                                    <x-slot name="icon">
+                                        <x-icons.runningsmall></x-icons.runningsmall>
+                                    </x-slot>
+                                    <span class="focus">съемка</span>
+                                </x-common.link>
+                                <x-common.link href='#' :tab="true">
+                                    <x-slot name="icon">
+                                        <x-icons.runningsmall></x-icons.runningsmall>
+                                    </x-slot>
+                                    <span class="focus">Создание видео</span>
+                                </x-common.link>
+                                <x-common.link href='#' :tab="true">
+                                    <x-slot name="icon">
+                                        <x-icons.runningsmall></x-icons.runningsmall>
+                                    </x-slot>
+                                    <span class="focus">ПРЯМОЙ ЭФИР</span>
+                                </x-common.link>
+                            </x-common.tabNav>
+
+                        </div>
                     </x-slot>
                 </x-common.contentBlock>
 
                 <x-common.contentContainer>
-                    <div class="tabBlock__tablist">
-
-                        <x-common.tabNav>
-                            <x-common.link href='#' class='active' :tab="true">
-                                <x-slot name="icon">
-                                    <x-icons.runningsmall></x-icons.runningsmall>
-                                </x-slot>
-                                <span class="focus">подготовка к съемке</span>
-                            </x-common.link>
-                            <x-common.link href='#' :tab="true">
-                                <x-slot name="icon">
-                                    <x-icons.runningsmall></x-icons.runningsmall>
-                                </x-slot>
-                                <span class="focus">съемка</span>
-                            </x-common.link>
-                            <x-common.link href='#' :tab="true">
-                                <x-slot name="icon">
-                                    <x-icons.runningsmall></x-icons.runningsmall>
-                                </x-slot>
-                                <span class="focus">Создание видео</span>
-                            </x-common.link>
-                            <x-common.link href='#' :tab="true">
-                                <x-slot name="icon">
-                                    <x-icons.runningsmall></x-icons.runningsmall>
-                                </x-slot>
-                                <span class="focus">ПРЯМОЙ ЭФИР</span>
-                            </x-common.link>
-                        </x-common.tabNav>
-
-                    </div>
-
                     <div class='tabBlock__tabPanels'>
+                        <div class='tabBlock__header'>
+                            <span class='tabBlock__header__icon'>
+                                <x-icons.runningsmallgreen></x-icons.runningsmallgreen>
+                            </span>
+                            <h3>подготовка к съемке</h3>
+                        </div>
+
                         <x-common.tabPanel :image="'../img/services/service.jpg'" :imageAlt="'service-image'"
                                            :description="'Придумываем сценарии, Оформляем проекты'">
                             <x-slot name="filters">

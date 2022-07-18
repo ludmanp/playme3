@@ -3,7 +3,7 @@
 @section('header')@endsection
 @section('content')
     <div class='error__container'>
-        <x-icons.error></x-icons.error>
+        <div><x-icons.error></x-icons.error></div>
         <div>
             <x-icons.404></x-icons.404>
             <div class='error__action'>

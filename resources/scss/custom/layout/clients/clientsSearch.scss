@@ -1,16 +1,34 @@
 .clientsSearch__block {
-    margin-top: 80px;
+    margin-top: 48px;
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 80px;
+    }
 }
 
 .clientsSearch__cards {
-    margin-top: 48px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin: 20px 28px 40px;
+
+    @media screen and (min-width:768px) and (max-width: 1279px) {
+        margin: 48px 80px 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
 }
 
 .clientsSearch__action {
     margin: 32px 0 128px;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 1279px) {
+        margin: 0 0 72px;
+    }
 }

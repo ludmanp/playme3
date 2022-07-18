@@ -1,15 +1,31 @@
 .orderForm__block {
-    margin-top: 48px;
     background: var(--cWhite);
     border-radius: var(--sRadiusHuge);
     padding: 32px;
+
+    @media screen and (max-width: 767px) {
+        margin: 24px 28px 0;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 32px 80px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 48px;
+    }
 }
 
 .orderForm__formHeader {
-    font-size: var(--sH2);
+    font-size: var(--sFontLarge);
     line-height: 1.5;
     margin: 0;
     font-weight: 600;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+        font-size: var(--sH2);
+    }
 }
 
 .orderForm__row {
@@ -34,11 +50,20 @@
 .orderForm__row_timetable {
     display: flex;
     gap: 32px;
+
+    @media screen and (max-width: 1279px) {
+        flex-wrap: wrap;
+        gap: 16px 32px;
+    }
 }
 
 .orderForm__row_contacts {
     display: flex;
     gap: 16px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+    }
 }
 
 .orderForm__row_contacts__col {
@@ -46,6 +71,10 @@
     flex-grow: 1;
     flex-basis: 100%;
     gap: 16px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+    }
 
     & > * {
         flex-basis: 100%;

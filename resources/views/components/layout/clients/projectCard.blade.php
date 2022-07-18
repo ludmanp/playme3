@@ -1,8 +1,8 @@
-<div class='projectCard__block{{
+<div class="projectCard__block{{
         useModifiers('projectCard__block', [
             'transparent'=>$transparent??false,
             ])
-        }} {{$attributes['class']}}" {{$attributes->except(['class'])}}'>
+        }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
     @if ($image ?? '')
         <div class='projectCard__image'>
             <img src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>

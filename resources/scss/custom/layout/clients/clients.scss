@@ -1,5 +1,28 @@
 .client__infoBlock {
-    margin-top: 48px;
     display: flex;
     gap: 32px;
+
+    @media screen and (max-width: 767px) {
+        margin: 32px 28px 0;
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        flex-direction: column;
+        margin: 32px 80px 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 48px 0 0;
+    }
+
+    .projectCard__tags {
+        flex-wrap: wrap;
+    }
+
+    .projectCard__content {
+        @media screen and (max-width: 767px) {
+            padding: 24px 0;
+        }
+    }
 }

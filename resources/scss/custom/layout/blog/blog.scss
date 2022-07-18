@@ -1,5 +1,21 @@
 .blog__container {
-    padding-bottom: 128px;
+    padding-bottom: 72px;
+    margin-top: 12px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-top: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 57px;
+        padding-bottom: 128px;
+    }
+
+    .contentContainer {
+        @media screen and (max-width: 1279px) {
+            flex-direction: column;
+        }
+    }
 }
 
 .blog__content {
@@ -9,15 +25,28 @@
 }
 
 .blog__cards {
+    @media screen and (max-width: 767px) {
+        overflow: hidden;
+    }
+
     & > div:not(:last-of-type) {
-        margin-bottom: 32px;
+        margin-bottom: 16px;
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 32px;
+        }
     }
 }
 
 .blogCard__oneAndHalf {
     display: grid;
-    gap: 32px;
-    grid-template-columns: minmax(300px, 560px) auto;
+    gap: 16px;
+
+    @media screen and (min-width: 1280px) {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: minmax(300px, 560px) auto;
+    }
 }
 
 .blog__cardsAction {
@@ -29,5 +58,8 @@
 .blogCard__three {
     display: grid;
     gap: 32px;
-    grid-template-columns: repeat(3, 1fr);
+
+    @media screen and (min-width: 1280px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

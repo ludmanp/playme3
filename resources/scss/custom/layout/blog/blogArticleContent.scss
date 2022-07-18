@@ -9,10 +9,15 @@
 }
 
 .blogTextImage__image {
-    float: right;
-    height: 212px;
     border-radius: var(--sRadiusHuge);
     overflow: hidden;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 1280px) {
+        float: right;
+        height: 212px;
+        margin-bottom: 0;
+    }
 
     img {
         max-height: 100%;
