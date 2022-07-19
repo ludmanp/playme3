@@ -18,14 +18,6 @@
                 </div>
             </div>
         </div>
-        <div class='createStreamForm__action'>
-            <x-common.button type='submit' :withImage="true" :uppercase="true">
-                <x-slot name="icon">
-                    <x-icons.running></x-icons.running>
-                </x-slot>
-                создать трансляцию
-            </x-common.button>
-        </div>
     </div>
     <div class='createStreamForm__col'>
         <div>
@@ -54,6 +46,16 @@
                     </x-slot>
                 </x-common.checkbox>
             </div>
+        </div>
+    </div>
+    <div class='createStreamForm__col'>
+        <div class='createStreamForm__action'>
+            <x-common.button type='submit' :withImage="true" :uppercase="true">
+                <x-slot name="icon">
+                    <x-icons.running></x-icons.running>
+                </x-slot>
+                создать трансляцию
+            </x-common.button>
         </div>
     </div>
 </form>

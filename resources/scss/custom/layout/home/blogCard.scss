@@ -1,12 +1,27 @@
 .blogCard {
     border-radius: var(--sRadiusHuge);
     overflow: hidden;
-    max-width: 856px;
     height: 100%;
+    @media screen and (max-width: 767px) {
+        margin-bottom: 16px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width:1279px) {
+        max-width: 592px;
+    }
+
+    @media screen and (min-width:1280px) {
+        max-width: 856px;
+    }
 }
 
 .blogCard__image {
-    height: 324px;
+    @media screen and (min-width: 767px) {
+        height: 324px;
+    }
 
     img {
         max-height: 100%;
@@ -35,6 +50,7 @@
     gap: 8px;
     align-items: center;
     font-weight: 600;
+    flex-shrink: 0;
 }
 
 .blog__authorImage {
@@ -57,7 +73,14 @@
     margin-top: 24px;
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
+
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+    }
+
+    .slick-slide > div {
+        display: flex;
+    }
 }
 
 .blogCard__tag {
@@ -87,6 +110,10 @@
 .blogCard__text {
     line-height: 1.5;
     margin: 0 0 32px;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--sFontMedium);
+    }
 }
 
 .blogCard__action {

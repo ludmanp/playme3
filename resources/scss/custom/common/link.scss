@@ -1,10 +1,14 @@
 .link {
-    font-size: var(--sFontBody);
+    font-size: var(--sFontMedium);
     font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--cPrimary);
+
+    @media screen and (min-width: 1280px) {
+        font-size: var(--sFontBody);
+    }
 
     &:hover {
         opacity: 0.9;
@@ -50,9 +54,13 @@
     background: linear-gradient(0deg, #2AA84A, #2AA84A), #C4C4C4;
     border-radius: 32px;
     color: var(--cWhite);
-    display: inline-flex;
+    display: inline-flex!important;
     padding: 8px 24px;
     line-height: 1.5;
+
+    @media screen and (max-width:767px) {
+        font-size: var(--sFontMedium);
+    }
 
     &:hover {
         text-decoration: none;
@@ -60,12 +68,28 @@
 }
 
 .link_tab {
-    text-transform: uppercase;
-    font-weight: 600;
-    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width:1279px) {
+        background: radial-gradient(53.53% 192.57% at 117.76% 86.27%, rgba(168, 220, 222, 0.25) 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(138.74% 390.41% at 48.6% -163.73%, rgba(219, 202, 225, 0.25) 0%, rgba(219, 202, 225, 0) 100%), linear-gradient(0deg, #B3D0B0, #B3D0B0), #C4C4C4;;
+        border-radius: 32px;
+        display: inline-flex !important;
+        padding: 8px 24px;
+        line-height: 1.5;
+        font-size: var(--sFontMedium);
+
+        .link__icon {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        text-transform: uppercase;
+        font-weight: 600;
+        height: 45px;
+    }
 
     &:hover {
         color: var(--cGreen);
@@ -77,7 +101,14 @@
     }
 
     &.active {
-        color: var(--cGreen);
+        @media screen and (max-width: 1279px) {
+            color: var(--cWhite);
+            background: -webkit-gradient(linear, left bottom, left top, from(#2AA84A), to(#2AA84A)), #C4C4C4;
+        }
+
+        @media screen and (min-width: 1280px) {
+            color: var(--cGreen);
+        }
 
         svg {
             display: block;

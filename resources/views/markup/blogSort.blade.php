@@ -180,7 +180,7 @@
                     </x-layout.blog.cardsThree>
 
                     <div class='blog__cardsAction'>
-                        <x-common.button :withImage="true">
+                        <x-common.button :withImage="true" :uppercase="true">
                             <x-slot name="icon">
                                 <x-icons.running></x-icons.running>
                             </x-slot>

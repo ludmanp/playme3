@@ -2,39 +2,65 @@
 }
 
 .contactsBlock__content {
-    margin-top: 80px;
-    margin-bottom: 76px;
-    display: flex;
+    @media screen and (min-width: 1280px) {
+        display: flex;
+    }
 }
 
-.contactsBlock__formBlock {
-    margin-top: 50px;
+.contactsBlock__image {
+    margin-top: -50px;
+
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
 }
 
 .contactsBlock__formBlock,
 .contactsBlock__image {
-    width: 50%;
+    @media screen and (min-width: 768px) {
+        width: 50%;
+    }
 }
 
 .contactsBlock__form {
-    margin-top: 72px;
-    padding: 80px 24px 60px;
+    padding: 24px;
+    margin: 24px 28px 68px;
     background: radial-gradient(89.96% 254.88% at 137.53% 0%, #a8dcde 0%, rgba(168, 220, 222, 0) 100%),
         radial-gradient(96.61% 280.8% at -31.5% -51.67%, #c588da 0%, rgba(219, 202, 225, 0) 100%),
         rgba(255, 255, 255, 0.2);
-    max-width: 512px;
-    width: 100%;
     border-radius: var(--sRadiusHuge);
+
+    @media screen and (min-width: 768px) {
+        padding: 80px 24px 60px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 32px 80px 96px;
+        width: 560px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 72px;
+        width: 512px;
+    }
 
     h3 {
         font-size: 2.25rem;
         margin: 0 0 16px;
+
+        @media screen and (max-width: 767px) {
+            font-size: var(--sFontLarge);
+        }
     }
 
     p {
         margin: 0 0 24px;
         font-size: var(--sH2);
         line-height: 1.5;
+
+        @media screen and (max-width: 767px) {
+            font-size: var(--sFontMedium);
+        }
     }
 
     input, textarea {

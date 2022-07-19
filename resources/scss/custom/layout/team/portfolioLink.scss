@@ -1,13 +1,27 @@
 .portfolioLink {
-    display: flex;
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 16px;
+        display: block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .portfolioLink__image {
-    width: 264px;
-    height: 100px;
-    border-radius: 15px;
+    border-radius: var(--sRadiusHuge);
     overflow: hidden;
     position: relative;
+
+    @media screen and (min-width: 768px) {
+        width: 264px;
+        height: 100px;
+    }
 
     &::before {
         content: 'Подробнее';

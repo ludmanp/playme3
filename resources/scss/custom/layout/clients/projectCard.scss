@@ -2,9 +2,14 @@
     background:var(--cWhite);
     border-radius: var(--sRadiusHuge);
     overflow: hidden;
-    max-width: 560px!important;
     height: inherit;
-    width: 100%;
+    display: flex!important;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        max-width: 560px!important;
+        width: 100%;
+    }
 }
 
 .projectCard__block_transparent {
@@ -12,7 +17,9 @@
 }
 
 .projectCard__image {
-    height: 212px;
+    @media screen and (min-width: 768px) {
+        height: 212px;
+    }
 
     img {
         max-height: 100%;
@@ -26,12 +33,28 @@
 
 .projectCard__tags {
     display: flex;
-    flex-wrap: wrap;
     gap: 8px;
+
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+    }
+
+    &.slick-slider .slick-slide {
+        margin: 0;
+    }
+
+    .slick-slide > div {
+        height: 100%;
+        margin-right: 8px;
+        display: flex;
+    }
 }
 
 .projectCard__content {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .projectCard__tags {
@@ -43,6 +66,12 @@
     justify-content: space-between;
     margin-bottom: 16px;
     align-items: center;
+
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
 }
 
 .projectCard__infoCol {
@@ -76,6 +105,11 @@
 .projectCard__description {
     line-height: 1.5;
     margin-bottom: 16px;
+    flex-grow: 1;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--sFontSmall);
+    }
 }
 
 .projectCard__action {

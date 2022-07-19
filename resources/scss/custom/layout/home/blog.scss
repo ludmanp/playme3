@@ -1,5 +1,13 @@
 .blogBlock__carousel {
-    margin-top: 72px;
+    margin: 32px 28px 40px;
+
+    @media screen and (min-width: 768px) and (max-width:1279px) {
+        margin: 32px 80px 96px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 72px 0 128px;
+    }
 
     .slick-track {
         display: flex;
@@ -9,8 +17,16 @@
     .slick-slide {
         height: inherit !important;
 
+        @media screen and (max-width: 767px) {
+            margin: 0;
+        }
+
         & > div {
             height: 100%;
+
+            //@media screen and (min-width: 768px) {
+            //    margin-right: 32px;
+            //}
         }
     }
 

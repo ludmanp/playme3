@@ -1,7 +1,5 @@
 .factLink {
     display: flex;
-    height: 390px;
-    width: 390px!important;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -9,6 +7,13 @@
     text-transform: uppercase;
     text-decoration: none;
     flex-shrink: 0;
+    height: 320px;
+    width: 320px!important; //override slick styles
+
+    @media screen and (min-width: 768px) {
+        height: 390px;
+        width: 390px!important //override slick styles
+    }
 
     &:hover {
         .factLink__overlay, .factLinkBlock {
@@ -16,7 +21,9 @@
         }
 
         .factLink__circles {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
@@ -48,7 +55,12 @@
     border: 1px solid var(--cGreen);
     position: absolute;
     animation: scaleIn 2s infinite cubic-bezier(.36, .11, .89, .32);
-    animation-delay: -1s
+    animation-delay: -1s;
+
+    @media screen and (max-width: 767px) {
+        width: 298px;
+        height: 298px;
+    }
 }
 
 .factLink__innerCircle {
@@ -60,6 +72,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 767px) {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 .factLink__info {
@@ -87,6 +104,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 767px) {
+        width: 104px;
+        height: 104px;
+    }
 
     span {
         padding: 0 30px;

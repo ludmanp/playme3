@@ -1,19 +1,38 @@
 footer {
     padding-top: 32px;
     border-top: 1px solid var(--cWhite);
+
+    @media screen and (max-width: 767px) {
+        margin: 0 28px;
+    }
+
+    .container {
+        @media screen and (max-width: 1279px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+    }
 }
 
 .footer__navigation {
     display: flex;
     gap: 24px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+    }
 }
 
 .footer__info {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    align-items: flex-end;
+
+    @media screen and (min-width: 1280px) {
+        align-items: flex-end;
+    }
 }
 
 .footer__socialNetworks {
@@ -36,6 +55,16 @@ footer {
     padding: 16px 0;
     background: rgba(255, 255, 255, 0.4);
     font-size: var(--sFontMedium);
+
+    @media screen and (max-width: 767px) {
+        margin: 32px -28px 0;
+    }
+
+    .container {
+        @media screen and (max-width: 1279px) {
+            gap: 16px;
+        }
+    }
 
     p {
         margin: 0;

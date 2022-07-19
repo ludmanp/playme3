@@ -1,11 +1,27 @@
 .videoBlock {
     position: relative;
 
+    @media screen and (max-width: 1279px) {
+        padding-top: 125px;
+    }
+
+    @media screen and (max-width: 767px) {
+        background: url('../img/home/bg-mob.png') no-repeat right top;
+    }
+
     h1 {
         font-size: 4rem;
         font-weight: 700;
         letter-spacing: 0.16em;
         margin: 0 0 32px;
+
+        @media screen and (max-width: 1279px) {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: inherit;
+            margin: 0 0 24px;
+        }
     }
 
     h2 {
@@ -20,34 +36,136 @@
     width: 100%;
     display: flex;
     margin-bottom: 80px;
+
+    @media screen and (max-width:1279px) {
+        flex-direction: column
+    }
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 50px;
+    }
 }
 
 .videoBlock__info, .videoBlock__image {
-    width: 50%;
+    @media screen and (min-width: 1280px) {
+        width: 50%;
+    }
+}
+
+.videoBlock__info {
+    margin: 0 20px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: 0 80px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 0;
+    }
+}
+
+.videoBlock__image {
+    display: none;
+
+    @media screen and (min-width:1280px) {
+        display: block;
+    }
+}
+
+.videoBlock__image_tablet {
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (max-width:1279px) {
+        margin-top: -56px;
+    }
+
+    @media screen and (min-width:1280px) {
+        display: none;
+    }
+
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
 }
 
 .videoBlock__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .contentBlock {
+        @media screen and (max-width: 1279px) {
+            padding-left: 104px;
+        }
+
+        @media screen and (max-width: 767px) {
+            padding-left: 74px;
+        }
+
+        .contentBlock__content {
+            @media screen and (max-width: 767px) {
+                margin-left: -74px;
+            }
+        }
+    }
+
+    .contentBlock__header {
+        &::before {
+            @media screen and (max-width: 1279px) {
+                width: 64px;
+                top: 13px;
+                left: -104px;
+            }
+
+            @media screen and (max-width: 767px) {
+                width: 48px;
+                top: 13px;
+                left: -72px;
+            }
+        }
+    }
 }
 
-
 .videoBlock__infoDescription {
-    margin-top: 16px;
+    @media screen and (min-width:1280px) {
+        margin-top: 16px;
+    }
 
     p {
         margin: 0;
         line-height: 1.5;
     }
+
+    .contentBlock__actions {
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
 }
 
 .videoBlock__button {
-    position: absolute;
+    position: relative;
     color: var(--cGreen);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+    @media screen and (min-width: 1280px) {
+        transform: translate(-50%, -50%);
+    }
+
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        transform: translate(calc(-50%), calc(-50% + 100px));
+    }
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 50px;
+    }
 
     &:hover {
         .circle__outer {
@@ -62,6 +180,11 @@
         border-radius: 50%;
         border: 1px solid var(--cWhite);
         position: relative;
+
+        @media screen and (max-width: 767px) {
+            width: 168px;
+            height: 168px;
+        }
     }
 
     .circle__middle {
@@ -73,6 +196,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @media screen and (max-width: 767px) {
+            width: 90px;
+            height: 90px;
+        }
     }
 
     .circle__inner {
@@ -84,6 +212,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @media screen and (max-width: 767px) {
+            width: 128px;
+            height: 128px;
+        }
     }
 
     .circle__icon {
@@ -91,6 +224,27 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @media screen and (max-width: 767px) {
+            svg {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}
+
+.videoBlock__action_mob {
+    display: none;
+
+    @media screen and (max-width: 767px) {
+        display: block;
+        padding: 8px 20px;
+        background: var(--cSecondary);
+
+        .link {
+            justify-content: flex-start;
+        }
     }
 }
 

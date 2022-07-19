@@ -33,6 +33,11 @@
     padding: 8px 24px;
     font-weight: 400;
 
+    @media screen and (max-width: 1279px) {
+        font-size: var(--sFontMedium);
+        line-height: 1.57;
+    }
+
     &:hover {
         background: linear-gradient(0deg, #2AA84A, #2AA84A), #C4C4C4;
         color: var(--cWhite);

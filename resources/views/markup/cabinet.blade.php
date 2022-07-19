@@ -30,7 +30,7 @@
 
             <form class='cabinet__form__password' action=''>
                 <h4>пароль</h4>
-                <div class='cabinet__formRow'>
+                <div class='cabinet__formRow cabinet__formRow_row'>
                     <div class='cabinet__formColumn'>
                         <x-common.input :column="true" type='password' :label="'введите старый пароль'" :placeholder="'*****************'"></x-common.input>
                     </div>

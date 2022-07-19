@@ -1,7 +1,7 @@
 <div class='clientsSearch__block'>
     <x-common.contentBlock>
         <x-slot name="header">
-            <h3>проекты по хештегу <span class='contentBlock__headerTag'>#Видеосъёмкамерроприятий</span></h3>
+            <h3><span>проекты по хештегу</span> <span class='contentBlock__headerTag'>#Видеосъёмкамерроприятий</span></h3>
         </x-slot>
     </x-common.contentBlock>
     <div class='clientsSearch__cards'>
@@ -173,7 +173,7 @@
         </x-layout.clients.projectCard>
     </div>
     <div class='clientsSearch__action'>
-        <x-common.button :withImage="true">
+        <x-common.button :withImage="true" :uppercase="true">
             <x-slot name="icon">
                 <x-icons.running></x-icons.running>
             </x-slot>

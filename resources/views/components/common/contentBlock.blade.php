@@ -1,9 +1,9 @@
-<div class='contentBlock{{
+<div class="contentBlock{{
         useModifiers('contentBlock', [
             'thin'=>$thin??false,
             'row'=>$row??false,
             ])
-        }} {{$attributes['class']}}" {{$attributes->except(['class'])}}'>
+        }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
     <div class='contentBlock__header'>
         {{ $header ?? '' }}
     </div>
