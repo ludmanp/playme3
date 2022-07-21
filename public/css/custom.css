@@ -3158,6 +3158,9 @@ footer {
         flex-wrap: wrap;
   }
 }
+.blogCard__tags .slick-slide {
+  margin: 0;
+}
 .blogCard__tags .slick-slide > div {
   display: -webkit-box;
   display: -ms-flexbox;
