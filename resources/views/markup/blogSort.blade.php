@@ -54,6 +54,16 @@
                                 <x-common.link :tag="true">
                                     #Видео
                                 </x-common.link>
+                                <x-common.link :tag="true">
+                                    #Видео
+                                </x-common.link>
+                                <x-common.link :tag="true">
+                                    #Видео
+                                </x-common.link>
+                                <x-common.link :tag="true">
+                                    #Видео
+                                </x-common.link>
+
                             </x-slot>
                             <x-slot name="action">
                                 <x-common.link :withImage="true" :uppercase="true">

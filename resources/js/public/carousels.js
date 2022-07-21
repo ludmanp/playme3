@@ -43,12 +43,32 @@ export const InitCarousels = () => {
         ]
     });
 
-    $(".blogCard__tags").slick({
-        variableWidth: true,
-        arrows:true,
-        infinite: false,
-        swipeToSlide: true
-    });
+    // $(".blogCard__tags").slick({
+    //     variableWidth: true,
+    //     arrows:true,
+    //     infinite: false,
+    //     swipeToSlide: true,
+    // });
+
+    const buttons = document.querySelectorAll('.blogCard__tags');
+
+
+
+    if (buttons) {
+        buttons.forEach((button) => {
+            const carouselId = button.dataset.targetCarousel;
+
+            $(`.blogCard__tags[data-target-carousel="${carouselId}"]`).slick({
+                variableWidth: true,
+                arrows:true,
+                infinite: false,
+                swipeToSlide: true,
+                prevArrow:  $(`.blog__arrows[data-target-carousel="${carouselId}"] .previous`),
+                nextArrow:  $(`.blog__arrows[data-target-carousel="${carouselId}"] .next`)
+            });
+
+        });
+    }
 
     $(".tabBlock__filters").slick({
         variableWidth: true,

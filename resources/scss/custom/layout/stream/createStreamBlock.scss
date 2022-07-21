@@ -65,15 +65,15 @@
     }
 
     input[type="date"] {
-        max-width: 92px;
-        padding-left: 42px;
-        background: url('../img/calendar.svg') 8px center no-repeat;
+        max-width: 100px;
+        padding-left: 27px;
+        background: url('../img/calendar.svg') 3px center no-repeat;
     }
 
     input[type="time"] {
-        max-width: 37px;
-        padding-left: 42px;
-        background: url('../img/time.svg') 8px center no-repeat;
+        max-width: 55px;
+        padding-left: 27px;
+        background: url('../img/time.svg') 3px center no-repeat;
     }
 }
 
