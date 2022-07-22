@@ -6,7 +6,7 @@
             </x-slot>
         </x-common.contentBlock>
         <div class='blogBlock__carousel'>
-            <x-layout.home.blogCard :image="'../img/home/blog/blog.jpg'" :imageAlt="'blog-img'" :author="'ФИ автора'" :date="'01.01.2021'"
+            <x-layout.home.blogCard :carouselId="'test'" :image="'../img/home/blog/blog.jpg'" :imageAlt="'blog-img'" :author="'ФИ автора'" :date="'01.01.2021'"
                                     :authorImage="'../img/home/blog/author.jpg'" :authorImageAlt="'author-image'" :header="'заголовок'">
                 <x-slot name="text">
                     Quis fermentum venenatis, sagittis, fermentum ut commodo tincidunt. Sollicitudin et sed morbi nunc maecenas.
@@ -40,7 +40,7 @@
                     </x-common.link>
                 </x-slot>
             </x-layout.home.blogCard>
-            <x-layout.home.blogCard :image="'../img/home/blog/blog.jpg'" :imageAlt="'blog-img'" :author="'ФИ автора'" :date="'01.01.2021'"
+            <x-layout.home.blogCard :carouselId="'test2'" :image="'../img/home/blog/blog.jpg'" :imageAlt="'blog-img'" :author="'ФИ автора'" :date="'01.01.2021'"
                                     :authorImage="'../img/home/blog/author.jpg'" :authorImageAlt="'author-image'" :header="'заголовок'">
                 <x-slot name="text">
                     Quis fermentum venenatis, sagittis, fermentum ut commodo tincidunt. Sollicitudin et sed morbi nunc maecenas.

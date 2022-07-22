@@ -40,11 +40,9 @@
 
 .clientGallery__item {
     width: 100%;
-
-    @media screen and (min-width: 1280px) {
-        width: 560px;
-        height: 212px;
-    }
+    border-radius: var(--sRadiusBig);
+    overflow: hidden;
+    margin-bottom: 16px;
 
     img {
         max-height: 100%;
@@ -149,83 +147,6 @@
     }
 }
 
-.clientGallery__item {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    vertical-align: middle;
-    overflow: hidden;
-    margin: 0;
-
-    img {
-        max-height: 100%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        margin: auto auto;
-    }
-}
-.clientGallery__item:hover .clientGallery__item-panel.clientGallery__item-top {
-    bottom: 0;
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-}
-.clientGallery__item-panel.clientGallery__item-top {
-    top: auto;
-}
-.clientGallery__item-background {
-    background: rgba(0,0,0,.8);
-    transform: translateY(100%);
-    opacity: 0;
-    transition-duration: .3s;
-    transition-timing-function: ease-out;
-    transition-property: opacity,transform,filter;
-}
-.clientGallery__item-panel {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    color: #fff;
-}
-.clientGallery__item>:first-child,
-.clientGallery__item-panel>:last-child {
-    margin-bottom: 0;
-}
-.clientGallery__item:hover{
-    cursor: pointer;
-}
-.clientGallery__item:hover:after {
-    background-image: url(http://shrani.si/f/2Q/ze/2CtEIRsH/youtubeplayred1.png);
-}
-.clientGallery__item:after {
-    background-image: url(http://shrani.si/f/3o/DK/1A24SBYG/youtubeplaydark1.png);
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 54px;
-    height: 38px;
-    background-size: cover;
-}
-.clientGallery__carouselDots {
-    margin-top: 10px;
-}
-.clientGallery__carouselDots .slick-slide {
-    cursor: pointer;
-    outline: none;
-}
-.clientGallery__carouselDots .slick-slide.slick-current.slick-active {
-    opacity: 1;
-}
-
 .clientGallery__carouselDots img {
     max-height: 100%;
     width: 100%;
@@ -234,9 +155,29 @@
     display: block;
     margin: auto auto;
 }
-.clientGallery__carouselDots .slick-slide:first-child img {
-    margin-left: 0;
+
+
+.clientGallery__videoBlock {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
 }
-.clientGallery__carouselDots .slick-slide:last-child img {
-    margin-right: 0;
+
+.clientGallery__videoImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
+
+.clientGallery__videoBlock_enabled {
+    cursor: pointer;
+
+    .clientGallery__videoButton {
+        display: block;
+    }
+}
+

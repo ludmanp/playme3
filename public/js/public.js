@@ -454,13 +454,29 @@ var InitCarousels = function InitCarousels() {
       breakpoint: 767,
       settings: "unslick"
     }]
-  });
-  $(".blogCard__tags").slick({
-    variableWidth: true,
-    arrows: true,
-    infinite: false,
-    swipeToSlide: true
-  });
+  }); // $(".blogCard__tags").slick({
+  //     variableWidth: true,
+  //     arrows:true,
+  //     infinite: false,
+  //     swipeToSlide: true,
+  // });
+
+  var buttons = document.querySelectorAll('.blogCard__tags');
+
+  if (buttons) {
+    buttons.forEach(function (button) {
+      var carouselId = button.dataset.targetCarousel;
+      $(".blogCard__tags[data-target-carousel=\"".concat(carouselId, "\"]")).slick({
+        variableWidth: true,
+        arrows: true,
+        infinite: false,
+        swipeToSlide: true,
+        prevArrow: $(".blog__arrows[data-target-carousel=\"".concat(carouselId, "\"] .previous")),
+        nextArrow: $(".blog__arrows[data-target-carousel=\"".concat(carouselId, "\"] .next"))
+      });
+    });
+  }
+
   $(".tabBlock__filters").slick({
     variableWidth: true,
     arrows: true,
@@ -648,6 +664,66 @@ var InitToggleMenu = function InitToggleMenu() {
   closeMenu.addEventListener('click', function () {
     menu.classList.remove('mobileMenu_shown');
   });
+};
+
+/***/ }),
+
+/***/ "./resources/js/public/toggleVideo.js":
+/*!********************************************!*\
+  !*** ./resources/js/public/toggleVideo.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "initToggleVideo": function() { return /* binding */ initToggleVideo; }
+/* harmony export */ });
+var initToggleVideo = function initToggleVideo() {
+  var findVideos = function findVideos() {
+    var videos = document.querySelectorAll('.clientGallery__videoBlock');
+
+    for (var i = 0; i < videos.length; i++) {
+      setupVideo(videos[i]);
+    }
+  };
+
+  var setupVideo = function setupVideo(video) {
+    var link = video.querySelector('.clientGallery__videoLink');
+    var button = video.querySelector('.clientGallery__videoLink');
+    var id = parseMediaURL(link);
+    video.addEventListener('click', function () {
+      var iframe = createIframe(id);
+      link.remove();
+      button.remove();
+      video.appendChild(iframe);
+    });
+    link.removeAttribute('href');
+    video.classList.add('clientGallery__videoBlock_enabled');
+  };
+
+  var parseMediaURL = function parseMediaURL(media) {
+    console.log('media-->', media);
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = media.href.match(regExp);
+    return match && match[7].length === 11 ? match[7] : false;
+  };
+
+  var createIframe = function createIframe(id) {
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('allow', 'autoplay');
+    iframe.setAttribute('src', generateURL(id));
+    iframe.classList.add('clientGallery__videoImage');
+    return iframe;
+  };
+
+  var generateURL = function generateURL(id) {
+    var query = '?rel=0&showinfo=0&autoplay=1';
+    return 'https://www.youtube.com/embed/' + id + query;
+  };
+
+  findVideos();
 };
 
 /***/ }),
@@ -18109,6 +18185,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./public/modal */ "./resources/js/public/modal.js");
 /* harmony import */ var _public_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./public/details */ "./resources/js/public/details.js");
 /* harmony import */ var _public_toggleMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./public/toggleMenu */ "./resources/js/public/toggleMenu.js");
+/* harmony import */ var _public_toggleVideo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./public/toggleVideo */ "./resources/js/public/toggleVideo.js");
+
 
 
 
@@ -18121,6 +18199,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_public_modal__WEBPACK_IMPORTED_MODULE_4__.InitModals)();
 (0,_public_details__WEBPACK_IMPORTED_MODULE_5__.InitDetails)();
 (0,_public_toggleMenu__WEBPACK_IMPORTED_MODULE_6__.InitToggleMenu)();
+(0,_public_toggleVideo__WEBPACK_IMPORTED_MODULE_7__.initToggleVideo)();
 }();
 /******/ })()
 ;

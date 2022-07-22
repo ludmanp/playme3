@@ -1,20 +1,7 @@
 <div class='watchStreamContainer'>
     <div class='watchStreamBlock'>
         <div class='watchStreamBlock__videoBlock'>
-            <div class='watchStreamBlock__video'>
-                <img src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>
-                <button class='videoBlock__button'>
-                    <div class='circle__outer'>
-                        <div class='circle__middle'>
-                            <div class='circle__inner'>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='circle__icon'>
-                        <x-icons.playSmall></x-icons.playSmall>
-                    </div>
-                </button>
-            </div>
+            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
         </div>
         <div class='watchStreamBlock__accordionBlock'>
             <details class='watchStream__accordion'>
