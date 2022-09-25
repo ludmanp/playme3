@@ -182,7 +182,7 @@ return [
          * Here is the place for your modules,
          * they should be set before Core Service provider.
          */
-        // TypiCMS\Modules\News\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Services\Providers\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...

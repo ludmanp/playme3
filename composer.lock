@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56d30a5473701ad125a3e6001f59e55a",
+    "content-hash": "d16e6d6044f6274e3685a1f6eaf09596",
     "packages": [
         {
             "name": "bkwld/croppa",
@@ -7878,6 +7878,54 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2022-08-31T16:38:14+00:00"
+        },
+        {
+            "name": "ludmanp/typicms-details",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ludmanp/typicms-details.git",
+                "reference": "fc5528c9d23732e052b91a53c31c562065e594ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ludmanp/typicms-details/zipball/fc5528c9d23732e052b91a53c31c562065e594ed",
+                "reference": "fc5528c9d23732e052b91a53c31c562065e594ed",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^9.0",
+                "php": "^7.2|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TypiCMS\\Modules\\Details\\DetailsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TypiCMS\\Modules\\Details\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Leidman",
+                    "email": "mark@leidman.lv",
+                    "homepage": "https://ludmanp.github.io"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/ludmanp/typicms-details/issues",
+                "source": "https://github.com/ludmanp/typicms-details/tree/2.1"
+            },
+            "time": "2022-08-02T18:13:02+00:00"
         },
         {
             "name": "maximebf/debugbar",
