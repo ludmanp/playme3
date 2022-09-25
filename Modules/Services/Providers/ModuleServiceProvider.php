@@ -39,6 +39,9 @@ class ModuleServiceProvider extends ServiceProvider
         View::composer('services::public.*', function ($view) {
             $view->page = TypiCMS::getPageLinkedToModule('services');
         });
+        View::composer('services::public._nav', function ($view) {
+            $view->services = Service::query()->published()->order()->get();
+        });
     }
 
     public function register(): void

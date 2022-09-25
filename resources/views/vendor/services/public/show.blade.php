@@ -1,5 +1,9 @@
 @extends('core::public.master')
 
+@php
+    /** @var \TypiCMS\Modules\Services\Models\Service $model */
+@endphp
+
 @section('title', $model->title.' – '.__('Services').' – '.$websiteTitle)
 @section('ogTitle', $model->title)
 @section('description', $model->summary)
@@ -8,34 +12,46 @@
 
 @section('content')
 
-<article class="service">
-    <header class="service-header">
-        <div class="service-header-container">
-            <div class="service-header-navigator">
-                @include('core::public._items-navigator', ['module' => 'Services', 'model' => $model])
+    <x-common.container>
+        <div class='services__container'>
+            <div class="services__tabs">
+                <x-common.contentBlock>
+                    <x-slot name="header">
+                        <h3>@lang('Our Services')</h3>
+                    </x-slot>
+                    <x-slot name="content">
+                        @include('services::public._nav')
+                    </x-slot>
+                </x-common.contentBlock>
+
+                <x-common.contentContainer>
+                    <div class='tabBlock__tabPanels'>
+                        <div class='tabBlock__header'>
+                            <span class='tabBlock__header__icon'>
+                                <x-icons.runningsmallgreen></x-icons.runningsmallgreen>
+                            </span>
+                            <h3>{{ $model->title }}</h3>
+                        </div>
+
+                        <x-common.tabPanel :image="$model->present()->image()" :imageAlt="$model->title"
+                                           :description="''">
+                            <x-slot name="filters">
+                                @include('services::public.details._nav', ['service' => $model])
+                            </x-slot>
+                            <x-slot name="action">
+                                <x-common.link :withImage="true" :uppercase="true">
+                                    <x-slot name="icon">
+                                        <x-icons.running></x-icons.running>
+                                    </x-slot>
+                                    Обсудить свой проект
+                                </x-common.link>
+                            </x-slot>
+                        </x-common.tabPanel>
+                    </div>
+
+                </x-common.contentContainer>
             </div>
-            <h1 class="service-title">{{ $model->title }}</h1>
         </div>
-    </header>
-    <div class="service-body">
-        @include('services::public._json-ld', ['service' => $model])
-        @empty(!$model->summary)
-        <p class="service-summary">{!! nl2br($model->summary) !!}</p>
-        @endempty
-        @empty(!$model->image)
-        <picture class="service-picture">
-            <img class="service-picture-image" src="{{ $model->present()->image(2000) }}" width="{{ $model->image->width }}" height="{{ $model->image->height }}" alt="">
-            @empty(!$model->image->description)
-            <legend class="service-picture-legend">{{ $model->image->description }}</legend>
-            @endempty
-        </picture>
-        @endempty
-        @empty(!$model->body)
-        <div class="rich-content">{!! $model->present()->body !!}</div>
-        @endempty
-        @include('files::public._documents')
-        @include('files::public._images')
-    </div>
-</article>
+    </x-common.container>
 
 @endsection

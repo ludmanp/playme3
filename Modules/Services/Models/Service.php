@@ -4,6 +4,7 @@ namespace TypiCMS\Modules\Services\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\EloquentSortable\Sortable;
@@ -25,6 +26,7 @@ use TypiCMS\Modules\Services\Presenters\ModulePresenter;
  * @property bool $status
  * @property int $position
  * @property ServiceDetail[]|Collection details
+ * @property ServiceDetail[]|Collection published_details
  *
  * @method ModulePresenter present()
  */
@@ -60,8 +62,13 @@ class Service extends Base implements Sortable
         return $this->belongsTo(File::class, 'image_id');
     }
 
-    public function details()
+    public function details(): HasMany
     {
         return $this->hasMany(ServiceDetail::class, 'service_id');
+    }
+
+    public function published_details(): HasMany
+    {
+        return $this->details()->published()->order();
     }
 }

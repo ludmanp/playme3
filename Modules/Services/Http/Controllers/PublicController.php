@@ -8,17 +8,27 @@ use TypiCMS\Modules\Services\Models\Service;
 
 class PublicController extends BasePublicController
 {
-    public function index(): View
+    public function index()
     {
-        $models = Service::published()->order()->with('image')->get();
+        $service = Service::published()->order()->first();
+        if(!$service) {
+            abort(404);
+        }
+        $detail = $service->published_details->first();
 
-        return view('services::public.index')
-            ->with(compact('models'));
+        if($detail) {
+            return redirect(url($detail->uri()));
+        }
+        return redirect(url($service->uri()));
     }
 
-    public function show($slug): View
+    public function show($slug)
     {
-        $model = Service::published()->whereSlugIs($slug)->firstOrFail();
+        $model = Service::query()->with('published_details')->published()->whereSlugIs($slug)->firstOrFail();
+
+        if($detail = $model->published_details->first()) {
+            return redirect(url($detail->uri()));
+        }
 
         return view('services::public.show')
             ->with(compact('model'));
