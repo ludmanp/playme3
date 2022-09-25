@@ -1,48 +1,39 @@
+# For more information: https://laravel.com/docs/sail
 version: '3'
-networks:
-    proxy:
-        external:
-            name: traefik_proxy
-    backend:
-        driver: bridge
-        internal: true
-    database:
-        external:
-            name: mysql8_backend
 services:
-    web:
-        image: ezitisitis/laravel
-        container_name: playme3_web
-        command: /bin/bash -c "php-fpm8.1 -F"
-        restart: always
+    laravel.test:
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.1
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: sail-8.1/app
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-80}:80'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
-            - .:/app
-        labels:
-            traefik.enable: "false"
+            - '.:/var/www/html'
         networks:
-            - proxy
-            - backend
+            - sail
             - database
-    nginx:
-        image: nginx:latest
-        container_name: playme3_nginx
-        restart: always
-        volumes:
-            - ./public:/app/public
-            - ./storage/app:/app/storage/app
-            - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
-            - ./docker/nginx-logs:/var/log/nginx
         depends_on:
-            - web
-        labels:
-            - "traefik.enable=true"
-            - "traefik.docker.network=traefik_proxy"
-            - "traefik.http.routers.playme3.entrypoints=http"
-            - "traefik.http.routers.playme3.rule=Host(`playme3.localhost`,`www.playme3.localhost`)"
-            - "traefik.http.routers.playme3.middlewares=traefik-https-redirect"
-            - "traefik.http.routers.playme3-secure.entrypoints=https"
-            - "traefik.http.routers.playme3-secure.rule=Host(`playme3.localhost`,`www.playme3.localhost`)"
-            - "traefik.http.routers.playme3-secure.tls.certresolver=http"
+            - memcached
+    memcached:
+        image: 'memcached:alpine'
+        ports:
+            - '11211:11211'
         networks:
-            - proxy
-            - backend
+            - sail
+networks:
+    sail:
+        driver: bridge
+    database:
+        external: true
+        name: mysql8_backend
