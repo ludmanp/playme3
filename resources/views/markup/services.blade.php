@@ -54,12 +54,12 @@
                         <x-common.tabPanel :image="'../img/services/service.jpg'" :imageAlt="'service-image'"
                                            :description="'Придумываем сценарии, Оформляем проекты'">
                             <x-slot name="filters">
-                                <x-common.button :tag="true" :tagActive="true">Режиссура</x-common.button>
-                                <x-common.button :tag="true">Режиссура</x-common.button>
-                                <x-common.button :tag="true">Съемка в павильоне</x-common.button>
-                                <x-common.button :tag="true">Выбор места съемки</x-common.button>
-                                <x-common.button :tag="true">Съемка</x-common.button>
-                                <x-common.button :tag="true">Свет</x-common.button>
+                                <x-common.link :service-tag="true" :tagActive="true">Режиссура</x-common.link>
+                                <x-common.link :service-tag="true">Режиссура</x-common.link>
+                                <x-common.link :service-tag="true">Съемка в павильоне</x-common.link>
+                                <x-common.link :service-tag="true">Выбор места съемки</x-common.link>
+                                <x-common.link :service-tag="true">Съемка</x-common.link>
+                                <x-common.link :service-tag="true">Свет</x-common.link>
                             </x-slot>
                             <x-slot name="action">
                                 <x-common.link :withImage="true" :uppercase="true">

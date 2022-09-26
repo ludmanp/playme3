@@ -7,6 +7,8 @@
             'inlineText'=>$inlineText??false,
             'imageOnly'=>$imageOnly??false,
             'tag'=>$tag??false,
+            'tagActive'=>$tagActive??false,
+            'serviceTag'=>$serviceTag??false,
             'tab'=>$tab??false,
             ])
         }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
