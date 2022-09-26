@@ -39,12 +39,7 @@
                                 @include('services::public.details._nav', ['service' => $model])
                             </x-slot>
                             <x-slot name="action">
-                                <x-common.link :withImage="true" :uppercase="true">
-                                    <x-slot name="icon">
-                                        <x-icons.running></x-icons.running>
-                                    </x-slot>
-                                    Обсудить свой проект
-                                </x-common.link>
+                                @include('services::public._discuss-button')
                             </x-slot>
                         </x-common.tabPanel>
                     </div>
