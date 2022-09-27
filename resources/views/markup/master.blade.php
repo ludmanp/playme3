@@ -45,14 +45,51 @@
 {{--<div class='ruler' style='position: fixed; z-index: 1000; top: 100px; height: 100px; width: 20px; background: #bada55; left: 50%; transform: translateX(-50%);'></div>--}}
 
 <div class='page'>
-    @yield('header', view('components.common.header'))
+    @section('header')
+        <x-common.header>
+            <x-slot name="menu">
+                <x-common.link :href="'#'">Услуги</x-common.link>
+                <x-common.link :href="'#'">Клиенты</x-common.link>
+                <x-common.link :href="'#'">Команда</x-common.link>
+                <x-common.link :href="'#'">Блог</x-common.link>
+                <x-common.link :href="'#'">Контакты</x-common.link>
+            </x-slot>
+            <x-slot name="lang-switcher">
+                <div class='header__languages'>
+                    <x-common.link :currentLang="true" :href="'#'">RU</x-common.link>
+                    <x-common.link :href="'#'">EN</x-common.link>
+                </div>
+            </x-slot>
+        </x-common.header>
+    @endsection
+    @yield('header')
+
 
     <main class="page__main">
 
         @yield('content')
     </main>
 
-    @yield('footer', view('components.common.footer'))
+        @section('footer')
+            <x-common.footer>
+                <x-slot name="menu">
+                    <x-common.link :href="'#'">Услуги</x-common.link>
+                    <x-common.link :href="'#'">Клиенты</x-common.link>
+                    <x-common.link :href="'#'">Команда</x-common.link>
+                    <x-common.link :href="'#'">Блог</x-common.link>
+                    <x-common.link :href="'#'">Контакты</x-common.link>
+                </x-slot>
+                <x-slot name="social-menu">
+                    <x-common.link :href="'#'">vk</x-common.link>
+                    <x-common.link :href="'#'">ig</x-common.link>
+                    <x-common.link :href="'#'">fb</x-common.link>
+                </x-slot>
+                <x-slot name="legal-menu">
+                    <x-common.link href="'#'">Политика конфиденциальности</x-common.link>
+                </x-slot>
+            </x-common.footer>
+        @endsection
+        @yield('footer')
 </div>
 
 

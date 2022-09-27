@@ -52,14 +52,37 @@
 {{--            <a class="stop-impersonation-button" href="{{ route($lang.'::stop-impersonation') }}">@lang('Stop impersonation')</a>--}}
 {{--        @endif--}}
 {{--    @endauth--}}
-    @yield('header', view('components.common.header'))
+    @section('header')
+    <x-common.header>
+        <x-slot name="menu">
+            @menu('primary')
+        </x-slot>
+        <x-slot name="lang-switcher">
+            @include('core::public._lang-switcher')
+        </x-slot>
+    </x-common.header>
+    @endsection
+    @yield('header')
 
     <main class="page__main">
 
         @yield('content')
     </main>
 
-    @yield('footer', view('components.common.footer'))
+    @section('footer')
+        <x-common.footer>
+            <x-slot name="menu">
+                @menu('footer')
+            </x-slot>
+            <x-slot name="social-menu">
+                @menu('social')
+            </x-slot>
+            <x-slot name="legal-menu">
+                @menu('legal')
+            </x-slot>
+        </x-common.footer>
+    @endsection
+    @yield('footer')
 </div>
 
 

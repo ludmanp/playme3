@@ -4,24 +4,17 @@
             ])
         }} {{$attributes['class'] ?? ''}}">
     <x-common.container :flex="true">
-        <x-common.link :withImage="true">
+        <x-common.link :href="url('/' . config('app.locale'))" :withImage="true">
             <x-slot name="icon">
                 <x-icons.running></x-icons.running>
             </x-slot>
             <x-icons.logo></x-icons.logo>
         </x-common.link>
         <nav class='header__navigation'>
-            <x-common.link :href="'#'">Услуги</x-common.link>
-            <x-common.link :href="'#'">Клиенты</x-common.link>
-            <x-common.link :href="'#'">Команда</x-common.link>
-            <x-common.link :href="'#'">Блог</x-common.link>
-            <x-common.link :href="'#'">Контакты</x-common.link>
+            {{ $menu }}
         </nav>
         <div class='header__actions'>
-            <div class='header__languages'>
-                <x-common.link :currentLang="true" :href="'#'">RU</x-common.link>
-                <x-common.link :href="'#'">EN</x-common.link>
-            </div>
+            {{ $langSwitcher }}
             <div class='header__office'>
                 <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
                     Личный кабинет
@@ -37,7 +30,9 @@
     </x-common.container>
 </header>
 
-<x-common.mobileMenu></x-common.mobileMenu>
+<x-common.mobileMenu>
+    {{ $menu }}
+</x-common.mobileMenu>
 
 <x-common.modal :loginModal="true" id="loginModal" :wide="false" :title="'Log in'">
     <x-slot name="header">
