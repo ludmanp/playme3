@@ -1,7 +1,29 @@
 @extends('markup.master')
 
 @section('header')
-    <x-common.header :mainPage="true"></x-common.header>
+    <x-common.header :mainPage="true">
+        <x-slot name="menu">
+            <x-common.link :href="'#'">Услуги</x-common.link>
+            <x-common.link :href="'#'">Клиенты</x-common.link>
+            <x-common.link :href="'#'">Команда</x-common.link>
+            <x-common.link :href="'#'">Блог</x-common.link>
+            <x-common.link :href="'#'">Контакты</x-common.link>
+        </x-slot>
+        <x-slot name="langSwitcher">
+            <div class='header__languages'>
+                <x-common.link :currentLang="true" :href="'#'">RU</x-common.link>
+                <x-common.link :href="'#'">EN</x-common.link>
+            </div>
+        </x-slot>
+        <x-slot name="userButton">
+            <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
+                Личный кабинет
+                <x-slot name="iconAfter">
+                    <x-icons.login></x-icons.login>
+                </x-slot>
+            </x-common.link>
+        </x-slot>
+    </x-common.header>
 @endsection
 @section('content')
     <x-layout.home.videoBlock></x-layout.home.videoBlock>
@@ -43,9 +65,6 @@
     <x-layout.home.partners></x-layout.home.partners>
     <x-layout.home.blog></x-layout.home.blog>
     <x-layout.home.contacts></x-layout.home.contacts>
-@endsection
-@section('footer')
-    <x-common.footer></x-common.footer>
 @endsection
 
 

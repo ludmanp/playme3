@@ -11,12 +11,12 @@
             <x-icons.logo></x-icons.logo>
         </x-common.link>
         <nav class='header__navigation'>
-            {{ $menu }}
+            {{ $menu ?? '' }}
         </nav>
         <div class='header__actions'>
-            {{ $langSwitcher }}
+            {{ $langSwitcher ?? '' }}
             <div class='header__office' id="user-button-app">
-                {{ $userButton }}
+                {{ $userButton ?? 'xxx' }}
             </div>
             <x-common.button class='header__hamburger' :withImage="true" :uppercase="true">
                 <x-icons.hamburger></x-icons.hamburger>
@@ -26,7 +26,7 @@
 </header>
 
 <x-common.mobileMenu>
-    {{ $menu }}
+    {{ $menu ?? '' }}
 </x-common.mobileMenu>
 
 <x-common.modal :loginModal="true" id="loginModal" :wide="false" :title="'Log in'">

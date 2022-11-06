@@ -54,13 +54,13 @@
                 <x-common.link :href="'#'">Блог</x-common.link>
                 <x-common.link :href="'#'">Контакты</x-common.link>
             </x-slot>
-            <x-slot name="lang-switcher">
+            <x-slot name="langSwitcher">
                 <div class='header__languages'>
                     <x-common.link :currentLang="true" :href="'#'">RU</x-common.link>
                     <x-common.link :href="'#'">EN</x-common.link>
                 </div>
             </x-slot>
-            <x-slot name="user-button">
+            <x-slot name="userButton">
                 <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
                     Личный кабинет
                     <x-slot name="iconAfter">
@@ -87,12 +87,12 @@
                     <x-common.link :href="'#'">Блог</x-common.link>
                     <x-common.link :href="'#'">Контакты</x-common.link>
                 </x-slot>
-                <x-slot name="social-menu">
+                <x-slot name="socialMenu">
                     <x-common.link :href="'#'">vk</x-common.link>
                     <x-common.link :href="'#'">ig</x-common.link>
                     <x-common.link :href="'#'">fb</x-common.link>
                 </x-slot>
-                <x-slot name="legal-menu">
+                <x-slot name="legalMenu">
                     <x-common.link href="'#'">Политика конфиденциальности</x-common.link>
                 </x-slot>
             </x-common.footer>

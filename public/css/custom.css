@@ -1652,7 +1652,7 @@ button.focus-visible {
 }
 
 .modal__text {
-  margin-bottom: var(--sSpacingNormal);
+  margin-bottom: 32px;
   font-size: var(--sFontMedium);
   font-weight: 400;
 }
