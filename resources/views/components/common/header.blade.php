@@ -15,13 +15,8 @@
         </nav>
         <div class='header__actions'>
             {{ $langSwitcher }}
-            <div class='header__office'>
-                <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
-                    Личный кабинет
-                    <x-slot name="iconAfter">
-                        <x-icons.login></x-icons.login>
-                    </x-slot>
-                </x-common.link>
+            <div class='header__office' id="user-button-app">
+                {{ $userButton }}
             </div>
             <x-common.button class='header__hamburger' :withImage="true" :uppercase="true">
                 <x-icons.hamburger></x-icons.hamburger>

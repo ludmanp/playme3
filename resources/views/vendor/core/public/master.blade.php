@@ -53,19 +53,21 @@
 {{--        @endif--}}
 {{--    @endauth--}}
     @section('header')
-    <x-common.header>
+    <x-common.header :mainPage="$mainPage ?? false">
         <x-slot name="menu">
             @menu('primary')
         </x-slot>
         <x-slot name="lang-switcher">
             @include('core::public._lang-switcher')
         </x-slot>
+        <x-slot name="user-button">
+            <user-button>
+            </user-button>
+        </x-slot>
     </x-common.header>
-    @endsection
-    @yield('header')
+    @show
 
     <main class="page__main">
-
         @yield('content')
     </main>
 
@@ -81,11 +83,11 @@
                 @menu('legal')
             </x-slot>
         </x-common.footer>
-    @endsection
-    @yield('footer')
+    @show
 </div>
 
 
+@include('core::admin._javascript')
 <script src="{{ App::environment('production') ? mix('js/public.js') : asset('js/public.js') }}"></script>
 @can('see unpublished items')
     @if (request('preview'))

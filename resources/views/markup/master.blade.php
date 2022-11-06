@@ -60,6 +60,14 @@
                     <x-common.link :href="'#'">EN</x-common.link>
                 </div>
             </x-slot>
+            <x-slot name="user-button">
+                <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
+                    Личный кабинет
+                    <x-slot name="iconAfter">
+                        <x-icons.login></x-icons.login>
+                    </x-slot>
+                </x-common.link>
+            </x-slot>
         </x-common.header>
     @endsection
     @yield('header')
