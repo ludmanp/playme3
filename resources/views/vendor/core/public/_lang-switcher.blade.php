@@ -1,24 +1,15 @@
 @if ($enabledLocales = TypiCMS::enabledLocales() and count($enabledLocales) > 1)
-<nav class="lang-switcher dropdown">
-    <button class="lang-switcher-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownLangSwitcher">
-        {{ $lang }}
-    </button>
-    <ul class="lang-switcher-list dropdown-menu" aria-labelledby="dropdownLangSwitcher">
+    <div class='header__languages'>
         @foreach ($enabledLocales as $locale)
-            @if ($locale !== $lang)
-                <li>
-                @isset($page)
-                    @if ($page->isPublished($locale))
-                        <a class="lang-switcher-item dropdown-item" href="{{ isset($model) && $model->isPublished($locale) ? url($model->uri($locale)) : url($page->uri($locale)) }}">{{ $locale }}</a>
-                    @else
-                        <a class="lang-switcher-item dropdown-item" href="{{ url('/'.$locale) }}">{{ $locale }}</a>
-                    @endif
+            @isset($page)
+                @if ($page->isPublished($locale))
+                    <x-common.link :currentLang="$locale == $lang" href="{{ isset($model) && $model->isPublished($locale) ? url($model->uri($locale)) : url($page->uri($locale)) }}">{{ $locale }}</x-common.link>
                 @else
-                    <a class="lang-switcher-item dropdown-item" href="{{ url('/'.$locale) }}">{{ $locale }}</a>
-                @endisset
-                </li>
-            @endif
+                    <x-common.link :currentLang="$locale == $lang" href="{{ url('/'.$locale) }}">{{ $locale }}</x-common.link>
+                @endif
+            @else
+                <x-common.link :currentLang="$locale == $lang" href="{{ url('/'.$locale) }}">{{ $locale }}</x-common.link>
+            @endisset
         @endforeach
-    </ul>
-</nav>
+    </div>
 @endif

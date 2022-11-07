@@ -17,11 +17,7 @@
             </div>
             <div class='mobileMenu__navigation'>
                 <nav>
-                    <x-common.link :href="'#'">Услуги</x-common.link>
-                    <x-common.link :href="'#'">Клиенты</x-common.link>
-                    <x-common.link :href="'#'">Команда</x-common.link>
-                    <x-common.link :href="'#'">Блог</x-common.link>
-                    <x-common.link :href="'#'">Контакты</x-common.link>
+                    {{ $slot }}
                 </nav>
             </div>
         </div>

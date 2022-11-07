@@ -1,0 +1,1 @@
+<x-common.link :href="url($menulink->href)" :target="$menulink->target" :rel="$menulink->target === '_blank' ? 'noopener noreferrer' : ''">{{ $menulink->title }}</x-common.link>

@@ -7,26 +7,20 @@
             <x-icons.logo></x-icons.logo>
         </x-common.link>
         <nav class="footer__navigation">
-            <x-common.link :href="'#'">Услуги</x-common.link>
-            <x-common.link :href="'#'">Клиенты</x-common.link>
-            <x-common.link :href="'#'">Команда</x-common.link>
-            <x-common.link :href="'#'">Блог</x-common.link>
-            <x-common.link :href="'#'">Контакты</x-common.link>
+            {{ $menu ?? '' }}
         </nav>
         <div class='footer__info'>
             <x-common.link :href="'maito:info@playme.live'">info@playme.live</x-common.link>
             <x-common.link :href="'tel:+ 79067884874'">+ 7 906-788-48-74</x-common.link>
             <div class='footer__socialNetworks'>
-                <x-common.link :href="'#'">vk</x-common.link>
-                <x-common.link :href="'#'">ig</x-common.link>
-                <x-common.link :href="'#'">fb</x-common.link>
+                {{ $socialMenu ?? '' }}
             </div>
         </div>
     </x-common.container>
     <div class='footer__copyrights'>
         <x-common.container :flex="true">
-            <p>© 2021 ООО «???» Все права защищены</p>
-            <x-common.link href="'#'">Политика конфиденциальности</x-common.link>
+            <p>© {{ date('Y') }} @lang('Company name')  @lang('All rights reserved')</p>
+            {{ $legalMenu ?? '' }}
         </x-common.container>
     </div>
 </footer>

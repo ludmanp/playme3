@@ -1,0 +1,7 @@
+networks:
+    proxy:
+        name: fnpl.public_network
+services:
+    nginx:
+        labels:
+            - "traefik.docker.network=fnpl.public_network"

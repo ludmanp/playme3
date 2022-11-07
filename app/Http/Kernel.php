@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
             \TypiCMS\Modules\Core\Http\Middleware\SetLocaleFromUrl::class,
             \TypiCMS\Modules\Core\Http\Middleware\SetSystemLocale::class,
             \TypiCMS\Modules\Core\Http\Middleware\PublicAccess::class,
+            \App\Http\Middleware\PublicJavaScriptData::class,
         ],
 
         'admin' => [

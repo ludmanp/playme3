@@ -24,13 +24,6 @@
 @section('content')
 
     @section('page-header')
-    <header class="page-header">
-
-        <div class="page-header-container">
-            <h1>{{ $page->title }}</h1>
-        </div>
-
-    </header>
     @show
 
     @yield('page')

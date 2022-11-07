@@ -18,6 +18,8 @@
     "# projects": "No projects|1 project|{count} projects",
     "# roles": "No roles|1 role|{count} roles",
     "# sections": "No sections|1 section|{count} sections",
+    "# service details": "No service details|1 service detail|{count} service details",
+    "# services": "No service|1 service|{count} services",
     "# slides": "No slides|1 slide|{count} slides",
     "# tags": "No tags|1 tag|{count} tags",
     "# taxonomies": "No taxonomies|1 taxonomy|{count} taxonomies",
