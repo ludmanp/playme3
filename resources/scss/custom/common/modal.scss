@@ -71,6 +71,7 @@
     transition-timing-function: var(--tfStandart);
     width: 100%;
     box-sizing: border-box;
+    height: 624px;
 
     @media screen and (max-width: 767px) {
         margin: 0 28px;
@@ -78,6 +79,7 @@
 
     @media screen and (min-width: 768px) {
         max-width: var(--width);
+        height: 674px;
     }
 }
 
@@ -142,15 +144,19 @@
     }
 }
 
-.modal__action {
-    margin-top: 24px;
-}
-
 .modal__header {
     text-transform: uppercase;
     color: var(--cPrimary);
     font-weight: 700;
     margin-bottom: 32px;
+
+    .link {
+        font-weight: 600;
+
+        @media (min-width: 768px) {
+            font-weight: 700;
+        }
+    }
 
     .dash {
         width: 64px;
@@ -163,16 +169,17 @@
 .modal__header_large {
     display: flex;
     align-items: center;
+    line-height: 1.5;
 
     @media screen and (max-width: 767px) {
         gap: 8px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: var(--sH3);
-    }
+    .link {
+        @media screen and (min-width: 768px) {
+            font-size: var(--sH3);
+        }
 
-    span {
         &:first-of-type {
             color: var(--cGreen);
         }
@@ -186,7 +193,14 @@
 }
 
 .modal__header_reverse {
-    span {
+    .link {
+        font-weight: 600;
+        font-size: var(--sFontBody);
+
+        @media screen and (min-width: 768px) {
+            font-size: var(--sH3);
+        }
+
         &:first-of-type {
             color: var(--cPrimary);
         }
@@ -219,11 +233,11 @@
     --width: 624px;
 
     .modal__close {
-        top: 32px;
-        right: 32px;
+        top: 24px;
+        right: 24px;
     }
 
     .modal__body {
-        padding: 104px 32px 32px;
+        padding: 80px 32px 32px;
     }
 }

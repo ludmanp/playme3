@@ -4,6 +4,7 @@
             'location'=>$location??false,
             'date'=>$date??false,
             'time'=>$time??false,
+            'error'=>$error??false,
             ])
         }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
     @if ($label ?? '')

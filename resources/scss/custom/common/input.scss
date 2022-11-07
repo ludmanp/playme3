@@ -69,3 +69,12 @@
         background: url("../img/time.svg") 8px center no-repeat;
     }
 }
+
+.inputField_error {
+    input {
+        border: 2px solid var(--cError);
+        padding-left: 42px;
+        background: url("../img/error.svg") 8px center no-repeat;
+        color: var(--cError);
+    }
+}

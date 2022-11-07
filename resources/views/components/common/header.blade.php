@@ -23,11 +23,11 @@
                 <x-common.link :href="'#'">EN</x-common.link>
             </div>
             <div class='header__office'>
-                <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
+                <x-common.link data-a11y-dialog-show="loginModal" :href="'#'">
                     Личный кабинет
-                    <x-slot name="iconAfter">
-                        <x-icons.login></x-icons.login>
-                    </x-slot>
+                </x-common.link>
+                <x-common.link :href="'#'">
+                    <x-icons.login></x-icons.login>
                 </x-common.link>
             </div>
             <x-common.button class='header__hamburger' :withImage="true" :uppercase="true">
@@ -42,13 +42,13 @@
 <x-common.modal :loginModal="true" id="loginModal" :wide="false" :title="'Log in'">
     <x-slot name="header">
         <div class='modal__header_large'>
-            <span>Авторизация</span>
+            <x-common.link :href="'#'">Авторизация</x-common.link>
             <span class='dash'></span>
-            <span>Регистрация</span>
+            <x-common.link :href="'#'" data-a11y-dialog-show="registerModal">Регистрация</x-common.link>
         </div>
     </x-slot>
     <form action=''>
-        <x-common.input :placeholder="'E-mail'" type='email'></x-common.input>
+        <x-common.input :placeholder="'E-mail'" type='email' :error="true" value='ошибка'></x-common.input>
         <x-common.input :placeholder="'Пароль'" type='password'></x-common.input>
         <div class='modal__link'>
             <x-common.link :inlineText="true" data-a11y-dialog-show="registerModal" href='#'>Забыли пароль?</x-common.link>
@@ -72,9 +72,9 @@
 <x-common.modal :loginModal="true" id="registerModal" :wide="false" :title="'Log in'">
     <x-slot name="header">
         <div class='modal__header_large modal__header_reverse'>
-            <span>Авторизация</span>
+            <x-common.link :href="'#'">Авторизация</x-common.link>
             <span class='dash'></span>
-            <span>Регистрация</span>
+            <x-common.link :href="'#'" data-a11y-dialog-show="registerModal">Регистрация</x-common.link>
         </div>
     </x-slot>
     <form action=''>
