@@ -9,6 +9,17 @@
                 </x-slot>
             </x-common.contentBlock>
             <form class='cabinet__form__userInfo' method="post" action='{{ route(config('app.locale') . '::customer-profile-save') }}'>
+                @csrf()
+                <input type="hidden" value="profile" name="form">
+                @if ($errors->any() && old('form') == 'profile')
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class='cabinet__formRow'>
                     <div class='cabinet__formColumn'>
                         <x-common.input :column="true" :label="__('Name')" :value="old('first_name', $user->first_name)" :labelBig="true" labelFor="first_name" name="first_name"></x-common.input>
@@ -29,7 +40,18 @@
             </form>
 
             <form class='cabinet__form__password' method="post" action='{{ route(config('app.locale') . '::customer-password-change') }}'>
+                @csrf()
+                <input type="hidden" value="password" name="form">
                 <h4>@lang('Password')</h4>
+                @if ($errors->any() && old('form') == 'password')
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class='cabinet__formRow cabinet__formRow_row'>
                     <div class='cabinet__formColumn'>
                         <x-common.input :column="true" type='password' :label="'Enter your old password'" labelFor="old_password" name="old_password"></x-common.input>
