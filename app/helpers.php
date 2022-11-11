@@ -49,3 +49,10 @@ if (!function_exists('useModifiers')) {
         return $className;
     }
 }
+
+if(! file_exists('trueFalseValue')) {
+    function trueFalseValue($value)
+    {
+        return $value ? 'true' : 'false';
+    }
+}

@@ -13,6 +13,13 @@ class PublicJavaScriptData
         $data = [
             'locale' => app()->getLocale(),
         ];
+        if(auth()->check()) {
+            $data['userData'] = [
+                'id' => auth()->id(),
+                'first_name' => auth()->user()->first_name,
+                'last_name' => auth()->user()->last_name,
+            ];
+        }
         app('JavaScript')->put($data);
 
         return $next($request);
