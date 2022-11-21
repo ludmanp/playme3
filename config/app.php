@@ -186,6 +186,7 @@ return [
         \TypiCMS\Modules\Facts\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Clients\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Partners\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Teammembers\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
 
         /*

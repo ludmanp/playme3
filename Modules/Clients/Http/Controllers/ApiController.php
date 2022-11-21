@@ -28,7 +28,7 @@ class ApiController extends BaseApiController
 
     protected function updatePartial(Client $client, Request $request)
     {
-        foreach ($request->only('status') as $key => $content) {
+        foreach ($request->only(['status', 'position']) as $key => $content) {
             if ($client->isTranslatableAttribute($key)) {
                 foreach ($content as $lang => $value) {
                     $client->setTranslation($key, $lang, $value);

@@ -25,6 +25,8 @@
     "# slides": "No slides|1 slide|{count} slides",
     "# tags": "No tags|1 tag|{count} tags",
     "# taxonomies": "No taxonomies|1 taxonomy|{count} taxonomies",
+    "# teammember socials": "No teammember socials|1 teammember social|{count} teammember socials",
+    "# teammembers": "No teammember|1 teammember|{count} teammembers",
     "# terms": "No term|1 term|{count} terms",
     "# translations": "No translations|1 translation|{count} translations",
     "# users": "No users|1 user|{count} users",
