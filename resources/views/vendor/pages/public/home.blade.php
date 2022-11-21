@@ -7,7 +7,7 @@
     @endphp
     @section('content')
         <x-layout.home.videoBlock></x-layout.home.videoBlock>
-        <x-layout.home.facts></x-layout.home.facts>
+        @include('facts::public._section')
         <x-layout.home.clients></x-layout.home.clients>
 
         @include('services::public._carousel')

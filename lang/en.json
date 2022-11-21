@@ -1,9 +1,11 @@
 {
     "# blocks": "No blocks|1 block|{count} blocks",
     "# categories": "No categories|1 category|{count} categories",
+    "# clients": "No client|1 client|{count} clients",
     "# contacts": "No contacts|1 contact|{count} contacts",
     "# discussions": "No discussion|1 discussion|{count} discussions",
     "# events": "No events|1 event|{count} events",
+    "# facts": "No fact|1 fact|{count} facts",
     "# files could not be moved.": "No files could be moved.|1 file could not be moved.|{count} files could not be moved.",
     "# files moved.": "No files moved.|1 file moved.|{count} files moved.",
     "# items deleted": "1 item deleted|{count} items deleted",

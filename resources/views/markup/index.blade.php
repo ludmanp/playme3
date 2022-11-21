@@ -27,7 +27,34 @@
 @endsection
 @section('content')
     <x-layout.home.videoBlock></x-layout.home.videoBlock>
-    <x-layout.home.facts></x-layout.home.facts>
+    <x-layout.home.facts>
+        <x-slot name="text">
+            <p>Нашей командой реализовано более 300+ крупнейших проектов. Мы пишем, делаем, организуем, проводим, оформляем и создаём продукт любой сложности
+                и в любых условиях!</p>
+        </x-slot>
+        <x-slot name="facts">
+            <x-layout.home.factLink href='#' :description="'Трансляций'" :number="'115'"
+                                    :fact="'Промо ролики'" :imageAlt="'image'"
+                                    :image="'../img/home/fact.jpg'"
+            >
+            </x-layout.home.factLink>
+            <x-layout.home.factLink href='#' :description="'Трансляций'" :number="'115'"
+                                    :fact="'Промо ролики'" :imageAlt="'image'"
+                                    :image="'../img/home/fact.jpg'"
+            >
+            </x-layout.home.factLink>
+            <x-layout.home.factLink href='#' :description="'Трансляций'" :number="'115'"
+                                    :fact="'Промо ролики'" :imageAlt="'image'"
+                                    :image="'../img/home/fact.jpg'"
+            >
+            </x-layout.home.factLink>
+            <x-layout.home.factLink href='#' :description="'Трансляций'" :number="'115'"
+                                    :fact="'Промо ролики'" :imageAlt="'image'"
+                                    :image="'../img/home/fact.jpg'"
+            >
+            </x-layout.home.factLink>
+        </x-slot>
+    </x-layout.home.facts>
     <x-layout.home.clients></x-layout.home.clients>
     <x-layout.home.services
             title="Сервисы"

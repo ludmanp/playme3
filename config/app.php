@@ -183,6 +183,7 @@ return [
          * they should be set before Core Service provider.
          */
         \TypiCMS\Modules\Services\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Facts\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
 
         /*
