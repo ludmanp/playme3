@@ -6,19 +6,19 @@
 
 @section('content')
 
-<header class="page-header">
-    <div class="page-header-container">
-        <h1 class="page-title">@lang('Error') 404</h1>
+    <div class='error__container'>
+        <div><x-icons.error></x-icons.error></div>
+        <div>
+            <x-icons.404></x-icons.404>
+            <div class='error__action'>
+                <x-common.link :withImage="true" :uppercase="true" href="javascript:void(0)">
+                    <x-slot name="icon">
+                        <x-icons.running></x-icons.running>
+                    </x-slot>
+                    @lang('Order video')
+                </x-common.link>
+            </div>
+        </div>
     </div>
-</header>
-
-<div class="page-body">
-    <div class="page-body-container">
-        <p class="lead">@lang('Sorry, this page was not found').</p>
-        <p>
-            {!! trans('Go to our homepage?', ['a_open' => '<a href="/">', 'a_close' => '</a>']) !!}
-        </p>
-    </div>
-</div>
 
 @endsection

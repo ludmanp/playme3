@@ -184,6 +184,8 @@ return [
          */
         \TypiCMS\Modules\Services\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Facts\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Clients\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Partners\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
 
         /*
