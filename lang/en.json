@@ -1,5 +1,8 @@
 {
+    "# articles": "No article|1 article|{count} articles",
+    "# authors": "No author|1 author|{count} authors",
     "# blocks": "No blocks|1 block|{count} blocks",
+    "# blogcategories": "No category|1 category|{count} categories",
     "# categories": "No categories|1 category|{count} categories",
     "# clients": "No client|1 client|{count} clients",
     "# contacts": "No contacts|1 contact|{count} contacts",
