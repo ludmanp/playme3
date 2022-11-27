@@ -17,7 +17,7 @@ $(function () {
                 })
                 .catch(function (error) {
                     console.error(error);
-                    alertify.error('An error occurred while getting tags.');
+                    alertify.error('An error occurred while getting tags translation.');
                 });
         }, false);
 
