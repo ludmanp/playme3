@@ -11,6 +11,7 @@ use TypiCMS\Modules\Authors\Models\Author;
 use TypiCMS\Modules\Blogcategories\Models\Blogcategory;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\Core\Models\File;
+use TypiCMS\Modules\Core\Traits\HasTags;
 use TypiCMS\Modules\Core\Traits\Historable;
 use TypiCMS\Modules\Articles\Presenters\ModulePresenter;
 
@@ -35,6 +36,7 @@ class Article extends Base
     use HasTranslations;
     use Historable;
     use PresentableTrait;
+    use HasTags;
 
     protected $presenter = ModulePresenter::class;
 

@@ -38,6 +38,7 @@
             {!! BootForm::dateTimeLocal(__('Published at'), 'published_at') !!}
         </div>
     </div>
+    {!! BootForm::text(__('Tags'), 'tags')->value(old('tags') ? : $model->tags->implode(function (\TypiCMS\Modules\Core\Models\Tag $tag) {return $tag->getTranslation('tag', config('typicms.content_locale'));}, ',')) !!}
     {!! TranslatableBootForm::textarea(__('Summary'), 'summary')->rows(4) !!}
     {!! TranslatableBootForm::textarea(__('Body'), 'body')->addClass('ckeditor-full') !!}
 
