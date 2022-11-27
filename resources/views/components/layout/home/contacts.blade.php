@@ -4,7 +4,7 @@
             <div class='contactsBlock__formBlock'>
                 <x-common.contentBlock>
                     <x-slot name="header">
-                        <h3>блог</h3>
+                        <h3>Контакты</h3>
                     </x-slot>
                 </x-common.contentBlock>
                 <form class='contactsBlock__form' action=''>

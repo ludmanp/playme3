@@ -10,7 +10,7 @@
     table="articles"
     title="articles"
     include="image"
-    :exportable="true"
+    :exportable="false"
     :searchable="['title']"
     :sorting="['-published_at']">
 

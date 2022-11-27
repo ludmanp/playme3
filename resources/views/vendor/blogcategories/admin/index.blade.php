@@ -10,7 +10,7 @@
     table="blogcategories"
     title="categories"
     include=""
-    :exportable="true"
+    :exportable="false"
     :searchable="['title']"
     :sorting="['title_translated']">
 
