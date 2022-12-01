@@ -172,6 +172,8 @@ return [
         TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
         TypiCMS\Modules\Core\Providers\TranslationsServiceProvider::class,
 
+        \TypiCMS\Modules\Pageoptions\Providers\ModuleProvider::class,
+
         /*
          * TypiCMS Core Service Provider...
          */
