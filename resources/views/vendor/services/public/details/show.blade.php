@@ -20,7 +20,7 @@
                     </x-slot>
                 </x-common.contentBlock>
 
-                <x-common.contentContainer>
+                <x-core::common.contentContainer>
                     <div class='tabBlock__tabPanels'>
                         <div class='tabBlock__header'>
                             <span class='tabBlock__header__icon'>
@@ -30,7 +30,7 @@
                         </div>
 
                         <x-common.tabPanel :image="$model->present()->image()" :imageAlt="$model->title"
-                                           :description="''">
+                                           :description="$model->summary">
                             <x-slot name="filters">
                                 @include('services::public.details._nav', ['service' => $model->service, 'current' => $model])
                             </x-slot>
@@ -40,7 +40,7 @@
                         </x-common.tabPanel>
                     </div>
 
-                </x-common.contentContainer>
+                </x-core::common.contentContainer>
             </div>
         </div>
     </x-common.container>
