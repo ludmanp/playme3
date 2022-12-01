@@ -20,7 +20,7 @@
                     </x-slot>
                 </x-common.contentBlock>
 
-                <x-core::common.contentContainer>
+                <x-common.contentContainer>
                     <div class='tabBlock__tabPanels'>
                         <div class='tabBlock__header'>
                             <span class='tabBlock__header__icon'>
@@ -40,7 +40,7 @@
                         </x-common.tabPanel>
                     </div>
 
-                </x-core::common.contentContainer>
+                </x-common.contentContainer>
             </div>
         </div>
     </x-common.container>
