@@ -34,6 +34,8 @@
     </div>
     {!! TranslatableBootForm::textarea(__('Body'), 'body')->addClass('ckeditor-full') !!}
 
-    @include('teammembers::admin.socials._index')
+    @if($model->exist)
+        @include('teammembers::admin.socials._index')
+    @endif
 
 </div>
