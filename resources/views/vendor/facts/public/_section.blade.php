@@ -1,6 +1,6 @@
-<x-layout.home.facts>
+<x-layout.home.facts :title="$pageOptions->present()->local('facts_title')">
     <x-slot name="text">
-        @block('facts')
+        <p>{{ $pageOptions->present()->local('facts_text') }}</p>
     </x-slot>
     <x-slot name="facts">
         @foreach(Facts::published()->order()->get() as $fact)

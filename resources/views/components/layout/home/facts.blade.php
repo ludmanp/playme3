@@ -2,7 +2,7 @@
     <x-common.container>
         <x-common.contentBlock :thin="true">
             <x-slot name="header">
-                <h3>@lang('Facts')</h3>
+                <h3>{{ $title }}</h3>
             </x-slot>
             <x-slot name="content">
                 {{ $text }}

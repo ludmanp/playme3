@@ -26,8 +26,15 @@
     </x-common.header>
 @endsection
 @section('content')
-    <x-layout.home.videoBlock></x-layout.home.videoBlock>
-    <x-layout.home.facts>
+    <x-layout.home.videoBlock
+        :title="'СОЗДАЕМ ВИДЕО'"
+        :subtitle="'ДЛЯ ВАС И ВАШЕГО БИЗНЕСА'"
+        :header-text="'Любое мероприятие, которое вы устраиваете, мы готовы снимать и транслировать в интернете.
+                                Любой дело, которым вы занимаетесь,
+                                мы покажем в лучшем свете!
+                                Наша команда — это профессионалы в производстве видеоконтента!'"
+    ></x-layout.home.videoBlock>
+    <x-layout.home.facts :title="__('Facts)">
         <x-slot name="text">
             <p>Нашей командой реализовано более 300+ крупнейших проектов. Мы пишем, делаем, организуем, проводим, оформляем и создаём продукт любой сложности
                 и в любых условиях!</p>

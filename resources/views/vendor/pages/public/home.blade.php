@@ -6,7 +6,11 @@
     $mainPage = true;
     @endphp
     @section('content')
-        <x-layout.home.videoBlock></x-layout.home.videoBlock>
+        <x-layout.home.videoBlock
+            :title="$pageOptions->present()->local('title')"
+            :subtitle="$pageOptions->present()->local('subtitle')"
+            :header-text="$pageOptions->present()->local('header_text')"
+        ></x-layout.home.videoBlock>
         @include('facts::public._section')
         @include('clients::public._section')
 
