@@ -1,3 +1,9 @@
+/**
+ * jQuery
+ */
+import jQuery from 'jquery';
+window.$ = window.jQuery = jQuery;
+
 import "slick-carousel";
 import 'owl.carousel';
 
