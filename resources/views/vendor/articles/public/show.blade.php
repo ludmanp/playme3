@@ -11,7 +11,7 @@
         <div class='blogArticle__container'>
             <x-common.contentBlock :row="true">
                 <x-slot name="header">
-                    <h3>{{ $page->title }}</h3>
+                    <h3><a href="{{ route(config('app.locale') . '::index-articles') }}">{{ $page->title }}</a></h3>
                 </x-slot>
 {{--                <x-slot name="subheader">--}}
 {{--                    <h3>стримы</h3>--}}
@@ -22,14 +22,7 @@
             </x-common.contentBlock>
             <x-common.contentContainer>
                 <x-common.tabNav>
-                    @foreach($tags as $tag)
-                        <x-common.link href='?tag={{ $tag->id }}' class="{{ in_array($tag->id, $selectedTags) ? 'active' : '' }}" :tab="true">
-                            <x-slot name="icon">
-                                <x-icons.runningsmall></x-icons.runningsmall>
-                            </x-slot>
-                            <span class="focus">{{ $tag->tag }}</span>
-                        </x-common.link>
-                    @endforeach
+                    @include('articles::public._tagNav')
                 </x-common.tabNav>
                 <div class='blogArticle__content'>
                     <x-layout.blog.blogArticleHeader :author="$model->author ? $model->author->title : ''" :date="$model->publishedDate"
@@ -38,7 +31,7 @@
                                                      :header="$model->title" :location="$model->location">
                         <x-slot name="tags">
                             @foreach($model->tags as $tag)
-                                <x-common.link :tag="true" href="?tag={{ $tag->id}}">
+                                <x-common.link :tag="true" href="javascript:void(0)">
                                     #{{ $tag->tag }}
                                 </x-common.link>
                             @endforeach

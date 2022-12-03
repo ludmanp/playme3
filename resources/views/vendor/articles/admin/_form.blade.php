@@ -25,9 +25,9 @@
         {!! TranslatableBootForm::checkbox(__('Published'), 'status') !!}
     </div>
     <div class="row">
-        <div class="col-sm-6">
-            {!! BootForm::select(__('Category'), 'category_id', ['' => ''] + Blogcategories::published()->order()->get()->pluck('title', 'id')->all()) !!}
-        </div>
+{{--        <div class="col-sm-6">--}}
+{{--            {!! BootForm::select(__('Category'), 'category_id', ['' => ''] + Blogcategories::published()->order()->get()->pluck('title', 'id')->all()) !!}--}}
+{{--        </div>--}}
         <div class="col-sm-6">
             {!! BootForm::select(__('Author'), 'author_id', ['' => ''] + Authors::order()->get()->pluck('title', 'id')->all()) !!}
         </div>

@@ -191,7 +191,7 @@ return [
         \TypiCMS\Modules\Teammembers\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Authors\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Articles\Providers\ModuleServiceProvider::class,
-        \TypiCMS\Modules\Blogcategories\Providers\ModuleServiceProvider::class,
+//        \TypiCMS\Modules\Blogcategories\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
 
         /*
