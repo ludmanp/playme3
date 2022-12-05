@@ -11,7 +11,7 @@
             'serviceTag'=>$serviceTag??false,
             'tab'=>$tab??false,
             ])
-        }} {{$attributes['class']}}" {{$attributes->except(['class'])}}>
+        }} {{$attributes['class']}}" {{$attributes->except(['class', 'href'])}}>
     @if ($icon ?? '')
         <span class="link__icon">{{$icon}}</span>
     @endif

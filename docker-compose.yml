@@ -28,7 +28,7 @@ services:
     memcached:
         image: 'memcached:alpine'
         ports:
-            - '11211:11211'
+            - '${MEMECAHE_PORT:-11211}:11211'
         networks:
             - sail
 networks:

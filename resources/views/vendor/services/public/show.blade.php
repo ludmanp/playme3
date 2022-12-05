@@ -33,7 +33,7 @@
                             <h3>{{ $model->title }}</h3>
                         </div>
 
-                        <x-common.tabPanel :image="$model->present()->image()" :imageAlt="$model->title"
+                        <x-core::common.tabPanel :image="$model->present()->image()" :imageAlt="$model->title"
                                            :description="''">
                             <x-slot name="filters">
                                 @include('services::public.details._nav', ['service' => $model])
@@ -41,7 +41,7 @@
                             <x-slot name="action">
                                 @include('services::public._discuss-button')
                             </x-slot>
-                        </x-common.tabPanel>
+                        </x-core::common.tabPanel>
                     </div>
 
                 </x-common.contentContainer>

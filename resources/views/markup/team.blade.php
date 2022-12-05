@@ -40,8 +40,7 @@
                 </x-common.tabNav>
                 <div class='team__descriptionBlock'>
                     <x-layout.team.teamCard :image="'../img/team/team.jpg'"
-                                            :imageAlt="'team-img'" :facebookLink="'#'" :instagramLink="'#'"
-                                            :vkLink="'#'" :twitterLink="'#'" :youtubeLink="'#'" :name="'Николай вдровенко'" :position="'режиссёр'"
+                                            :imageAlt="'team-img'" :name="'Николай вдровенко'" :position="'режиссёр'"
                                             :descriptionImage="'../img/team/sign.png'" :descriptionImageAlt="'sign'">
                         <x-slot name="description">
                             <p>
@@ -57,6 +56,23 @@
                                 non dignissim exligula innulla. Suspendisse utmagna nec eros pellentesque tempus autpurus.
                                 Sed egestas quis eros vitae mollis.
                             </p>
+                        </x-slot>
+                        <x-slot name="social">
+                            <a href='javascript:void(0)'>
+                                <x-icons.twitter></x-icons.twitter>
+                            </a>
+                            <a href='javascript:void(0)'>
+                                <x-icons.facebook></x-icons.facebook>
+                            </a>
+                            <a href='javascript:void(0)'>
+                                <x-icons.vk></x-icons.vk>
+                            </a>
+                            <a href='javascript:void(0)'>
+                                <x-icons.youtube></x-icons.youtube>
+                            </a>
+                            <a href='javascript:void(0)'>
+                                <x-icons.instagram></x-icons.instagram>
+                            </a>
                         </x-slot>
                     </x-layout.team.teamCard>
                 </div>

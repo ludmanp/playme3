@@ -57,11 +57,11 @@
         <x-slot name="menu">
             @menu('primary')
         </x-slot>
-        <x-slot name="lang-switcher">
+        <x-slot name="langSwitcher">
             @include('core::public._lang-switcher')
         </x-slot>
-        <x-slot name="user-button">
-            <user-button>
+        <x-slot name="userButton">
+            <user-button :allow-register="{{ trueFalseValue(config('typicms.register'))  }}">
             </user-button>
         </x-slot>
     </x-common.header>
@@ -76,10 +76,10 @@
             <x-slot name="menu">
                 @menu('footer')
             </x-slot>
-            <x-slot name="social-menu">
+            <x-slot name="socialMenu">
                 @menu('social')
             </x-slot>
-            <x-slot name="legal-menu">
+            <x-slot name="legalMenu">
                 @menu('legal')
             </x-slot>
         </x-common.footer>

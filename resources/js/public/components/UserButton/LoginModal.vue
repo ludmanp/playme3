@@ -14,7 +14,7 @@
                     </div>
                     <form @submit="submit" method="post">
                         <input-field type="email" placeholder="E-mail" v-model="email"></input-field>
-                        <input-field type="email" placeholder="Пароль" v-model="password"></input-field>
+                        <input-field type="password" placeholder="Пароль" v-model="password"></input-field>
                         <div class='modal__link'>
                             <a href="javascript:void(0)" class="link link_inlineText" @click="forgotPassword">Забыли пароль?</a>
                         </div>
@@ -23,7 +23,7 @@
                                 Запомнить меня
                             </template>
                         </checkbox-item>
-                        <div class='modal__link'>
+                        <div class='modal__link' v-if="$parent.allowRegister">
                             <a href="javascript:void(0)" class="link link_inlineText" @click="register">Зарегистрироваться</a>
                         </div>
                         <div class='modal__action'>
@@ -69,7 +69,36 @@ export default {
         },
         submit(e) {
             e.preventDefault();
-            console.log('From submit')
+
+            axios
+                .post('/' + window.TypiCMS.locale + '/login', {
+                    'email': this.email,
+                    'password': this.password,
+                    'remember': this.rememberMe,
+                })
+                .then((response) => {
+                    this.$parent.userData = true;
+                    this.hide();
+                    window.EventBus.$emit('user.login', response.data);
+                })
+                .catch((error) => {
+                    console.log('Cannot login: ', error);
+
+                    // this.showMessage = 'error';
+                    // if(error.response.data) {
+                    //     this.alertMessage = '<ul>'
+                    //     for(var key in error.response.data) {
+                    //         this.alertMessage += '<li>' + error.response.data[key] + '</li>';
+                    //     }
+                    //     this.alertMessage += '</ul>';
+                    //
+                    // }else if(error.response.data.message) {
+                    //     this.alertMessage = error.response.data.message;
+                    // } else {
+                    //     this.alertMessage = 'Unknown error';
+                    // }
+
+                });
         }
     },
 }

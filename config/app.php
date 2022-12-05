@@ -172,6 +172,8 @@ return [
         TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
         TypiCMS\Modules\Core\Providers\TranslationsServiceProvider::class,
 
+        \TypiCMS\Modules\Pageoptions\Providers\ModuleProvider::class,
+
         /*
          * TypiCMS Core Service Provider...
          */
@@ -183,6 +185,14 @@ return [
          * they should be set before Core Service provider.
          */
         \TypiCMS\Modules\Services\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Facts\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Clients\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Partners\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Teammembers\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Authors\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Articles\Providers\ModuleServiceProvider::class,
+//        \TypiCMS\Modules\Blogcategories\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -198,6 +208,7 @@ return [
          * so it should stay at last...
          */
         TypiCMS\Modules\Core\Providers\PagesRoutesServiceProvider::class,
+        TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
     ],
 
     /*

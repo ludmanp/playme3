@@ -21,6 +21,8 @@
     </div>
     {!! TranslatableBootForm::text(__('Subtitle'), 'subtitle') !!}
 
+    @if($model->exists)
     @include('services::admin.details._index')
+    @endif
 
 </div>

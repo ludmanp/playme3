@@ -73,7 +73,38 @@ export default {
         },
         submit(e) {
             e.preventDefault();
-            console.log('Registration from submit')
+
+            axios
+                .post('/' + window.TypiCMS.locale + '/customer-register', {
+                    'first_name': this.name,
+                    'email': this.email,
+                    'phone': this.phone,
+                    'password': this.password,
+                    'password_confirmation': this.password_confirmation,
+                    'accept': this.accept,
+                })
+                .then((response) => {
+                    this.$parent.showRegistrationSuccessModal(response.data.message);
+                    window.EventBus.$emit('user.login', response.data);
+                })
+                .catch((error) => {
+                    console.log('Cannot login: ', error);
+
+                    // this.showMessage = 'error';
+                    // if(error.response.data) {
+                    //     this.alertMessage = '<ul>'
+                    //     for(var key in error.response.data) {
+                    //         this.alertMessage += '<li>' + error.response.data[key] + '</li>';
+                    //     }
+                    //     this.alertMessage += '</ul>';
+                    //
+                    // }else if(error.response.data.message) {
+                    //     this.alertMessage = error.response.data.message;
+                    // } else {
+                    //     this.alertMessage = 'Unknown error';
+                    // }
+
+                });
         }
     },
 }

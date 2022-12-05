@@ -25,6 +25,7 @@
     "require": {
         "php": "^8.0.2",
         "bkwld/croppa": "^6.0",
+        "doctrine/dbal": "^3.5",
         "eluceo/ical": "^2.5",
         "genealabs/laravel-model-caching": "^0.12.0",
         "guzzlehttp/guzzle": "^7.2",
@@ -45,7 +46,6 @@
         "spatie/laravel-translatable": "^6.0",
         "symfony/http-client": "^6.0",
         "symfony/mailgun-mailer": "^6.0",
-        "typicms/core": "^10.0",
         "typicms/laravel-translatable-bootforms": "^7.0",
         "typicms/nestablecollection": "^2.0",
         "typicms/things": "^10.0",

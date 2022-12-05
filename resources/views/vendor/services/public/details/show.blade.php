@@ -30,7 +30,7 @@
                         </div>
 
                         <x-common.tabPanel :image="$model->present()->image()" :imageAlt="$model->title"
-                                           :description="''">
+                                           :description="$model->summary">
                             <x-slot name="filters">
                                 @include('services::public.details._nav', ['service' => $model->service, 'current' => $model])
                             </x-slot>

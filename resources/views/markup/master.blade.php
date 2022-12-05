@@ -68,6 +68,9 @@
                     </x-slot>
                 </x-common.link>
             </x-slot>
+            <x-slot name="modals">
+                @include('markup.assets.user-modals')
+            </x-slot>
         </x-common.header>
     @endsection
     @yield('header')

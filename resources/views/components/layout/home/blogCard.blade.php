@@ -11,14 +11,14 @@
                 <span class='blog__authorName'>{{ $author ?? '' }}</span>
             </div>
             <div class='blog__date'>{{ $date ?? '' }}</div>
-            <div class='blog__arrows' data-target-carousel='{{ $carouselId ?? '' }}'>
-                <button class='previous'>
-                    <x-icons.arrowLeft></x-icons.arrowLeft>
-                </button>
-                <button class='next'>
-                    <x-icons.arrowRight></x-icons.arrowRight>
-                </button>
-            </div>
+{{--            <div class='blog__arrows' data-target-carousel='{{ $carouselId ?? '' }}'>--}}
+{{--                <button class='previous'>--}}
+{{--                    <x-icons.arrowLeft></x-icons.arrowLeft>--}}
+{{--                </button>--}}
+{{--                <button class='next'>--}}
+{{--                    <x-icons.arrowRight></x-icons.arrowRight>--}}
+{{--                </button>--}}
+{{--            </div>--}}
         </div>
         <div class='blogCard__tags' data-target-carousel='{{ $carouselId ?? '' }}'>
            {{ $tags ?? '' }}

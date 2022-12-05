@@ -9,10 +9,10 @@
     fields="id,tag,slug"
     table="tags"
     title="tags"
-    :translatable="false"
+    :translatable="true"
     :publishable="false"
     :searchable="['tag']"
-    :sorting="['tag']">
+    :sorting="['uses']">
 
     <template slot="add-button" v-if="$can('create tags')">
         @include('core::admin._button-create', ['module' => 'tags'])
@@ -21,14 +21,14 @@
     <template slot="columns" slot-scope="{ sortArray }">
         <item-list-column-header name="checkbox" v-if="$can('update tags')||$can('delete tags')"></item-list-column-header>
         <item-list-column-header name="edit" v-if="$can('update tags')"></item-list-column-header>
-        <item-list-column-header name="tag" sortable :sort-array="sortArray" :label="$t('Tag')"></item-list-column-header>
+        <item-list-column-header name="tag_translated" :label="$t('Tag')"></item-list-column-header>
         <item-list-column-header name="uses" sortable :sort-array="sortArray" :label="$t('Uses')"></item-list-column-header>
     </template>
 
     <template slot="table-row" slot-scope="{ model, checkedModels, loading }">
         <td class="checkbox" v-if="$can('update tags')||$can('delete tags')"><item-list-checkbox :model="model" :checked-models-prop="checkedModels" :loading="loading"></item-list-checkbox></td>
         <td v-if="$can('update tags')"><item-list-edit-button :url="'/admin/tags/'+model.id+'/edit'"></item-list-edit-button></td>
-        <td>@{{ model.tag }}</td>
+        <td>@{{ model.tag_translated }}</td>
         <td>@{{ model.uses }}</td>
     </template>
 

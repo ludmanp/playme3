@@ -4,31 +4,7 @@
             <img src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>
         </div>
         <div class='teamCard__socialNetworks'>
-            @if ($twitterLink ?? '')
-                <a href='{{ $twitterLink }}'>
-                    <x-icons.twitter></x-icons.twitter>
-                </a>
-            @endif
-            @if ($facebookLink ?? '')
-                <a href='{{ $facebookLink }}'>
-                    <x-icons.facebook></x-icons.facebook>
-                </a>
-            @endif
-            @if ($vkLink ?? '')
-                <a href='{{ $vkLink }}'>
-                    <x-icons.vk></x-icons.vk>
-                </a>
-            @endif
-            @if ($youtubeLink ?? '')
-                <a href='{{ $youtubeLink }}'>
-                    <x-icons.youtube></x-icons.youtube>
-                </a>
-            @endif
-            @if ($instagramLink ?? '')
-                <a href='{{ $instagramLink }}'>
-                    <x-icons.instagram></x-icons.instagram>
-                </a>
-            @endif
+            {{ $social ?? '' }}
         </div>
     </div>
     <div class='teamCard__description'>
@@ -42,30 +18,6 @@
         @endif
     </div>
     <div class='teamCard__socialNetworks_tablet'>
-        @if ($twitterLink ?? '')
-            <a href='{{ $twitterLink }}'>
-                <x-icons.twitter></x-icons.twitter>
-            </a>
-        @endif
-        @if ($facebookLink ?? '')
-            <a href='{{ $facebookLink }}'>
-                <x-icons.facebook></x-icons.facebook>
-            </a>
-        @endif
-        @if ($vkLink ?? '')
-            <a href='{{ $vkLink }}'>
-                <x-icons.vk></x-icons.vk>
-            </a>
-        @endif
-        @if ($youtubeLink ?? '')
-            <a href='{{ $youtubeLink }}'>
-                <x-icons.youtube></x-icons.youtube>
-            </a>
-        @endif
-        @if ($instagramLink ?? '')
-            <a href='{{ $instagramLink }}'>
-                <x-icons.instagram></x-icons.instagram>
-            </a>
-        @endif
+        {{ $social ?? '' }}
     </div>
 </div>
