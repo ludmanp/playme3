@@ -46,9 +46,9 @@
     }
 }
 
-.videoBlock__info, .videoBlock__image {
+.videoBlock__info {
     @media screen and (min-width: 1280px) {
-        width: 50%;
+        width: 60%;
     }
 }
 
@@ -69,6 +69,7 @@
 
     @media screen and (min-width:1280px) {
         display: block;
+        width: 40%;
     }
 }
 
@@ -131,6 +132,7 @@
 .videoBlock__infoDescription {
     @media screen and (min-width:1280px) {
         margin-top: 16px;
+        max-width: 560px;
     }
 
     p {
@@ -150,7 +152,7 @@
     color: var(--cGreen);
 
     @media screen and (min-width: 1280px) {
-        transform: translate(-50%, -50%);
+        transform: translate(calc(-50% + 150px), -50%);
     }
 
     @media screen and (min-width: 768px) {
