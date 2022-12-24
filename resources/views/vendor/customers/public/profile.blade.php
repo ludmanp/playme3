@@ -91,7 +91,7 @@
                         </x-slot>
                         @lang('Order video')
                     </x-common.link>
-                    <x-common.link :withImage="true" :uppercase="true" href="#">
+                    <x-common.link :withImage="true" :uppercase="true" :href="route(config('app.locale') . '::create-broadcast')">
                         <x-slot name="icon">
                             <x-icons.running></x-icons.running>
                         </x-slot>

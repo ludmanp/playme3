@@ -1,0 +1,18 @@
+.loginForm {
+    --width: 624px;
+
+    background: var(--cWhite);
+    border-radius: var(--sRadiusHuge);
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px;
+
+    @media screen and (max-width: 767px) {
+        margin: 0 28px;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: var(--width);
+    }
+}

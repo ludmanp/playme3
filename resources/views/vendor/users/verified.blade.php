@@ -1,35 +1,31 @@
-@extends('core::admin.master')
+@extends('core::public.master')
 
-@section('title', __('Verify'))
-@section('bodyClass', 'auth-background')
-
-@section('page-header')
-@endsection
-@section('sidebar')
-@endsection
-@section('mainClass')
-@endsection
+@section('title', __('Verify').' – '.$websiteTitle)
 
 @section('content')
 
-<div id="verify" class="container-verify auth">
+    <x-common.container>
+        <div class="loginForm">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class='modal__header_large'>
+                        <span>@lang('Your email address has been verified.')</span>
+                    </div>
+                </div>
 
-    @include('users::_auth-header')
+                <div class='modal__action'>
+                    <x-common.link :withImage="true" :uppercase="true"
+                                   :href="TypiCMS::homeUrl()">
+                        <x-slot name="icon">
+                            <x-icons.running></x-icons.running>
+                        </x-slot>
 
-    <div class="auth-form">
+                        {{ __('Go to our homepage') }}
+                    </x-common.link>
+                </div>
 
-            <div class="alert alert-success" role="alert">
-                {{ __('Your email address has been verified.') }}
             </div>
-
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-secondary" href="{{ TypiCMS::homeUrl() }}">@lang('Go to our homepage')</a>
-            </div>
-
         </div>
-
-    </div>
-
-</div>
+    </x-common.container>
 
 @endsection
