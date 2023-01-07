@@ -38,6 +38,8 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware(['public', 'auth'])->prefix($lang . '/broadcast')->name($lang.'::')->group(function (Router $router) {
                 $router->get('create', [PublicController::class, 'create'])->name('create-broadcast');
                 $router->post('create', [PublicController::class, 'store'])->name('store-broadcast');
+                $router->get('{slug}/edit', [PublicController::class, 'edit'])->name('edit-broadcast');
+                $router->post('{slug}/edit', [PublicController::class, 'update'])->name('update-broadcast');
             });
         }
 

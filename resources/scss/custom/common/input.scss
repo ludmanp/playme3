@@ -1,3 +1,9 @@
+.inputRow {
+    &:not(:last-of-type) {
+        margin-bottom: 16px;
+    }
+}
+
 .inputField {
     display: flex;
     flex-direction: column;

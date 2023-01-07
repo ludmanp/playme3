@@ -4,58 +4,28 @@ namespace TypiCMS\Modules\Broadcasts\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
-use Spatie\Translatable\HasTranslations;
 use TypiCMS\Modules\Core\Models\Base;
-use TypiCMS\Modules\Files\Models\File;
-use TypiCMS\Modules\Files\Traits\HasFiles;
-use TypiCMS\Modules\History\Traits\Historable;
 use TypiCMS\Modules\Broadcasts\Presenters\AddressModulePresenter;
 
 /**
  * Class Address
  * @package TypiCMS\Modules\Broadcasts\Models
  *
- * @property string title
- * @property bool status
- * @property string slug
- * @property string summary
- * @property string body
+ * @property string address
  * @property integer broadcast_id
  * @property Broadcast broadcast
  */
 class BroadcastAddress extends Base implements Sortable
 {
-    use HasFiles;
-    use HasTranslations;
-    use Historable;
     use PresentableTrait;
     use SortableTrait;
 
     protected $presenter = AddressModulePresenter::class;
 
     protected $guarded = [];
-
-    public $translatable = [
-        'title',
-        'slug',
-        'status',
-        'summary',
-        'body',
-    ];
-
-    public function getThumbAttribute(): string
-    {
-        return $this->present()->image(null, 54);
-    }
-
-    public function image(): BelongsTo
-    {
-        return $this->belongsTo(File::class, 'image_id');
-    }
 
     public function previewUri(): string
     {

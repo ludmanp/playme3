@@ -2,36 +2,30 @@
 
 namespace TypiCMS\Modules\Broadcasts\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
-use Spatie\Translatable\HasTranslations;
 use TypiCMS\Modules\Core\Models\Base;
-use TypiCMS\Modules\Files\Models\File;
-use TypiCMS\Modules\Files\Traits\HasFiles;
-use TypiCMS\Modules\History\Traits\Historable;
 use TypiCMS\Modules\Broadcasts\Presenters\DateModulePresenter;
 
 /**
  * Class Date
  * @package TypiCMS\Modules\Broadcasts\Models
  *
- * @property string title
- * @property bool status
- * @property string slug
- * @property string summary
- * @property string body
- * @property integer broadcast_id
+ * @property Carbon $starts_at
+ * @property string date
+ * @property string start_time
+ * @property Carbon $arrive_at
+ * @property string arrive_time
+ * @property integer $broadcast_id
  * @property Broadcast broadcast
  */
 class BroadcastDate extends Base implements Sortable
 {
-    use HasFiles;
-    use HasTranslations;
-    use Historable;
     use PresentableTrait;
     use SortableTrait;
 
@@ -39,23 +33,7 @@ class BroadcastDate extends Base implements Sortable
 
     protected $guarded = [];
 
-    public $translatable = [
-        'title',
-        'slug',
-        'status',
-        'summary',
-        'body',
-    ];
-
-    public function getThumbAttribute(): string
-    {
-        return $this->present()->image(null, 54);
-    }
-
-    public function image(): BelongsTo
-    {
-        return $this->belongsTo(File::class, 'image_id');
-    }
+    protected $dates = ['starts_at', 'arrive_at'];
 
     public function previewUri(): string
     {
@@ -108,5 +86,25 @@ class BroadcastDate extends Base implements Sortable
         return route('admin::dashboard');
     }
 
+    public function date(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->starts_at->format('Y-m-d'),
+        );
+    }
+
+    public function startTime(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->starts_at->format('H:i'),
+        );
+    }
+
+    public function arriveTime(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->arrive_at->format('H:i'),
+        );
+    }
 
 }

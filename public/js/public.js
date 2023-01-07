@@ -2584,6 +2584,591 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form/InputField */ "./resources/js/public/components/Form/InputField.vue");
+/* harmony import */ var _Form_TextareaField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form/TextareaField */ "./resources/js/public/components/Form/TextareaField.vue");
+/* harmony import */ var _Form_SelectField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form/SelectField */ "./resources/js/public/components/Form/SelectField.vue");
+/* harmony import */ var _Form_CheckboxItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form/CheckboxItem */ "./resources/js/public/components/Form/CheckboxItem.vue");
+/* harmony import */ var _Form_ButtonDefault__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Form/ButtonDefault */ "./resources/js/public/components/Form/ButtonDefault.vue");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "BroadcastForm",
+  components: {
+    TextareaField: _Form_TextareaField__WEBPACK_IMPORTED_MODULE_1__["default"],
+    InputField: _Form_InputField__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CheckboxItem: _Form_CheckboxItem__WEBPACK_IMPORTED_MODULE_3__["default"],
+    SelectField: _Form_SelectField__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ButtonDefault: _Form_ButtonDefault__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  props: {
+    dataModel: {
+      type: Object,
+      "default": {}
+    },
+    csrfToken: {
+      type: String,
+      required: true
+    },
+    formTitle: {
+      type: String,
+      required: true
+    },
+    labelTitle: {
+      type: String,
+      required: true
+    },
+    labelDescription: {
+      type: String,
+      required: true
+    },
+    labelAddresses: {
+      type: String,
+      required: true
+    },
+    labelAddress: {
+      type: String,
+      required: true
+    },
+    labelAddAddress: {
+      type: String,
+      required: true
+    },
+    labelDate: {
+      type: String,
+      required: true
+    },
+    labelStartsAt: {
+      type: String,
+      required: true
+    },
+    labelArriveAt: {
+      type: String,
+      required: true
+    },
+    labelAddDate: {
+      type: String,
+      required: true
+    },
+    labelContactPerson: {
+      type: String,
+      required: true
+    },
+    labelName: {
+      type: String,
+      required: true
+    },
+    labelPhone: {
+      type: String,
+      required: true
+    },
+    labelEmail: {
+      type: String,
+      required: true
+    },
+    labelCamera: {
+      type: String,
+      required: true
+    },
+    labelCameraQuantity: {
+      type: String,
+      required: true
+    },
+    labelAvailableToAll: {
+      type: String,
+      required: true
+    },
+    labelPasswordRequired: {
+      type: String,
+      required: true
+    },
+    titleLogistics: {
+      type: String,
+      required: true
+    },
+    labelEquipmentDelivery: {
+      type: String,
+      required: true
+    },
+    labelBroadcastOnPlatform: {
+      type: String,
+      required: true
+    },
+    titleDecoration: {
+      type: String,
+      required: true
+    },
+    labelMakeup: {
+      type: String,
+      required: true
+    },
+    labelDesign: {
+      type: String,
+      required: true
+    },
+    titleFinalVideo: {
+      type: String,
+      required: true
+    },
+    labelVideoLight: {
+      type: String,
+      required: true
+    },
+    labelVideoSound: {
+      type: String,
+      required: true
+    },
+    titlePostProductsion: {
+      type: String,
+      required: true
+    },
+    labelSocialVideo: {
+      type: String,
+      required: true
+    },
+    labelReportingVideo: {
+      type: String,
+      required: true
+    },
+    labelCorporateVideo: {
+      type: String,
+      required: true
+    },
+    labelPromoVideo: {
+      type: String,
+      required: true
+    },
+    labelConference2h: {
+      type: String,
+      required: true
+    },
+    labelConference4h: {
+      type: String,
+      required: true
+    },
+    labelTemplateElements: {
+      type: String,
+      required: true
+    },
+    labelCustomElements: {
+      type: String,
+      required: true
+    },
+    titleLeader: {
+      type: String,
+      required: true
+    },
+    titleCompany: {
+      type: String,
+      required: true
+    },
+    labelCompanyName: {
+      type: String,
+      required: true
+    },
+    labelRegistrationNumber: {
+      type: String,
+      required: true
+    },
+    labelLegalAddress: {
+      type: String,
+      required: true
+    },
+    labelCreateBroadcast: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    var _this$dataModel$param, _this$dataModel$param2, _this$dataModel$param3, _this$dataModel$param4, _this$dataModel$param5, _this$dataModel$param6, _this$dataModel$param7, _this$dataModel$param8, _this$dataModel$param9, _this$dataModel$param10, _this$dataModel$param11, _this$dataModel$param12, _this$dataModel$param13, _this$dataModel$param14, _this$dataModel$param15, _this$dataModel$param16;
+
+    return {
+      title: this.dataModel.title,
+      summary: this.dataModel.summary,
+      addresses: this.dataModel.addresses || [{
+        'address': ''
+      }],
+      dates: this.dataModel.dates || [{
+        'date': '',
+        'starts_at': '',
+        'arrive_at': ''
+      }],
+      contact_name: this.dataModel.contact_name,
+      contact_phone: this.dataModel.contact_phone,
+      contact_email: this.dataModel.contact_email,
+      leader_name: this.dataModel.leader_name,
+      leader_phone: this.dataModel.leader_phone,
+      leader_email: this.dataModel.leader_email,
+      company: this.dataModel.company,
+      registration_nr: this.dataModel.registration_nr,
+      legal_address: this.dataModel.legal_address,
+      company_phone: this.dataModel.company_phone,
+      company_email: this.dataModel.company_email,
+      isPublic: typeof this.dataModel.is_public === 'undefined' ? true : this.dataModel.is_public,
+      isPrivate: typeof this.dataModel.is_public === 'undefined' ? false : !this.dataModel.is_public,
+      camerasQuantity: ((_this$dataModel$param = this.dataModel.parameters) === null || _this$dataModel$param === void 0 ? void 0 : _this$dataModel$param.camerasQuantity) || "1",
+      equipmentDelivery: (_this$dataModel$param2 = this.dataModel.parameters) === null || _this$dataModel$param2 === void 0 ? void 0 : _this$dataModel$param2.equipmentDelivery,
+      broadcastOnPlatform: (_this$dataModel$param3 = this.dataModel.parameters) === null || _this$dataModel$param3 === void 0 ? void 0 : _this$dataModel$param3.broadcastOnPlatform,
+      makeUp: (_this$dataModel$param4 = this.dataModel.parameters) === null || _this$dataModel$param4 === void 0 ? void 0 : _this$dataModel$param4.makeUp,
+      graphicDesign: (_this$dataModel$param5 = this.dataModel.parameters) === null || _this$dataModel$param5 === void 0 ? void 0 : _this$dataModel$param5.graphicDesign,
+      finalVideoCamerasQuantity: ((_this$dataModel$param6 = this.dataModel.parameters) === null || _this$dataModel$param6 === void 0 ? void 0 : _this$dataModel$param6.finalVideoCamerasQuantity) || "1",
+      workWithLight: (_this$dataModel$param7 = this.dataModel.parameters) === null || _this$dataModel$param7 === void 0 ? void 0 : _this$dataModel$param7.workWithLight,
+      workWithSound: (_this$dataModel$param8 = this.dataModel.parameters) === null || _this$dataModel$param8 === void 0 ? void 0 : _this$dataModel$param8.workWithSound,
+      socialVideo: (_this$dataModel$param9 = this.dataModel.parameters) === null || _this$dataModel$param9 === void 0 ? void 0 : _this$dataModel$param9.socialVideo,
+      reportingVideo: (_this$dataModel$param10 = this.dataModel.parameters) === null || _this$dataModel$param10 === void 0 ? void 0 : _this$dataModel$param10.reportingVideo,
+      corporateVideo: (_this$dataModel$param11 = this.dataModel.parameters) === null || _this$dataModel$param11 === void 0 ? void 0 : _this$dataModel$param11.corporateVideo,
+      promoVideo: (_this$dataModel$param12 = this.dataModel.parameters) === null || _this$dataModel$param12 === void 0 ? void 0 : _this$dataModel$param12.promoVideo,
+      conference2h: (_this$dataModel$param13 = this.dataModel.parameters) === null || _this$dataModel$param13 === void 0 ? void 0 : _this$dataModel$param13.conference2h,
+      conference4h: (_this$dataModel$param14 = this.dataModel.parameters) === null || _this$dataModel$param14 === void 0 ? void 0 : _this$dataModel$param14.conference4h,
+      templateElements: (_this$dataModel$param15 = this.dataModel.parameters) === null || _this$dataModel$param15 === void 0 ? void 0 : _this$dataModel$param15.templateElements,
+      customElements: (_this$dataModel$param16 = this.dataModel.parameters) === null || _this$dataModel$param16 === void 0 ? void 0 : _this$dataModel$param16.customElements,
+      errors: []
+    };
+  },
+  computed: {
+    canAddAddress: function canAddAddress() {
+      if (this.addresses.length === 0) {
+        return true;
+      }
+
+      return !!this.addresses[this.addresses.length - 1].address;
+    }
+  },
+  methods: {
+    addAddress: function addAddress() {
+      this.addresses.push({
+        'address': ''
+      });
+    },
+    addDate: function addDate() {
+      this.dates.push({
+        'date': '',
+        'starts_at': '',
+        'arrive_at': ''
+      });
+    },
+    isPublicChanged: function isPublicChanged() {
+      this.isPrivate = !this.isPublic;
+    },
+    isPrivateChanged: function isPrivateChanged() {
+      this.isPublic = !this.isPrivate;
+    },
+    submit: function submit(e) {
+      var _this = this;
+
+      e.preventDefault();
+      this.error = [];
+      var url = this.dataModel.slug ? '/' + window.TypiCMS.locale + '/broadcast/' + this.dataModel.slug + '/edit' : '/' + window.TypiCMS.locale + '/broadcast/create';
+      axios.post(url, {
+        title: this.title,
+        summary: this.summary,
+        addresses: this.addresses,
+        dates: this.dates,
+        contact_name: this.contact_name,
+        contact_phone: this.contact_phone,
+        contact_email: this.contact_email,
+        leader_name: this.leader_name,
+        leader_phone: this.leader_phone,
+        leader_email: this.leader_email,
+        company: this.company,
+        registration_nr: this.registration_nr,
+        legal_address: this.legal_address,
+        company_phone: this.company_phone,
+        company_email: this.company_email,
+        is_public: this.is_public,
+        parameters: {
+          camerasQuantity: this.camerasQuantity,
+          equipmentDelivery: this.equipmentDelivery,
+          broadcastOnPlatform: this.broadcastOnPlatform,
+          makeUp: this.makeUp,
+          graphicDesign: this.graphicDesign,
+          finalVideoCamerasQuantity: this.finalVideoCamerasQuantity,
+          workWithLight: this.workWithLight,
+          workWithSound: this.workWithSound,
+          socialVideo: this.socialVideo,
+          reportingVideo: this.reportingVideo,
+          corporateVideo: this.corporateVideo,
+          promoVideo: this.promoVideo,
+          conference2h: this.conference2h,
+          conference4h: this.conference4h,
+          templateElements: this.templateElements,
+          customElements: this.customElements
+        }
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        var _error$response$data, _error$response$data2;
+
+        console.log('Cannot create broadcast: ', error);
+
+        if ((_error$response$data = error.response.data) !== null && _error$response$data !== void 0 && _error$response$data.errors) {
+          for (var key in error.response.data.errors) {
+            var _iterator = _createForOfIteratorHelper(error.response.data.errors[key]),
+                _step;
+
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                var value = _step.value;
+
+                _this.errors.push(value);
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+          }
+        } else if ((_error$response$data2 = error.response.data) !== null && _error$response$data2 !== void 0 && _error$response$data2.message) {
+          _this.errors = [error.response.data.message];
+        } else {
+          _this.errors = ['Unknown error'];
+        }
+      })["finally"](function () {
+        document.body.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/ButtonDefault.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/ButtonDefault.vue?vue&type=script&lang=js& ***!
@@ -2677,6 +3262,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     falseValue: {
       "default": false
+    },
+    greenText: {
+      "default": false
     }
   },
   computed: {
@@ -2732,6 +3320,97 @@ __webpack_require__.r(__webpack_exports__);
     type: {
       type: String,
       "default": "text"
+    },
+    placeholder: {
+      type: String,
+      "default": null
+    },
+    value: {
+      type: String
+    },
+    location: {
+      type: Boolean
+    },
+    date: {
+      type: Boolean
+    },
+    time: {
+      type: Boolean
+    }
+  },
+  methods: {
+    onInput: function onInput() {
+      this.$emit('input', event.target.value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "SelectField",
+  props: {
+    label: {
+      type: String,
+      "default": null
+    },
+    value: {
+      type: String
+    },
+    options: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
+  },
+  methods: {
+    onChange: function onChange() {
+      this.$emit('input', event.target.value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "TextareaField",
+  props: {
+    label: {
+      type: String,
+      "default": null
     },
     placeholder: {
       type: String,
@@ -23536,6 +24215,42 @@ VueI18n.version = '8.27.1';
 
 /***/ }),
 
+/***/ "./resources/js/public/components/BroadcastForm.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/public/components/BroadcastForm.vue ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BroadcastForm.vue?vue&type=template&id=612401a4& */ "./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4&");
+/* harmony import */ var _BroadcastForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BroadcastForm.vue?vue&type=script&lang=js& */ "./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BroadcastForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/public/components/BroadcastForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/public/components/Form/ButtonDefault.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/public/components/Form/ButtonDefault.vue ***!
@@ -23640,6 +24355,78 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/public/components/Form/InputField.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/SelectField.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/public/components/Form/SelectField.vue ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectField.vue?vue&type=template&id=8d63e078& */ "./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078&");
+/* harmony import */ var _SelectField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectField.vue?vue&type=script&lang=js& */ "./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SelectField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/public/components/Form/SelectField.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/TextareaField.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/public/components/Form/TextareaField.vue ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TextareaField.vue?vue&type=template&id=4b9fb7c6& */ "./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6&");
+/* harmony import */ var _TextareaField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextareaField.vue?vue&type=script&lang=js& */ "./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TextareaField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/public/components/Form/TextareaField.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
@@ -23896,6 +24683,19 @@ component.options.__file = "resources/js/public/components/UserButton/Registrati
 
 /***/ }),
 
+/***/ "./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BroadcastForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BroadcastForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BroadcastForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/public/components/Form/ButtonDefault.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************!*\
   !*** ./resources/js/public/components/Form/ButtonDefault.vue?vue&type=script&lang=js& ***!
@@ -23932,6 +24732,32 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputField.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/InputField.vue?vue&type=script&lang=js&");
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SelectField.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=script&lang=js&");
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TextareaField.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=script&lang=js&");
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -24026,6 +24852,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4& ***!
+  \*****************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__.render; },
+/* harmony export */   "staticRenderFns": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BroadcastForm_vue_vue_type_template_id_612401a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BroadcastForm.vue?vue&type=template&id=612401a4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/public/components/Form/ButtonDefault.vue?vue&type=template&id=76367515&":
 /*!**********************************************************************************************!*\
   !*** ./resources/js/public/components/Form/ButtonDefault.vue?vue&type=template&id=76367515& ***!
@@ -24073,6 +24916,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_template_id_66449d5a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_template_id_66449d5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputField.vue?vue&type=template&id=66449d5a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/InputField.vue?vue&type=template&id=66449d5a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078& ***!
+  \********************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__.render; },
+/* harmony export */   "staticRenderFns": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectField_vue_vue_type_template_id_8d63e078___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SelectField.vue?vue&type=template&id=8d63e078& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078&");
+
+
+/***/ }),
+
+/***/ "./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6& ***!
+  \**********************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__.render; },
+/* harmony export */   "staticRenderFns": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaField_vue_vue_type_template_id_4b9fb7c6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TextareaField.vue?vue&type=template&id=4b9fb7c6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6&");
 
 
 /***/ }),
@@ -24192,6 +25069,997 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": function() { return /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrationSuccessModal_vue_vue_type_template_id_f757f7d8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrationSuccessModal_vue_vue_type_template_id_f757f7d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegistrationSuccessModal.vue?vue&type=template&id=f757f7d8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/UserButton/RegistrationSuccessModal.vue?vue&type=template&id=f757f7d8&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/BroadcastForm.vue?vue&type=template&id=612401a4& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* binding */ render; },
+/* harmony export */   "staticRenderFns": function() { return /* binding */ staticRenderFns; }
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      staticClass: "orderForm__form",
+      attrs: { action: "" },
+      on: { submit: _vm.submit },
+    },
+    [
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrfToken },
+      }),
+      _vm._v(" "),
+      _c("h2", { staticClass: "orderForm__formHeader" }, [
+        _vm._v(_vm._s(_vm.formTitle)),
+      ]),
+      _vm._v(" "),
+      _vm.errors.length
+        ? _c("div", { staticClass: "alert alert-danger" }, [
+            _c(
+              "ul",
+              _vm._l(_vm.errors, function (error) {
+                return _c("li", [_vm._v(_vm._s(error))])
+              }),
+              0
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.labelTitle)),
+          ]),
+          _vm._v(" "),
+          _c("input-field", {
+            model: {
+              value: _vm.title,
+              callback: function ($$v) {
+                _vm.title = $$v
+              },
+              expression: "title",
+            },
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.labelDescription)),
+          ]),
+          _vm._v(" "),
+          _c("textarea-field", {
+            model: {
+              value: _vm.summary,
+              callback: function ($$v) {
+                _vm.summary = $$v
+              },
+              expression: "summary",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "orderForm__formSubheader" }, [
+        _vm._v(_vm._s(_vm.labelAddresses)),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.addresses, function (address) {
+        return _c(
+          "div",
+          { staticClass: "inputRow" },
+          [
+            _c("input-field", {
+              attrs: {
+                location: true,
+                type: "text",
+                placeholder: _vm.labelAddress,
+              },
+              model: {
+                value: address.address,
+                callback: function ($$v) {
+                  _vm.$set(address, "address", $$v)
+                },
+                expression: "address.address",
+              },
+            }),
+          ],
+          1
+        )
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "button button_withImage button_green",
+          attrs: { type: "button", disabled: !_vm.canAddAddress },
+          on: { click: _vm.addAddress },
+        },
+        [
+          _c("span", { staticClass: "link__icon" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "14",
+                  height: "14",
+                  viewBox: "0 0 14 14",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg",
+                },
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d: "M19 5.5V8.5C19 9.11875 18.4937 9.625 17.875 9.625L9.625 9.625L9.625 17.875C9.625 18.4937 9.11875 19 8.5 19H5.5C4.88125 19 4.375 18.4937 4.375 17.875L4.375 9.625H-3.875C-4.49375 9.625 -5 9.11875 -5 8.5V5.5C-5 4.88125 -4.49375 4.375 -3.875 4.375H4.375V-3.875C4.375 -4.49375 4.88125 -5 5.5 -5H8.5C9.11875 -5 9.625 -4.49375 9.625 -3.875V4.375L17.875 4.375C18.4937 4.375 19 4.88125 19 5.5Z",
+                    fill: "#2AA84A",
+                  },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v("\n        " + _vm._s(_vm.labelAddAddress) + "\n    "),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "orderForm__row_timetable" }, [
+        _c(
+          "div",
+          { staticClass: "orderForm__col" },
+          [
+            _c("p", { staticClass: "orderForm__formSubheader" }, [
+              _vm._v(_vm._s(_vm.labelDate)),
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.dates, function (date) {
+              return _c(
+                "div",
+                { staticClass: "inputRow" },
+                [
+                  _c("input-field", {
+                    attrs: { date: true, type: "date" },
+                    model: {
+                      value: date.date,
+                      callback: function ($$v) {
+                        _vm.$set(date, "date", $$v)
+                      },
+                      expression: "date.date",
+                    },
+                  }),
+                ],
+                1
+              )
+            }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "orderForm__col" },
+          [
+            _c("p", { staticClass: "orderForm__formSubheader" }, [
+              _vm._v(_vm._s(_vm.labelStartsAt)),
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.dates, function (date) {
+              return _c(
+                "div",
+                { staticClass: "inputRow" },
+                [
+                  _c("input-field", {
+                    attrs: { time: true, type: "time" },
+                    model: {
+                      value: date.starts_at,
+                      callback: function ($$v) {
+                        _vm.$set(date, "starts_at", $$v)
+                      },
+                      expression: "date.starts_at",
+                    },
+                  }),
+                ],
+                1
+              )
+            }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "orderForm__col" },
+          [
+            _c("p", { staticClass: "orderForm__formSubheader" }, [
+              _vm._v(_vm._s(_vm.labelArriveAt)),
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.dates, function (date) {
+              return _c(
+                "div",
+                { staticClass: "inputRow" },
+                [
+                  _c("input-field", {
+                    attrs: { time: true, type: "time" },
+                    model: {
+                      value: date.arrive_at,
+                      callback: function ($$v) {
+                        _vm.$set(date, "arrive_at", $$v)
+                      },
+                      expression: "date.arrive_at",
+                    },
+                  }),
+                ],
+                1
+              )
+            }),
+          ],
+          2
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "button button_withImage button_green",
+          attrs: { type: "button" },
+          on: { click: _vm.addDate },
+        },
+        [
+          _c("span", { staticClass: "link__icon" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "14",
+                  height: "14",
+                  viewBox: "0 0 14 14",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg",
+                },
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d: "M19 5.5V8.5C19 9.11875 18.4937 9.625 17.875 9.625L9.625 9.625L9.625 17.875C9.625 18.4937 9.11875 19 8.5 19H5.5C4.88125 19 4.375 18.4937 4.375 17.875L4.375 9.625H-3.875C-4.49375 9.625 -5 9.11875 -5 8.5V5.5C-5 4.88125 -4.49375 4.375 -3.875 4.375H4.375V-3.875C4.375 -4.49375 4.88125 -5 5.5 -5H8.5C9.11875 -5 9.625 -4.49375 9.625 -3.875V4.375L17.875 4.375C18.4937 4.375 19 4.88125 19 5.5Z",
+                    fill: "#2AA84A",
+                  },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v("\n        " + _vm._s(_vm.labelAddDate) + "\n    "),
+        ]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "orderForm__formSubheader" }, [
+        _vm._v(_vm._s(_vm.labelContactPerson)),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "orderForm__row_contacts" }, [
+        _c(
+          "div",
+          { staticClass: "orderForm__row_contacts__col" },
+          [
+            _c("input-field", {
+              attrs: { placeholder: _vm.labelName },
+              model: {
+                value: _vm.contact_name,
+                callback: function ($$v) {
+                  _vm.contact_name = $$v
+                },
+                expression: "contact_name",
+              },
+            }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "orderForm__row_contacts__col" },
+          [
+            _c("input-field", {
+              attrs: { placeholder: _vm.labelPhone, type: "tel" },
+              model: {
+                value: _vm.contact_phone,
+                callback: function ($$v) {
+                  _vm.contact_phone = $$v
+                },
+                expression: "contact_phone",
+              },
+            }),
+            _vm._v(" "),
+            _c("input-field", {
+              attrs: { placeholder: _vm.labelEmail, type: "email" },
+              model: {
+                value: _vm.contact_email,
+                callback: function ($$v) {
+                  _vm.contact_email = $$v
+                },
+                expression: "contact_email",
+              },
+            }),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _vm._t("broadcast-description"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.labelCamera)),
+          ]),
+          _vm._v(" "),
+          _c("select-field", {
+            attrs: {
+              options: Array.from({ length: 10 }, function (_, i) {
+                return i + 1
+              }),
+              label: _vm.labelCameraQuantity,
+            },
+            model: {
+              value: _vm.camerasQuantity,
+              callback: function ($$v) {
+                _vm.camerasQuantity = $$v
+              },
+              expression: "camerasQuantity",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            on: { change: _vm.isPublicChanged },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelAvailableToAll) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.isPublic,
+              callback: function ($$v) {
+                _vm.isPublic = $$v
+              },
+              expression: "isPublic",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            on: { change: _vm.isPrivateChanged },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelPasswordRequired) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.isPrivate,
+              callback: function ($$v) {
+                _vm.isPrivate = $$v
+              },
+              expression: "isPrivate",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.titleLogistics)),
+          ]),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelEquipmentDelivery) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.equipmentDelivery,
+              callback: function ($$v) {
+                _vm.equipmentDelivery = $$v
+              },
+              expression: "equipmentDelivery",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelBroadcastOnPlatform) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.broadcastOnPlatform,
+              callback: function ($$v) {
+                _vm.broadcastOnPlatform = $$v
+              },
+              expression: "broadcastOnPlatform",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.titleDecoration)),
+          ]),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelMakeup) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.makeUp,
+              callback: function ($$v) {
+                _vm.makeUp = $$v
+              },
+              expression: "makeUp",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelDesign) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.graphicDesign,
+              callback: function ($$v) {
+                _vm.graphicDesign = $$v
+              },
+              expression: "graphicDesign",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.titleFinalVideo)),
+          ]),
+          _vm._v(" "),
+          _c("select-field", {
+            attrs: {
+              options: Array.from({ length: 10 }, function (_, i) {
+                return i + 1
+              }),
+              label: _vm.labelCameraQuantity,
+            },
+            model: {
+              value: _vm.finalVideoCamerasQuantity,
+              callback: function ($$v) {
+                _vm.finalVideoCamerasQuantity = $$v
+              },
+              expression: "finalVideoCamerasQuantity",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelVideoLight) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.workWithLight,
+              callback: function ($$v) {
+                _vm.workWithLight = $$v
+              },
+              expression: "workWithLight",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelVideoSound) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.workWithSound,
+              callback: function ($$v) {
+                _vm.workWithSound = $$v
+              },
+              expression: "workWithSound",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "orderForm__row" },
+        [
+          _c("p", { staticClass: "orderForm__formSubheader" }, [
+            _vm._v(_vm._s(_vm.titlePostProductsion)),
+          ]),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelSocialVideo) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.socialVideo,
+              callback: function ($$v) {
+                _vm.socialVideo = $$v
+              },
+              expression: "socialVideo",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelReportingVideo) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.reportingVideo,
+              callback: function ($$v) {
+                _vm.reportingVideo = $$v
+              },
+              expression: "reportingVideo",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelCorporateVideo) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.corporateVideo,
+              callback: function ($$v) {
+                _vm.corporateVideo = $$v
+              },
+              expression: "corporateVideo",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelPromoVideo) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.promoVideo,
+              callback: function ($$v) {
+                _vm.promoVideo = $$v
+              },
+              expression: "promoVideo",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelConference2h) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.conference2h,
+              callback: function ($$v) {
+                _vm.conference2h = $$v
+              },
+              expression: "conference2h",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelConference4h) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.conference4h,
+              callback: function ($$v) {
+                _vm.conference4h = $$v
+              },
+              expression: "conference4h",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelTemplateElements) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.templateElements,
+              callback: function ($$v) {
+                _vm.templateElements = $$v
+              },
+              expression: "templateElements",
+            },
+          }),
+          _vm._v(" "),
+          _c("checkbox-item", {
+            attrs: { "green-text": true },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function () {
+                  return [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.labelCustomElements) +
+                        "\n            "
+                    ),
+                  ]
+                },
+                proxy: true,
+              },
+            ]),
+            model: {
+              value: _vm.customElements,
+              callback: function ($$v) {
+                _vm.customElements = $$v
+              },
+              expression: "customElements",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "orderForm__row" }, [
+        _c("p", { staticClass: "orderForm__formSubheader" }, [
+          _vm._v(_vm._s(_vm.titleLeader) + ":"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "orderForm__row_contacts" }, [
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelName },
+                model: {
+                  value: _vm.leader_name,
+                  callback: function ($$v) {
+                    _vm.leader_name = $$v
+                  },
+                  expression: "leader_name",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelPhone, type: "tel" },
+                model: {
+                  value: _vm.leader_phone,
+                  callback: function ($$v) {
+                    _vm.leader_phone = $$v
+                  },
+                  expression: "leader_phone",
+                },
+              }),
+              _vm._v(" "),
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelEmail, type: "email" },
+                model: {
+                  value: _vm.leader_email,
+                  callback: function ($$v) {
+                    _vm.leader_email = $$v
+                  },
+                  expression: "leader_email",
+                },
+              }),
+            ],
+            1
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "orderForm__formSubheader" }, [
+          _vm._v(_vm._s(_vm.titleCompany) + ":"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "orderForm__row_contacts" }, [
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelCompanyName },
+                model: {
+                  value: _vm.company,
+                  callback: function ($$v) {
+                    _vm.company = $$v
+                  },
+                  expression: "company",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelRegistrationNumber },
+                model: {
+                  value: _vm.registration_nr,
+                  callback: function ($$v) {
+                    _vm.registration_nr = $$v
+                  },
+                  expression: "registration_nr",
+                },
+              }),
+            ],
+            1
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "orderForm__row_contacts" }, [
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelLegalAddress, location: true },
+                model: {
+                  value: _vm.legal_address,
+                  callback: function ($$v) {
+                    _vm.legal_address = $$v
+                  },
+                  expression: "legal_address",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "orderForm__row_contacts__col" },
+            [
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelPhone, type: "tel" },
+                model: {
+                  value: _vm.company_phone,
+                  callback: function ($$v) {
+                    _vm.company_phone = $$v
+                  },
+                  expression: "company_phone",
+                },
+              }),
+              _vm._v(" "),
+              _c("input-field", {
+                attrs: { placeholder: _vm.labelEmail, type: "email" },
+                model: {
+                  value: _vm.company_email,
+                  callback: function ($$v) {
+                    _vm.company_email = $$v
+                  },
+                  expression: "company_email",
+                },
+              }),
+            ],
+            1
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("button-default", {
+        attrs: { type: "submit", caption: _vm.labelCreateBroadcast },
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -24343,19 +26211,26 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "checkboxItem" }, [
-    _c("label", { staticClass: "checkboxBlock" }, [
-      _c("input", {
-        attrs: { type: "checkbox" },
-        domProps: { checked: _vm.isChecked, value: _vm.value },
-        on: { change: _vm.onChange },
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "checkbox__checkmark" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "checkbox__text" }, [_vm._t("label")], 2),
-    ]),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "checkboxItem",
+      class: { checkboxItem_greenText: _vm.greenText },
+    },
+    [
+      _c("label", { staticClass: "checkboxBlock" }, [
+        _c("input", {
+          attrs: { type: "checkbox" },
+          domProps: { checked: _vm.isChecked, value: _vm.value },
+          on: { change: _vm.onChange },
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "checkbox__checkmark" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "checkbox__text" }, [_vm._t("label")], 2),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24380,12 +26255,96 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "inputField" }, [
-    _c("input", {
-      attrs: { placeholder: _vm.placeholder, type: _vm.type },
-      domProps: { value: _vm.value },
-      on: { input: _vm.onInput },
-    }),
+  return _c(
+    "div",
+    {
+      staticClass: "inputField",
+      class: {
+        inputField_location: _vm.location,
+        inputField_date: _vm.date,
+        inputField_time: _vm.time,
+      },
+    },
+    [
+      _c("input", {
+        attrs: { placeholder: _vm.placeholder, type: _vm.type },
+        domProps: { value: _vm.value },
+        on: { input: _vm.onInput },
+      }),
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/SelectField.vue?vue&type=template&id=8d63e078& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* binding */ render; },
+/* harmony export */   "staticRenderFns": function() { return /* binding */ staticRenderFns; }
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "selectField" }, [
+    _vm.label ? _c("label", [_vm._v(_vm._s(_vm.label))]) : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "select",
+      { on: { change: _vm.onChange } },
+      _vm._l(_vm.options, function (option) {
+        return _c(
+          "option",
+          { domProps: { selected: option === _vm.value, value: option } },
+          [_vm._v(_vm._s(option))]
+        )
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/public/components/Form/TextareaField.vue?vue&type=template&id=4b9fb7c6& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": function() { return /* binding */ render; },
+/* harmony export */   "staticRenderFns": function() { return /* binding */ staticRenderFns; }
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "textareaField" }, [
+    _vm.label ? _c("label", [_vm._v(_vm._s(_vm.label))]) : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "textarea",
+      { attrs: { placeholder: _vm.placeholder }, on: { input: _vm.onInput } },
+      [_vm._v(_vm._s(_vm.value))]
+    ),
   ])
 }
 var staticRenderFns = []
@@ -37465,6 +39424,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lang_ru_json__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lang/ru.json */ "./lang/ru.json");
 /* harmony import */ var _lang_en_json__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lang/en.json */ "./lang/en.json");
 /* harmony import */ var _public_components_UserButton__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./public/components/UserButton */ "./resources/js/public/components/UserButton.vue");
+/* harmony import */ var _public_components_BroadcastForm__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./public/components/BroadcastForm */ "./resources/js/public/components/BroadcastForm.vue");
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /**
  * jQuery
@@ -37516,6 +39476,7 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_13__["default"]({
 });
 
 
+
 if (document.getElementById('user-button-app')) {
   new vue__WEBPACK_IMPORTED_MODULE_10__["default"]({
     i18n: i18n,
@@ -37523,6 +39484,15 @@ if (document.getElementById('user-button-app')) {
       UserButton: _public_components_UserButton__WEBPACK_IMPORTED_MODULE_14__["default"]
     }
   }).$mount('#user-button-app');
+}
+
+if (document.getElementById('broadcast-form-app')) {
+  new vue__WEBPACK_IMPORTED_MODULE_10__["default"]({
+    i18n: i18n,
+    components: {
+      BroadcastForm: _public_components_BroadcastForm__WEBPACK_IMPORTED_MODULE_15__["default"]
+    }
+  }).$mount('#broadcast-form-app');
 }
 }();
 /******/ })()

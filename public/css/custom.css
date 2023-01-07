@@ -751,6 +751,10 @@ button.focus-visible {
   color: var(--cWhite);
 }
 
+.inputRow:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
 .inputField {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2199,6 +2203,19 @@ footer {
      -moz-appearance: none;
           appearance: none;
   width: 47px;
+}
+
+.alert ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.alert ul li {
+  margin-left: 0;
+}
+
+.alert-danger {
+  color: red;
 }
 
 .videoBlock {

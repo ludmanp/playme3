@@ -1,5 +1,9 @@
 @extends('core::public.master')
 
+@php
+    /** @var \TypiCMS\Modules\Broadcasts\Models\Broadcast $model */
+@endphp
+
 @section('title', __('New Broadcast').' – '.$websiteTitle)
 
 @section('content')
@@ -11,7 +15,7 @@
                     <h3>@lang('Profile')</h3>
                 </x-slot>
                 <x-slot name="subheader">
-                    <h3>@lang('Order broadcast')</h3>
+                    <h3>{{ $model->title }}</h3>
                 </x-slot>
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
@@ -60,6 +64,8 @@
                         label-registration-number="@lang('Company name')"
                         label-legal-address="@lang('Legal address')"
                         label-create-broadcast="@lang('Create broadcast')"
+
+                        :data-model="{{ $model->present()->toJs() }}"
                     >
                         <template slot="broadcast-description">
                             <div class='orderForm__row'>

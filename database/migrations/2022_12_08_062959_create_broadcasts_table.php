@@ -16,6 +16,7 @@ class CreateBroadcastsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('image_id')->nullable()->constrained('files')->nullOnDelete();
+            $table->string('lang')->nullable();
             $table->string('title')->nullable();
             $table->text('summary')->nullable();
             $table->string('external_id',  36)->nullable();
@@ -63,6 +64,7 @@ class CreateBroadcastsTable extends Migration
         Schema::create('broadcast_addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('broadcast_id')->constrained()->onDelete('cascade');
+            $table->unsignedInteger('position')->nullable();
             $table->string('address');
             $table->timestamps();
         });
@@ -70,8 +72,9 @@ class CreateBroadcastsTable extends Migration
         Schema::create('broadcast_dates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('broadcast_id')->constrained()->onDelete('cascade');
-            $table->date('starts_at');
-            $table->date('arrive_at');
+            $table->unsignedInteger('position')->nullable();
+            $table->dateTime('starts_at');
+            $table->dateTime('arrive_at');
             $table->timestamps();
         });
     }
