@@ -30,7 +30,14 @@
         }
 
         .contentBlock__content {
-            margin-left: -104px;
+            margin-left: -71px;
+
+            @media screen and (min-width:767px) and (max-width:1279px) {
+                margin-left: -48px;
+            }
+            @media screen and(min-width:1280px) {
+                margin-left: -104px;
+            }
         }
     }
 }
