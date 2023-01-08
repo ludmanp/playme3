@@ -53,10 +53,6 @@ trait HasTags
 
         if ($tags) {
             $contentLocale = config('typicms.content_locale', config('app.locale'));
-            Log::debug('syncTags', ['typicms.content_locale' => config('typicms.content_locale'), 'app.locale' => config('app.locale')]);
-            Log::debug(Tag::whereRaw(
-                'JSON_UNQUOTE(JSON_EXTRACT(`tag`, \'$.'.$contentLocale.'\')) IN ('.collect($tags)->implode(function($t){return '"' . $t . '"';}, ',').')'
-            )->toSql());
             $foundTags = Tag::whereRaw(
                 'JSON_UNQUOTE(JSON_EXTRACT(`tag`, \'$.'.$contentLocale.'\')) IN ('.collect($tags)->implode(function($t){return '"' . $t . '"';}, ',').')'
             )->get();

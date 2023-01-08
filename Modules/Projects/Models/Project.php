@@ -1,53 +1,62 @@
 <?php
 
-namespace TypiCMS\Modules\Teammembers\Models;
+namespace TypiCMS\Modules\Projects\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laracasts\Presenter\PresentableTrait;
-use Spatie\EloquentSortable\Sortable;
-use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Translatable\HasTranslations;
+use TypiCMS\Modules\Clients\Models\Client;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\Core\Models\File;
 use TypiCMS\Modules\Core\Traits\HasFiles;
+use TypiCMS\Modules\Core\Traits\HasTags;
 use TypiCMS\Modules\Core\Traits\Historable;
-use TypiCMS\Modules\Projects\Models\Project;
-use TypiCMS\Modules\Teammembers\Presenters\ModulePresenter;
+use TypiCMS\Modules\Projects\Presenters\ModulePresenter;
+use TypiCMS\Modules\Teammembers\Models\Teammember;
 
 /**
- * @property int $image_id
- * @property File image
+ * Class Project
+ *
+ * @property integer $image_id
  * @property string thumb
- * @property string $status
- * @property string $name
+ * @property File image
+ * @property integer $client_id
+ * @property Client client
+ * @property boolean $status
  * @property string $title
  * @property string $slug
+ * @property string $summary
  * @property string $body
- * @property int $signature_image_id
- * @property File signature_image
- * @property Project[]|Collection projects
+ * @property Carbon $date
+ * @property string $location
+ * @property Teammember[]|Collection team_members
+ *
+ * @method ModulePresenter present()
  */
-class Teammember extends Base implements Sortable
+class Project extends Base
 {
+    use HasFiles;
     use HasTranslations;
     use Historable;
     use PresentableTrait;
-    use SortableTrait;
+    use HasTags;
 
     protected $presenter = ModulePresenter::class;
 
-    protected $guarded = [];
+    protected $guarded = ['teammembers'];
 
     protected $appends = ['thumb'];
 
+    protected $dates = ['date'];
+
     public $translatable = [
         'title',
-        'name',
         'slug',
-        'status',
+        'summary',
         'body',
     ];
 
@@ -63,24 +72,18 @@ class Teammember extends Base implements Sortable
         return $this->belongsTo(File::class, 'image_id');
     }
 
-    public function signature_image(): BelongsTo
+    public function client(): BelongsTo
     {
-        return $this->belongsTo(File::class, 'signature_image_id');
+        return $this->belongsTo(Client::class, 'client_id');
     }
 
-    public function socials()
-    {
-        return $this->hasMany(TeammemberSocial::class, 'teammember_id');
-    }
-
-    public function projects(): BelongsToMany
+    public function team_members(): BelongsToMany
     {
         return $this->belongsToMany(
-            Project::class,
+            Teammember::class,
             'project_teammember',
-            'project_id',
-            'teammember_id'
+            'teammember_id',
+            'project_id'
         );
     }
-
 }
