@@ -2,6 +2,12 @@
     background: var(--cWhite);
     border-radius: var(--sRadiusHuge);
     padding: 24px;
+    color: var(--cText);
+    text-decoration: none;
+}
+
+.cabinetOrder__block:hover {
+    text-decoration: none;
 }
 
 .cabinetOrder__date, .cabinetOrder__location {

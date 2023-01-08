@@ -12,7 +12,7 @@
         <div class='stream__container'>
             <x-common.contentBlock :row="true">
                 <x-slot name="header">
-                    <h3>@lang('Profile')</h3>
+                    <h3><a href="{{ route(config('app.locale') . '::customer-profile') }}">@lang('Profile')</a></h3>
                 </x-slot>
                 <x-slot name="subheader">
                     <h3>{{ $model->title }}</h3>

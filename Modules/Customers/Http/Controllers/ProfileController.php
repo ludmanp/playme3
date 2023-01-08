@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('customers::public.profile', ['user' => auth()->user()]);
+        return view('customers::public.profile', ['user' => auth()->user()->load('broadcasts')]);
     }
 
     public function save(ProfileFormRequest $request)

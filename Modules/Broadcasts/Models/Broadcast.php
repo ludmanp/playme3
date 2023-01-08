@@ -5,6 +5,8 @@ namespace TypiCMS\Modules\Broadcasts\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
@@ -42,7 +44,9 @@ use TypiCMS\Modules\Broadcasts\Presenters\ModulePresenter;
  * @property string $parameters
  * @property string $embed_script
  * @property BroadcastAddress[] | Collection addresses
+ * @property BroadcastAddress first_address
  * @property BroadcastDate[] | Collection dates
+ * @property BroadcastDate first_date
  * @property string slug
  *
  * @method ModulePresenter present()
@@ -98,15 +102,27 @@ class Broadcast extends Base
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function addresses()
+    public function addresses(): HasMany
     {
         return $this->hasMany(BroadcastAddress::class, 'broadcast_id')->order();
+    }
+
+    public function first_address(): HasOne
+    {
+        return $this->hasOne(BroadcastAddress::class, 'broadcast_id')->order();
     }
 
     public function dates()
     {
         return $this->hasMany(BroadcastDate::class, 'broadcast_id')->order();
     }
+
+    public function first_date(): HasOne
+    {
+        return $this->hasOne(BroadcastDate::class, 'broadcast_id')->order();
+    }
+
+
 
     /**
      * Get broadcast's slug value
