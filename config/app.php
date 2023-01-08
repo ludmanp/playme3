@@ -193,6 +193,7 @@ return [
         \TypiCMS\Modules\Articles\Providers\ModuleServiceProvider::class,
 //        \TypiCMS\Modules\Blogcategories\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Broadcasts\Providers\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...

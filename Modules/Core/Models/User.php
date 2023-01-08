@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
+use TypiCMS\Modules\Broadcasts\Models\Broadcast;
 use TypiCMS\Modules\Core\Notifications\ResetPassword;
 use TypiCMS\Modules\Core\Notifications\VerifyEmail;
 use TypiCMS\Modules\Core\Presenters\UsersPresenter;
@@ -125,5 +127,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function isImpersonating(): bool
     {
         return Session::has('impersonation');
+    }
+
+    public function broadcasts(): HasMany
+    {
+        return $this->hasMany(Broadcast::class, 'user_id')->orderBy('id', 'desc');
     }
 }

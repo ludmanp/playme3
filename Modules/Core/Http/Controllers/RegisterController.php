@@ -52,7 +52,7 @@ class RegisterController extends Controller
     /**
      * Handle a registration request for the application.
      */
-    public function register(UserRegistrationFormRequest $request): RedirectResponse
+    public function register(UserRegistrationFormRequest $request)
     {
         $data = $request->validated();
 
@@ -67,8 +67,6 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        return redirect()
-            ->back()
-            ->with('status', __('Your account has been created, check your email for the verification link.'));
+        return view('users::verify');
     }
 }

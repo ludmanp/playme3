@@ -91,39 +91,29 @@
                         </x-slot>
                         @lang('Order video')
                     </x-common.link>
-                    <x-common.link :withImage="true" :uppercase="true" href="#">
+                    <x-common.link :withImage="true" :uppercase="true" :href="route(config('app.locale') . '::create-broadcast')">
                         <x-slot name="icon">
                             <x-icons.running></x-icons.running>
                         </x-slot>
                         @lang('Order broadcast')
                     </x-common.link>
                 </div>
-{{--                <div class='cabinet__orders'>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                </div>--}}
+                <div class='cabinet__orders'>
+                    @php
+                        /** @var \TypiCMS\Modules\Broadcasts\Models\Broadcast $broadcast */
+                    @endphp
+                    @foreach($user->broadcasts as $broadcast)
+                    <x-layout.cabinet.cabinetOrder
+                        :date="optional($broadcast->first_date)->date"
+                        :location="$broadcast->first_address->address"
+                        href="{{ route(config('app.locale') . '::edit-broadcast', $broadcast->slug) }}"
+                    >
+                        <x-slot name="header">
+                            {{ $broadcast->title }}
+                        </x-slot>
+                    </x-layout.cabinet.cabinetOrder>
+                    @endforeach
+                </div>
 {{--                <x-common.button :withImage="true" :uppercase="true">--}}
 {{--                    <x-slot name="icon">--}}
 {{--                        <x-icons.running></x-icons.running>--}}

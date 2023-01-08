@@ -48,6 +48,7 @@ const messages = { ru, en };
 const i18n = new VueI18n({ locale: window.TypiCMS.locale, messages });
 
 import UserButton from "./public/components/UserButton";
+import BroadcastForm from "./public/components/BroadcastForm";
 
 if (document.getElementById('user-button-app')) {
     new Vue({
@@ -56,4 +57,13 @@ if (document.getElementById('user-button-app')) {
             UserButton,
         },
     }).$mount('#user-button-app');
+}
+
+if (document.getElementById('broadcast-form-app')) {
+    new Vue({
+        i18n,
+        components: {
+            BroadcastForm,
+        },
+    }).$mount('#broadcast-form-app');
 }
