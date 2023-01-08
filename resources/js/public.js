@@ -59,6 +59,15 @@ if (document.getElementById('user-button-app')) {
     }).$mount('#user-button-app');
 }
 
+if (document.getElementById('mobile-user-button-app')) {
+    new Vue({
+        i18n,
+        components: {
+            UserButton,
+        },
+    }).$mount('#mobile-user-button-app');
+}
+
 if (document.getElementById('broadcast-form-app')) {
     new Vue({
         i18n,

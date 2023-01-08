@@ -27,6 +27,9 @@
 
 <x-common.mobileMenu>
     {{ $menu ?? '' }}
+    <x-slot name="userButton">
+        {{ $userButton ?? '' }}
+    </x-slot>
 </x-common.mobileMenu>
 
 {{ $modals ?? '' }}

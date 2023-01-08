@@ -7,13 +7,8 @@
                     <x-icons.close></x-icons.close>
                 </x-common.button>
             </div>
-            <div class='mobileMenu__modalBtn'>
-                <x-common.link data-a11y-dialog-show="loginModal" :withImageAfter="true" :href="'#'">
-                    Личный кабинет
-                    <x-slot name="iconAfter">
-                        <x-icons.login></x-icons.login>
-                    </x-slot>
-                </x-common.link>
+            <div class='mobileMenu__modalBtn' id="mobile-user-button-app">
+                {{ $userButton ?? '' }}
             </div>
             <div class='mobileMenu__navigation'>
                 <nav>
