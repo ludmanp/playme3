@@ -11,26 +11,26 @@
                     <x-slot name="content">
                         <div class="tabBlock__tablist">
 
-                            <x-common.tabNav>
-                                <x-common.link href='#' class='active' :tab="true">
+                            <x-common.tabNav  :service="true">
+                                <x-common.link href='#' class='active' :service-tab="true">
                                     <x-slot name="icon">
                                         <x-icons.runningsmall></x-icons.runningsmall>
                                     </x-slot>
                                     <span class="focus">подготовка к съемке</span>
                                 </x-common.link>
-                                <x-common.link href='#' :tab="true">
+                                <x-common.link href='#' :service-tab="true">
                                     <x-slot name="icon">
                                         <x-icons.runningsmall></x-icons.runningsmall>
                                     </x-slot>
                                     <span class="focus">съемка</span>
                                 </x-common.link>
-                                <x-common.link href='#' :tab="true">
+                                <x-common.link href='#' :service-tab="true">
                                     <x-slot name="icon">
                                         <x-icons.runningsmall></x-icons.runningsmall>
                                     </x-slot>
                                     <span class="focus">Создание видео</span>
                                 </x-common.link>
-                                <x-common.link href='#' :tab="true">
+                                <x-common.link href='#' :service-tab="true">
                                     <x-slot name="icon">
                                         <x-icons.runningsmall></x-icons.runningsmall>
                                     </x-slot>

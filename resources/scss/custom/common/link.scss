@@ -68,6 +68,55 @@
 }
 
 .link_tab {
+    //display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    //@media screen and (max-width:1279px) {
+        background: radial-gradient(53.53% 192.57% at 117.76% 86.27%, rgba(168, 220, 222, 0.25) 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(138.74% 390.41% at 48.6% -163.73%, rgba(219, 202, 225, 0.25) 0%, rgba(219, 202, 225, 0) 100%), linear-gradient(0deg, #B3D0B0, #B3D0B0), #C4C4C4;;
+        border-radius: 32px;
+        display: inline-flex !important;
+        padding: 8px 24px;
+        line-height: 1.5;
+        font-size: var(--sFontMedium);
+
+        .link__icon {
+            display: none;
+        }
+    //}
+
+    //@media screen and (min-width: 1280px) {
+    //    text-transform: uppercase;
+    //    font-weight: 600;
+    //    height: 45px;
+    //}
+
+    &:hover {
+        color: var(--cGreen);
+        text-decoration: none;
+    }
+
+    svg {
+        display: none;
+    }
+
+    &.active {
+        //@media screen and (max-width: 1279px) {
+            color: var(--cWhite);
+            background: -webkit-gradient(linear, left bottom, left top, from(#2AA84A), to(#2AA84A)), #C4C4C4;
+        //}
+
+        //@media screen and (min-width: 1280px) {
+        //    color: var(--cGreen);
+        //}
+
+        svg {
+            display: block;
+        }
+    }
+}
+
+.link_serviceTab {
     display: flex;
     justify-content: space-between;
     align-items: center;
