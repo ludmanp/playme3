@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "json5": ">=2.2.2",
         "@fancyapps/fancybox": "^3.5.7",
         "@popperjs/core": "^2.9.1",
         "alertify.js": "^1.0",
@@ -41,6 +42,7 @@
         "webpack": "^5.0.0"
     },
     "dependencies": {
+        "json5": ">=2.2.2",
         "a11y-dialog": "^7.5.0",
         "owl.carousel": "^2.3.4",
         "slick-carousel": "^1.8.1"
