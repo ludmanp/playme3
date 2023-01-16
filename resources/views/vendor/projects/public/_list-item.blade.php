@@ -25,7 +25,7 @@
         {{ $project->summary }}
     </x-slot>
     <x-slot name="action">
-        <x-common.link :withImage="true" :uppercase="true" :href="url($project->uri())">
+        <x-common.link :withImage="true" :uppercase="true" :href="url($project->uri()) . currentQueryString()">
             <x-slot name="icon">
                 <x-icons.running></x-icons.running>
             </x-slot>

@@ -2,6 +2,7 @@
 
 namespace TypiCMS\Modules\Projects\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use TypiCMS\Modules\Clients\Models\Client;
 use TypiCMS\Modules\Clients\Services\ListServices;
@@ -19,7 +20,7 @@ class PublicController extends BasePublicController
         if(!$client->id) {
             $client = null;
         }
-        $models = Project::published()->order()->with('image')
+        $models = Project::published()->order()->with(['image', 'client.image', 'tags'])
             ->when($client, function($query) use($client) {
                 $query->where('client_id', $client->id);
             })
@@ -40,9 +41,19 @@ class PublicController extends BasePublicController
 
     public function show($slug): View
     {
-        $model = Project::published()->whereSlugIs($slug)->firstOrFail();
+        $model = Project::with(['image', 'team_members.image', 'client.image', 'tags'])->published()->whereSlugIs($slug)->firstOrFail();
+        $selectedTags = $this->selectedTags();
+        $otherProjects = Project::published()->order()->with(['image', 'client.image', 'tags'])
+            ->where('id', '<>', $model->id)
+            ->orderBy(DB::raw('RAND()'));
+        if(!empty($selectedTags)) {
+            $otherProjects
+            ->tagsFromRequest(request());
+        }
+        $otherProjects = $otherProjects->take(8)->get();
+
 
         return view('projects::public.show')
-            ->with(compact('model'));
+            ->with(compact('model', 'otherProjects', 'selectedTags'));
     }
 }

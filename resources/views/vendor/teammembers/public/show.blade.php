@@ -47,6 +47,22 @@
                     </x-layout.team.teamCard>
                 </div>
             </x-common.contentContainer>
+            @if($model->projects->count())
+            <div class='team__portfolio'>
+                <x-common.contentBlock :row="true">
+                    <x-slot name="header">
+                        <h3>@lang('Portfolio')</h3>
+                    </x-slot>
+                </x-common.contentBlock>
+                <div class='team__portfolioLinks'>
+                    @foreach($model->projects as $project)
+                    <x-layout.team.portfolioLink :link="url($project->uri())" :imageAlt="optional($project->image)->alt_attribute ?? $project->title"
+                                                 :image="$project->present()->image()">
+                    </x-layout.team.portfolioLink>
+                    @endforeach
+                </div>
+            </div>
+            @endif
         </div>
     </x-common.container>
 

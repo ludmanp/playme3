@@ -1,4 +1,4 @@
-<div class='participantBlock'>
+<a class='participantBlock' href="{{ $href ?? 'javascript:void(0)' }}">
     <div class='participantsBlock__image'>
         <img src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>
     </div>
@@ -10,4 +10,4 @@
             {{ $position ?? '' }}
         </div>
     </div>
-</div>
+</a>

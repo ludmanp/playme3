@@ -83,3 +83,10 @@ if(! file_exists('makeQuery')) {
         return $queryString;
     }
 }
+
+if(! file_exists('currentQueryString')) {
+    function currentQueryString()
+    {
+        return str_replace(url()->current(), '', url()->full());
+    }
+}

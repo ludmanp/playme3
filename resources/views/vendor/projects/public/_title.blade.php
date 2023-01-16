@@ -6,9 +6,5 @@
                                  alt="{{ optional($client->image)->alt_attribute ?? $client->title }}"/>
                         </span>
     @endif
-    @foreach($tags->filter(function ($tag) use ($selectedTags) {
-        return in_array($tag->slug, $selectedTags);
-    }) as $tag)
-        <span class='contentBlock__headerTag'>#{{ $tag->tag }}</span>
-    @endforeach
+    @include('projects::public._tags_in_title', ['tags' => $tags, 'selectedTags' => $selectedTags])
 </x-slot>

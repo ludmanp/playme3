@@ -21,7 +21,7 @@ class PublicController extends BasePublicController
 
     public function show($slug): View
     {
-        $model = Teammember::published()->whereSlugIs($slug)->firstOrFail();
+        $model = Teammember::with(['image', 'projects'])->published()->whereSlugIs($slug)->firstOrFail();
         $models = Teammember::published()->order()->get();
 
         return view('teammembers::public.show')

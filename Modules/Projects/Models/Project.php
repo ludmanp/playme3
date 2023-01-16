@@ -87,4 +87,9 @@ class Project extends Base
             'project_id'
         );
     }
+
+    public function isPublished($locale = null): bool
+    {
+        return (bool) $this->status;
+    }
 }
