@@ -2,9 +2,10 @@
 
 namespace TypiCMS\Modules\Core\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use TypiCMS\Modules\Core\Models\Tag;
@@ -86,5 +87,24 @@ trait HasTags
 
         // Assign tags to model
         $model->tags()->sync($tagIds);
+    }
+
+    public function scopeTagsFromRequest(Builder $query, Request $request)
+    {
+        $requestQuery = $request->query();
+        if(!empty($requestQuery['tag'])) {
+            if(is_array($requestQuery['tag'])) {
+                foreach ($requestQuery['tag'] as $tag) {
+                    $query->whereHas('tags', function($q) use ($tag) {
+                        $q->whereSlugIs($tag);
+                    });
+                }
+            } else {
+                $query->whereHas('tags', function ($q) use ($requestQuery) {
+                    $q->whereSlugIs($requestQuery['tag']);
+                });
+            }
+        }
+        return $query;
     }
 }

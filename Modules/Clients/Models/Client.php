@@ -22,9 +22,10 @@ use TypiCMS\Modules\Projects\Models\Project;
  * @property string thumb
  * @property string $status
  * @property string $title
- * @property string $link
+ * @property string link
  * @property int $position
  * @property Project[]|Collection projects
+ * @property Project[]|Collection published_projects
  */
 class Client extends Base implements Sortable
 {
@@ -37,12 +38,11 @@ class Client extends Base implements Sortable
 
     protected $guarded = [];
 
-    protected $appends = ['thumb'];
+    protected $appends = ['thumb', 'link'];
 
     public $translatable = [
         'title',
         'status',
-        'link',
     ];
 
     protected function thumb(): Attribute
@@ -60,5 +60,17 @@ class Client extends Base implements Sortable
     public function projects(): HasMany
     {
         return $this->hasMany(Project::class, 'client_id');
+    }
+
+    public function published_projects(): HasMany
+    {
+        return $this->projects()->published()->order();
+    }
+
+    public function link(): Attribute
+    {
+        return  new Attribute(
+            get: fn () => route(config('app.locale') . '::client-projects', ['client' => $this])
+        );
     }
 }

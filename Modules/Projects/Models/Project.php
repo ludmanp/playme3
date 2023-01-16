@@ -45,6 +45,7 @@ class Project extends Base
     use PresentableTrait;
     use HasTags;
 
+
     protected $presenter = ModulePresenter::class;
 
     protected $guarded = ['teammembers'];

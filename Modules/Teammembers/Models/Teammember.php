@@ -29,6 +29,7 @@ use TypiCMS\Modules\Teammembers\Presenters\ModulePresenter;
  * @property int $signature_image_id
  * @property File signature_image
  * @property Project[]|Collection projects
+ * @property Project[]|Collection published_projects
  */
 class Teammember extends Base implements Sortable
 {
@@ -81,6 +82,11 @@ class Teammember extends Base implements Sortable
             'project_id',
             'teammember_id'
         );
+    }
+
+    public function published_projects(): BelongsToMany
+    {
+        return $this->projects()->published()->order();
     }
 
 }

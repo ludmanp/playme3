@@ -56,3 +56,30 @@ if(! file_exists('trueFalseValue')) {
         return $value ? 'true' : 'false';
     }
 }
+
+if(! file_exists('makeQuery')) {
+    function makeQuery(\TypiCMS\Modules\Core\Models\Tag $tag)
+    {
+        $query = collect(request()->query());
+        $tagQuery = $query->get('tag') ?? [];
+        if(($k = array_search($tag->slug, $tagQuery)) !== false) {
+            unset($tagQuery[$k]);
+        } else {
+            $tagQuery = $query->get('tag') ?? [];
+            $tagQuery[] = $tag->slug;
+            sort($tagQuery);
+        }
+        if(empty($tagQuery)) {
+            $query->forget('tag');
+        } else {
+            $query->put('tag', $tagQuery);
+        }
+        if(!empty($queryString = $query->all())) {
+            $queryString = '?' . http_build_query($queryString);
+        } else {
+            $queryString = '';
+        }
+
+        return $queryString;
+    }
+}
