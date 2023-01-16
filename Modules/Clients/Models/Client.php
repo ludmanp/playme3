@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Route;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
@@ -70,7 +71,7 @@ class Client extends Base implements Sortable
     public function link(): Attribute
     {
         return  new Attribute(
-            get: fn () => route(config('app.locale') . '::client-projects', ['client' => $this])
+            get: fn () => Route::has($route = config('app.locale') . '::client-projects') ? route($route, ['client' => $this]) : url('/')
         );
     }
 }
