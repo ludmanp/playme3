@@ -25,7 +25,6 @@ export const initToggleVideo = () => {
     }
 
     const parseMediaURL = (media) => {
-        console.log('media-->', media)
         let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
         let match = media.href.match(regExp);
 
