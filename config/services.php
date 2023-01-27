@@ -33,4 +33,10 @@ return [
     'gmaps' => [
         'key' => env('GMAPS_API_KEY'),
     ],
+
+    'google' => [
+        'apy-key' => [
+            'youtube' => env('YOUTUBE_API_KEY'),
+        ]
+    ],
 ];

@@ -92,4 +92,9 @@ class Project extends Base
     {
         return (bool) $this->status;
     }
+
+    public function videos()
+    {
+        return $this->hasMany(ProjectVideo::class, 'project_id');
+    }
 }

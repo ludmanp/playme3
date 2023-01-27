@@ -20,37 +20,60 @@
     {!! BootForm::hidden('id') !!}
 
     <file-manager related-table="{{ $model->getTable() }}" :related-id="{{ $model->id ?? 0 }}"></file-manager>
-    <div class="row">
-        <div class="col-sm-4">
-            <file-field type="image" field="image_id" :init-file="{{ $model->image ?? 'null' }}"></file-field>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#tab-general" data-bs-toggle="tab">{{ __('General') }}</a>
+        </li>
+        @if($model->exists)
+        <li class="nav-item">
+            <a class="nav-link" href="#tab-video" data-bs-toggle="tab">{{ __('Video') }}</a>
+        </li>
+        @endif
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-general">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <file-field type="image" field="image_id" :init-file="{{ $model->image ?? 'null' }}"></file-field>
+                </div>
+            </div>
+
+            @include('core::form._title-and-slug')
+            <div class="mb-3">
+                {!! BootForm::hidden('status')->value(0) !!}
+                {!! BootForm::checkbox(__('Published'), 'status') !!}
+            </div>
+
+            {!! BootForm::select(__('Client'), 'client_id', Clients::query()->get()->pluck('title', 'id')->all()) !!}
+
+            <div class="row">
+                <div class="col-sm-6">
+                    {!! BootForm::date(__('Date'), 'date') !!}
+                </div>
+                <div class="col-sm-6">
+                    {!! BootForm::text(__('Location'), 'location') !!}
+                </div>
+            </div>
+
+            {!! BootForm::select(__('Team members'), 'team_members', Teammembers::query()->get()->pluck('name', 'id')->all())
+                        ->select(old('team_members') ?: $model->team_members->pluck('id')->all())
+                        ->multiple() !!}
+
+            {!! BootForm::text(__('Tags'), 'tags')->value(old('tags') ? : $model->tags->implode(function (\TypiCMS\Modules\Core\Models\Tag $tag) {return $tag->getTranslation('tag', config('typicms.content_locale'));}, ',')) !!}
+
+            {!! TranslatableBootForm::textarea(__('Summary'), 'summary')->rows(4) !!}
+            {!! TranslatableBootForm::textarea(__('Body'), 'body')->addClass('ckeditor-full') !!}
+
         </div>
-    </div>
-
-    @include('core::form._title-and-slug')
-    <div class="mb-3">
-        {!! BootForm::hidden('status')->value(0) !!}
-        {!! BootForm::checkbox(__('Published'), 'status') !!}
-    </div>
-
-    {!! BootForm::select(__('Client'), 'client_id', Clients::query()->get()->pluck('title', 'id')->all()) !!}
-
-    <div class="row">
-        <div class="col-sm-6">
-            {!! BootForm::date(__('Date'), 'date') !!}
+        @if($model->exists)
+        <div class="tab-pane fade" id="tab-video">
+            @include('projects::admin.videos._index')
         </div>
-        <div class="col-sm-6">
-            {!! BootForm::text(__('Location'), 'location') !!}
-        </div>
+        @endif
     </div>
-
-    {!! BootForm::select(__('Team members'), 'team_members', Teammembers::query()->get()->pluck('name', 'id')->all())
-                ->select(old('team_members') ?: $model->team_members->pluck('id')->all())
-                ->multiple() !!}
-
-    {!! BootForm::text(__('Tags'), 'tags')->value(old('tags') ? : $model->tags->implode(function (\TypiCMS\Modules\Core\Models\Tag $tag) {return $tag->getTranslation('tag', config('typicms.content_locale'));}, ',')) !!}
-
-    {!! TranslatableBootForm::textarea(__('Summary'), 'summary')->rows(4) !!}
-    {!! TranslatableBootForm::textarea(__('Body'), 'body')->addClass('ckeditor-full') !!}
 </div>
 
 @push('js')

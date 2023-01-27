@@ -29,7 +29,7 @@
 {{--                <x-common.button :tag="true">#Блоги</x-common.button>--}}
 {{--            </div>--}}
             <div class='client__infoBlock'>
-                <x-layout.clients.clientGallery></x-layout.clients.clientGallery>
+                <x-layout.clients.clientGallery :slides="$model->present()->showVideoData()"></x-layout.clients.clientGallery>
                 <div class='client__info'>
                     <x-layout.clients.projectCard :transparent="true"
                                                   :date="$model->date->format('d.m.Y')"

@@ -23,7 +23,11 @@
                 <x-common.button :tag="true">#Блоги</x-common.button>
             </div>
             <div class='client__infoBlock'>
-                <x-layout.clients.clientGallery></x-layout.clients.clientGallery>
+                <x-layout.clients.clientGallery :slides="[
+                ['link' => 'https://youtu.be/kXYiU_JCYtU', 'image' => '/img/clients/clientImg.jpg', 'alt' => 'clientImg'],
+                ['link' => 'https://youtu.be/kXYiU_JCYtU', 'image' => '/img/clients/clientImg.jpg', 'alt' => 'clientImg'],
+                ['link' => 'https://youtu.be/kXYiU_JCYtU', 'image' => '/img/clients/clientImg.jpg', 'alt' => 'clientImg'],
+                ]"></x-layout.clients.clientGallery>
                 <div class='client__info'>
                     <x-layout.clients.projectCard :transparent="true" :date="'01.01.2021'"
                                                   :logo="'../img/clients/rusbase-small.svg'" :logoAlt="'rubase'" :projectName="'Rusbase Young Awards 2020'">

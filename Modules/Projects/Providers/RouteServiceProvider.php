@@ -9,6 +9,9 @@ use TypiCMS\Modules\Core\Facades\TypiCMS;
 use TypiCMS\Modules\Projects\Http\Controllers\AdminController;
 use TypiCMS\Modules\Projects\Http\Controllers\ApiController;
 use TypiCMS\Modules\Projects\Http\Controllers\PublicController;
+use TypiCMS\Modules\Projects\Http\Controllers\VideosAdminController;
+use TypiCMS\Modules\Projects\Http\Controllers\VideosApiController;
+use TypiCMS\Modules\Projects\Http\Controllers\VideosPublicController;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -40,6 +43,11 @@ class RouteServiceProvider extends ServiceProvider
             $router->get('projects/{project}/edit', [AdminController::class, 'edit'])->name('edit-project')->middleware('can:read projects');
             $router->post('projects', [AdminController::class, 'store'])->name('store-project')->middleware('can:create projects');
             $router->put('projects/{project}', [AdminController::class, 'update'])->name('update-project')->middleware('can:update projects');
+
+            $router->get('projects/{project}/videos/create', [VideosAdminController::class, 'create'])->name('create-project_video')->middleware('can:update projects');
+            $router->get('projects/{project}/videos/{video}/edit', [VideosAdminController::class, 'edit'])->name('edit-project_video')->middleware('can:update projects');
+            $router->post('projects/{project}/videos', [VideosAdminController::class, 'store'])->name('store-project_video')->middleware('can:update projects');
+            $router->put('projects/{project}/videos/{video}', [VideosAdminController::class, 'update'])->name('update-project_video')->middleware('can:update projects');
         });
 
         /*
@@ -49,6 +57,10 @@ class RouteServiceProvider extends ServiceProvider
             $router->get('projects', [ApiController::class, 'index'])->middleware('can:read projects');
             $router->patch('projects/{project}', [ApiController::class, 'updatePartial'])->middleware('can:update projects');
             $router->delete('projects/{project}', [ApiController::class, 'destroy'])->middleware('can:delete projects');
+
+            $router->get('projects/{project}/videos', [VideosApiController::class, 'index'])->middleware('can:update projects');
+            $router->patch('projects/{project}/videos/{video}', [VideosApiController::class, 'updatePartial'])->middleware('can:update projects');
+            $router->delete('projects/{project}/videos/{video}', [VideosApiController::class, 'destroy'])->middleware('can:update projects');
         });
     }
 }
