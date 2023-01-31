@@ -16,7 +16,7 @@ class ApiController extends BaseApiController
     {
         $data = QueryBuilder::for(Broadcast::class)
             ->selectFields($request->input('fields.broadcasts'))
-            ->allowedSorts(['status_translated', 'title_translated'])
+            ->allowedSorts(['status', 'title'])
             ->allowedFilters([
                 AllowedFilter::custom('title', new FilterOr()),
             ])

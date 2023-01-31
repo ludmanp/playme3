@@ -13,6 +13,7 @@ import {InitModals} from './public/modal';
 import { InitDetails } from './public/details';
 import { InitToggleMenu } from './public/toggleMenu';
 import { initToggleVideo } from './public/toggleVideo';
+import { InitCopy } from './public/copy';
 
 InitCarousels();
 InitClientGallery();
@@ -20,6 +21,7 @@ InitModals();
 InitDetails();
 InitToggleMenu();
 initToggleVideo();
+InitCopy();
 
 /**
  * Axios HTTP library

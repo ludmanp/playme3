@@ -18,11 +18,10 @@ class AddressesApiController extends BaseApiController
     {
         $data = QueryBuilder::for(BroadcastAddress::class)
             ->selectFields($request->input('fields.broadcast_addresses'))
-            ->allowedSorts(['status_translated', 'title_translated', 'position'])
+            ->allowedSorts(['address', 'position'])
             ->allowedFilters([
                 AllowedFilter::custom('title', new FilterOr()),
             ])
-            ->allowedIncludes(['image'])
             ->where('broadcast_id', $broadcast->id)
             ->paginate($request->input('per_page'));
 

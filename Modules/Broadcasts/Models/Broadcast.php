@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
 use Ramsey\Collection\Collection;
+use TypiCMS\Modules\Broadcasts\Casts\StatusCast;
+use TypiCMS\Modules\Broadcasts\Enums\StatusEnum;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\Core\Models\File;
 use TypiCMS\Modules\Core\Models\User;
@@ -25,6 +27,7 @@ use TypiCMS\Modules\Broadcasts\Presenters\ModulePresenter;
  * @property string $image_id
  * @property File image
  * @property string thumb
+ * @property StatusEnum $status
  * @property string $lang
  * @property string $title
  * @property string $summary
@@ -48,6 +51,7 @@ use TypiCMS\Modules\Broadcasts\Presenters\ModulePresenter;
  * @property BroadcastDate[] | Collection dates
  * @property BroadcastDate first_date
  * @property string slug
+ * @property boolean isSharable
  *
  * @method ModulePresenter present()
  */
@@ -62,7 +66,10 @@ class Broadcast extends Base
 
     protected $appends = ['thumb', 'slug'];
 
-    protected $casts = ['parameters' => 'array'];
+    protected $casts = [
+        'parameters' => 'array',
+        'status' => StatusCast::class,
+    ];
 
     /**
      * @return void
@@ -155,5 +162,12 @@ class Broadcast extends Base
     public function scopeAuthorised($query): Builder
     {
         return $query->where('user_id', auth()->id());
+    }
+
+    public function isSharable(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->status == StatusEnum::APPROVED,
+        );
     }
 }

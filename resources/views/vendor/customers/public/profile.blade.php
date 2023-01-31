@@ -106,10 +106,27 @@
                     <x-layout.cabinet.cabinetOrder
                         :date="optional($broadcast->first_date)->date"
                         :location="$broadcast->first_address->address"
-                        href="{{ route(config('app.locale') . '::edit-broadcast', $broadcast->slug) }}"
+                        :link="$broadcast->isSharable ? url($broadcast->uri()) : false"
                     >
                         <x-slot name="header">
                             {{ $broadcast->title }}
+                        </x-slot>
+
+                        <x-slot name="actions">
+                            <x-common.link type='submit' :withImage="true" :uppercase="true" href="{{ route(config('app.locale') . '::edit-broadcast', $broadcast->slug) }}">
+                                <x-slot name="icon">
+                                    <x-icons.running></x-icons.running>
+                                </x-slot>
+                                @lang('Edit')
+                            </x-common.link>
+                            @if($broadcast->isSharable)
+                            <x-common.link type='submit' :withImage="true" :uppercase="true" href="{{ url($broadcast->uri()) }}">
+                                <x-slot name="icon">
+                                    <x-icons.running></x-icons.running>
+                                </x-slot>
+                                @lang('View')
+                            </x-common.link>
+                            @endif
                         </x-slot>
                     </x-layout.cabinet.cabinetOrder>
                     @endforeach

@@ -16,6 +16,7 @@ class CreateBroadcastsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('image_id')->nullable()->constrained('files')->nullOnDelete();
+            $table->string('status', 100)->default('new');
             $table->string('lang')->nullable();
             $table->string('title')->nullable();
             $table->text('summary')->nullable();

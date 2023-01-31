@@ -35,6 +35,15 @@ class BroadcastDate extends Base implements Sortable
 
     protected $dates = ['starts_at', 'arrive_at'];
 
+    protected $appends = ['arrive_time', 'title'];
+
+    public function title(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->starts_at ? $this->starts_at->format('d.m.Y H:i') : '-',
+        );
+    }
+
     public function previewUri(): string
     {
         $uri = '/';

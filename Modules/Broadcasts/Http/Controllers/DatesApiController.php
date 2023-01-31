@@ -18,11 +18,10 @@ class DatesApiController extends BaseApiController
     {
         $data = QueryBuilder::for(BroadcastDate::class)
             ->selectFields($request->input('fields.broadcast_dates'))
-            ->allowedSorts(['status_translated', 'title_translated', 'position'])
+            ->allowedSorts(['starts_at', 'position'])
             ->allowedFilters([
-                AllowedFilter::custom('title', new FilterOr()),
+                AllowedFilter::custom('starts_at', new FilterOr()),
             ])
-            ->allowedIncludes(['image'])
             ->where('broadcast_id', $broadcast->id)
             ->paginate($request->input('per_page'));
 

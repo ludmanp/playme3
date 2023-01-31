@@ -2,6 +2,7 @@
 
 namespace TypiCMS\Modules\Broadcasts\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Route;
 use Laracasts\Presenter\PresentableTrait;
@@ -26,6 +27,13 @@ class BroadcastAddress extends Base implements Sortable
     protected $presenter = AddressModulePresenter::class;
 
     protected $guarded = [];
+
+    public function title(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->address,
+        );
+    }
 
     public function previewUri(): string
     {
@@ -72,7 +80,7 @@ class BroadcastAddress extends Base implements Sortable
     {
         $route = 'admin::edit-broadcast';
         if (Route::has($route)) {
-            return route($route, $this->broadcast_id);
+            return route($route, ['broadcast' => $this->broadcast_id]);
         }
 
         return route('admin::dashboard');

@@ -22,7 +22,7 @@ class SidebarViewComposer
                 $item->icon = config('typicms.modules.broadcasts.sidebar.icon');
                 $item->weight = config('typicms.modules.broadcasts.sidebar.weight');
                 $item->route('admin::index-broadcasts');
-                $item->append('admin::create-broadcast');
+//                $item->append('admin::create-broadcast');
             });
         });
     }

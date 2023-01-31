@@ -57,7 +57,7 @@
                         title-leader="@lang('Project contact person')"
                         title-company="@lang('Company')"
                         label-company-name="@lang('Company name')"
-                        label-registration-number="@lang('Company name')"
+                        label-registration-number="@lang('Registration number')"
                         label-legal-address="@lang('Legal address')"
                         label-create-broadcast="@lang('Create broadcast')"
                     >

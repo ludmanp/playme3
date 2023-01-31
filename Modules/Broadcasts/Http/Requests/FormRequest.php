@@ -2,6 +2,8 @@
 
 namespace TypiCMS\Modules\Broadcasts\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use TypiCMS\Modules\Broadcasts\Enums\StatusEnum;
 use TypiCMS\Modules\Core\Http\Requests\AbstractFormRequest;
 
 class FormRequest extends AbstractFormRequest
@@ -10,11 +12,26 @@ class FormRequest extends AbstractFormRequest
     {
         return [
             'image_id' => 'nullable|integer',
-            'title.*' => 'nullable|max:255',
-            'slug.*' => 'nullable|alpha_dash|max:255|required_if:status.*,1|required_with:title.*',
-            'status.*' => 'boolean',
-            'summary.*' => 'nullable',
-            'body.*' => 'nullable',
+            'title' => 'required|max:255',
+            'status' => ['sometimes', Rule::in(array_keys(StatusEnum::forSelect()))],
+            'summary' => 'required|max:1000',
+            'addresses.*.address' => 'nullable|max:255',
+            'dates.*.date' => 'nullable|date',
+            'dates.*.starts_at' => 'nullable',
+            'dates.*.arrive_at' => 'nullable',
+            'contact_name' => 'required|max:255',
+            'contact_phone' => 'required|max:255',
+            'contact_email' => 'required|email',
+            'leader_name' => 'nullable|max:255',
+            'leader_phone' => 'nullable|max:255',
+            'leader_email' => 'nullable|email',
+            'company' => 'nullable|max:255',
+            'registration_nr' => 'nullable|max:255',
+            'legal_address' => 'nullable|max:255',
+            'company_phone' => 'nullable|max:255',
+            'company_email' => 'nullable|email',
+            'is_public' => 'nullable|boolean',
+            'parameters' => 'array',
         ];
     }
 }
