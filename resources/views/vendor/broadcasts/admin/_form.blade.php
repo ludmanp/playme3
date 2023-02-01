@@ -33,6 +33,9 @@
             <a class="nav-link" href="#tab-dates" data-bs-toggle="tab">{{ __('Dates') }}</a>
         </li>
         @endif
+        <li class="nav-item">
+            <a class="nav-link" href="#tab-broadcasting" data-bs-toggle="tab">{{ __('Broadcasting') }}</a>
+        </li>
     </ul>
 
 
@@ -223,6 +226,9 @@
             @include('broadcasts::admin.dates._index')
         </div>
         @endif
+        <div class="tab-pane fade" id="tab-broadcasting">
+            {!! BootForm::textarea(__('Embed script'), 'embed_script')->rows(4) !!}
+        </div>
     </div>
 </div>
 

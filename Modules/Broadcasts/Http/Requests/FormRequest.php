@@ -15,10 +15,6 @@ class FormRequest extends AbstractFormRequest
             'title' => 'required|max:255',
             'status' => ['sometimes', Rule::in(array_keys(StatusEnum::forSelect()))],
             'summary' => 'required|max:1000',
-            'addresses.*.address' => 'nullable|max:255',
-            'dates.*.date' => 'nullable|date',
-            'dates.*.starts_at' => 'nullable',
-            'dates.*.arrive_at' => 'nullable',
             'contact_name' => 'required|max:255',
             'contact_phone' => 'required|max:255',
             'contact_email' => 'required|email',
@@ -32,6 +28,7 @@ class FormRequest extends AbstractFormRequest
             'company_email' => 'nullable|email',
             'is_public' => 'nullable|boolean',
             'parameters' => 'array',
+            'embed_script' => 'nullable|max:1000',
         ];
     }
 }

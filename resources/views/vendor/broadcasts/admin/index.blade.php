@@ -29,6 +29,9 @@
     <template slot="table-row" slot-scope="{ model, checkedModels, loading }">
         <td class="checkbox" v-if="$can('update broadcasts')||$can('delete broadcasts')"><item-list-checkbox :model="model" :checked-models-prop="checkedModels" :loading="loading"></item-list-checkbox></td>
         <td v-if="$can('update broadcasts')"><item-list-edit-button :url="'/admin/broadcasts/'+model.id+'/edit'"></item-list-edit-button></td>
+        <td>
+        <span class="badge me-1" :class="{ 'bg-warning': model.status==='new', 'bg-success': model.status==='approved', 'bg-danger': model.status==='declined' }">@{{ model.status }}</span>
+        </td>
         <td v-html="model.status"></td>
         <td><img :src="model.thumb" alt="" height="27"></td>
         <td v-html="model.title"></td>
