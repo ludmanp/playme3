@@ -2,6 +2,7 @@
 
 namespace TypiCMS\Modules\Broadcasts\Presenters;
 
+use Drnxloc\LaravelHtmlDom\HtmlDomParser;
 use TypiCMS\Modules\Broadcasts\Models\Broadcast;
 use TypiCMS\Modules\Broadcasts\Models\BroadcastAddress;
 use TypiCMS\Modules\Broadcasts\Models\BroadcastDate;
@@ -32,5 +33,21 @@ class ModulePresenter extends Presenter
             ];
         }
         return json_encode($data);
+    }
+
+    public function prepareScript(): string
+    {
+        if(!$this->entity->embed_script) {
+            return '';
+        }
+        $dom = HtmlDomParser::str_get_html( $this->entity->embed_script );
+        $iframe = $dom->find('iframe');
+        if(!empty($iframe)) {
+            $iframe = $iframe[0];
+            $iframe->width = null;
+            $iframe->height = null;
+            $iframe->class = 'clientGallery__videoImage';
+        }
+        return $dom->save();
     }
 }

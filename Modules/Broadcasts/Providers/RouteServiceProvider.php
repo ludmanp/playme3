@@ -36,13 +36,13 @@ class RouteServiceProvider extends ServiceProvider
 //        }
         foreach (locales() as $lang) {
             Route::middleware(['public'])->prefix($lang . '/broadcast')->name($lang.'::')->group(function (Router $router) {
-                $router->get('{slug}', [PublicController::class, 'show'])->name('broadcast');
                 Route::middleware(['auth'])->group(function (Router $router) {
                     $router->get('create', [PublicController::class, 'create'])->name('create-broadcast');
                     $router->post('create', [PublicController::class, 'store'])->name('store-broadcast');
                     $router->get('{slug}/edit', [PublicController::class, 'edit'])->name('edit-broadcast');
                     $router->post('{slug}/edit', [PublicController::class, 'update'])->name('update-broadcast');
                 });
+                $router->get('{slug}', [PublicController::class, 'show'])->name('broadcast');
             });
         }
 

@@ -1,41 +1,58 @@
 @extends('core::public.master')
 
+@php
+/** @var \TypiCMS\Modules\Broadcasts\Models\Broadcast $model */
+@endphp
 @section('title', $model->title.' – '.__('Broadcasts').' – '.$websiteTitle)
 @section('ogTitle', $model->title)
 @section('description', $model->summary)
 @section('ogImage', $model->present()->image(1200, 630))
-@section('bodyClass', 'body-broadcasts body-broadcast-'.$model->id.' body-page body-page-'.$page->id)
 
 @section('content')
+    <x-common.container>
+        <div class='stream__container'>
+            <x-common.contentBlock :row="true">
+                <x-slot name="header">
+                    <h3>{{ $model->title }}</h3>
+                </x-slot>
+            </x-common.contentBlock>
+            <div class='watchStreamContainer'>
+                @if($model->embed_script || $model->image)
+                    <div class='watchStreamBlock'>
+                        <div class='watchStreamBlock__videoBlock'>
+                            <div class='clientGallery__item'>
+                                <div class='clientGallery__videoBlock'>
+                                    @if($model->embed_script)
+                                        {!! $model->present()->prepareScript() !!}
+                                    @elseif($model->image)
+                                        <div class='informationImage'>
+                                            <img class='clientGallery__videoImage' src='{{ $model->present()->image() }}' alt='{{ $$model->image->alt_attribute }}'>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
-<article class="broadcast">
-    <header class="broadcast-header">
-        <div class="broadcast-header-container">
-            <div class="broadcast-header-navigator">
-                @include('core::public._items-navigator', ['module' => 'Broadcasts', 'model' => $model])
+                <div class='watchStream__infoBlock'>
+                    <div class='watchStreamBlock__videoDescription'>
+                        <h3 class='watchStreamBlock__descriptionHeader'>
+                            {{ $model->title }}
+                        </h3>
+                        <p class='watchStreamBlock__description'>
+                            {{ $model->summary }}
+                        </p>
+                    </div>
+                    <div class='watchStream__streamTimetable'>
+                        @if($model->first_date)
+                        <div>
+                            <p>@lang('Broadcast starts at'): {{ optional($model->first_date->starts_at)->format('d.m.Y H:i') }}</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
             </div>
-            <h1 class="broadcast-title">{{ $model->title }}</h1>
         </div>
-    </header>
-    <div class="broadcast-body">
-        @include('broadcasts::public._json-ld', ['broadcast' => $model])
-        @empty(!$model->summary)
-        <p class="broadcast-summary">{!! nl2br($model->summary) !!}</p>
-        @endempty
-        @empty(!$model->image)
-        <picture class="broadcast-picture">
-            <img class="broadcast-picture-image" src="{{ $model->present()->image(2000) }}" width="{{ $model->image->width }}" height="{{ $model->image->height }}" alt="">
-            @empty(!$model->image->description)
-            <legend class="broadcast-picture-legend">{{ $model->image->description }}</legend>
-            @endempty
-        </picture>
-        @endempty
-        @empty(!$model->body)
-        <div class="rich-content">{!! $model->present()->body !!}</div>
-        @endempty
-        @include('files::public._document-list')
-        @include('files::public._image-list')
-    </div>
-</article>
-
+    </x-common.container>
 @endsection

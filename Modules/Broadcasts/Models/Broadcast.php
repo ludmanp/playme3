@@ -129,8 +129,6 @@ class Broadcast extends Base
         return $this->hasOne(BroadcastDate::class, 'broadcast_id')->order();
     }
 
-
-
     /**
      * Get broadcast's slug value
      *
@@ -141,6 +139,16 @@ class Broadcast extends Base
         return Attribute::make(
             get: fn () => strval($this->external_id ?? $this->id),
         );
+    }
+
+    public function isPublished($locale = null): bool
+    {
+        return $this->status == StatusEnum::APPROVED;
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('status', StatusEnum::APPROVED->value);
     }
 
     public function uri($locale = null): string
