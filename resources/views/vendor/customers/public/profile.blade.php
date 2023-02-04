@@ -107,6 +107,7 @@
                         :date="optional($broadcast->first_date)->date"
                         :location="$broadcast->first_address->address"
                         :link="$broadcast->isSharable ? url($broadcast->uri()) : false"
+                        :status="$broadcast->status"
                     >
                         <x-slot name="header">
                             {{ $broadcast->title }}

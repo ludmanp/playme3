@@ -10,6 +10,32 @@
     text-decoration: none;
 }
 
+.cabinetOrder_headerBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cabinetOrder__label {
+    display: block;
+    padding: 8px;
+    border: 2px solid var(--cInputBorderGreen);
+    border-radius: var(--sRadiusBig);
+    text-transform: uppercase;
+}
+
+.cabinetOrder__labelAccepted {
+    color: var(--cWhite);
+    background: var(--cInputBorderGreen);
+    border: 2px solid var(--cInputBorderGreen);
+}
+
+.cabinetOrder__labelDeclined {
+    color: var(--cWhite);
+    background: var(--cError);
+    border: 2px solid var(--cError);
+}
+
 .cabinetOrder__date, .cabinetOrder__location {
     display: flex;
     align-items: center;
@@ -25,6 +51,7 @@
     font-weight: 600;
     font-size: var(--sFontLarge);
     line-height: 1.45;
+    text-transform: uppercase;
 }
 
 .cabinetOrder__actions {
