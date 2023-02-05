@@ -10,18 +10,20 @@ export const initToggleVideo = () => {
     const setupVideo = (video) => {
         let link = video.querySelector('.clientGallery__videoLink');
         let button = video.querySelector('.clientGallery__videoLink');
-        let id = parseMediaURL(link);
+        if(link) {
+            let id = parseMediaURL(link);
 
-        video.addEventListener('click', () => {
-            let iframe = createIframe(id);
+            video.addEventListener('click', () => {
+                let iframe = createIframe(id);
 
-            link.remove();
-            button.remove();
-            video.appendChild(iframe);
-        });
+                link.remove();
+                button.remove();
+                video.appendChild(iframe);
+            });
 
-        link.removeAttribute('href');
-        video.classList.add('clientGallery__videoBlock_enabled');
+            link.removeAttribute('href');
+            video.classList.add('clientGallery__videoBlock_enabled');
+        }
     }
 
     const parseMediaURL = (media) => {

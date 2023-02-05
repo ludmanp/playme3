@@ -61,7 +61,6 @@ class PublicController extends BasePublicController
         /** @var Broadcast $broadcast */
         $broadcast = Broadcast::query()->whereSlugIs($slug)->authorised()->firstOrFail();
         $broadcast->update($request->validated());
-        $this->saveDetails($broadcast, $request);
         return [
             'success' => true,
         ];

@@ -1,7 +1,7 @@
 <template>
     <div class="checkboxItem" :class="{'checkboxItem_greenText': greenText}">
         <label class="checkboxBlock">
-            <input type="checkbox" :checked="isChecked" :value="value" @change="onChange">
+            <input type="checkbox" :checked="isChecked" :value="value" @change="onChange"  :disabled="disabled">
             <span class="checkbox__checkmark"></span>
             <span class="checkbox__text"><slot name="label"></slot></span>
         </label>
@@ -23,6 +23,7 @@ export default {
         trueValue: { default: true },
         falseValue: { default: false },
         greenText: { default: false },
+        disabled: { default: false },
     },
     computed: {
         isChecked() {

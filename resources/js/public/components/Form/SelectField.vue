@@ -1,7 +1,7 @@
 <template>
     <div class='selectField'>
         <label v-if="label">{{ label}}</label>
-        <select @change="onChange">
+        <select @change="onChange" :disabled="disabled">
             <option v-for="option in options" :selected="option===value" :value="option">{{ option }}</option>
         </select>
     </div>
@@ -21,6 +21,10 @@ export default {
         options: {
             type: Array,
             default: () => [],
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
         },
     },
     methods: {

@@ -12,18 +12,28 @@
         </div>
 
         <div class='orderForm__row'>
+            <div class="info" v-if="dataModel.status === 'declined'">
+                {{ labelDeclined }}
+            </div>
+
             <p class='orderForm__formSubheader'>{{ labelTitle }}</p>
             <input-field v-model="title"></input-field>
             <p class='orderForm__formSubheader'>{{ labelDescription }}</p>
             <textarea-field v-model="summary"></textarea-field>
         </div>
+
+        <button-default type="submit" :caption="labelEditBroadcast" v-if="dataModel.id"></button-default>
+
+        <div class="info" v-if="dataModel.id">
+            {{ labelCannotEdit }}
+        </div>
+
         <p class='orderForm__formSubheader'>{{ labelAddresses }}</p>
         <div class="inputRow" v-for="address in addresses" >
-            <input-field :location="true" type="text" :placeholder="labelAddress" v-model="address.address"></input-field>
+            <input-field :location="true" type="text" :placeholder="labelAddress" v-model="address.address" :readonly="cannotEdit()"></input-field>
         </div>
-        <button type="button" class="button button_withImage button_green" @click="addAddress" :disabled="!canAddAddress">
-            <span class="link__icon">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button type="button" class="button button_withImage button_green" @click="addAddress" :disabled="!canAddAddress" v-if="!cannotEdit()">
+            <span class="link__icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 5.5V8.5C19 9.11875 18.4937 9.625 17.875 9.625L9.625 9.625L9.625 17.875C9.625 18.4937 9.11875 19 8.5 19H5.5C4.88125 19 4.375 18.4937 4.375 17.875L4.375 9.625H-3.875C-4.49375 9.625 -5 9.11875 -5 8.5V5.5C-5 4.88125 -4.49375 4.375 -3.875 4.375H4.375V-3.875C4.375 -4.49375 4.88125 -5 5.5 -5H8.5C9.11875 -5 9.625 -4.49375 9.625 -3.875V4.375L17.875 4.375C18.4937 4.375 19 4.88125 19 5.5Z" fill="#2AA84A"/>
                 </svg>
             </span>
@@ -34,23 +44,23 @@
             <div class='orderForm__col'>
                 <p class='orderForm__formSubheader'>{{ labelDate }}</p>
                 <div class="inputRow" v-for="date in dates" >
-                    <input-field :date="true" type="date" v-model="date.date"></input-field>
+                    <input-field :date="true" type="date" v-model="date.date" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
             <div class='orderForm__col'>
                 <p class='orderForm__formSubheader'>{{ labelStartsAt }}</p>
                 <div class="inputRow" v-for="date in dates" >
-                    <input-field :time="true" type="time" v-model="date.starts_at"></input-field>
+                    <input-field :time="true" type="time" v-model="date.starts_at" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
             <div class='orderForm__col'>
                 <p class='orderForm__formSubheader'>{{ labelArriveAt }}</p>
                 <div class="inputRow" v-for="date in dates" >
-                    <input-field :time="true" type="time" v-model="date.arrive_at"></input-field>
+                    <input-field :time="true" type="time" v-model="date.arrive_at" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
         </div>
-        <button type="button" class="button button_withImage button_green" @click="addDate">
+        <button type="button" class="button button_withImage button_green" @click="addDate" v-if="!cannotEdit()">
             <span class="link__icon">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 5.5V8.5C19 9.11875 18.4937 9.625 17.875 9.625L9.625 9.625L9.625 17.875C9.625 18.4937 9.11875 19 8.5 19H5.5C4.88125 19 4.375 18.4937 4.375 17.875L4.375 9.625H-3.875C-4.49375 9.625 -5 9.11875 -5 8.5V5.5C-5 4.88125 -4.49375 4.375 -3.875 4.375H4.375V-3.875C4.375 -4.49375 4.88125 -5 5.5 -5H8.5C9.11875 -5 9.625 -4.49375 9.625 -3.875V4.375L17.875 4.375C18.4937 4.375 19 4.88125 19 5.5Z" fill="#2AA84A"/>
@@ -62,11 +72,11 @@
         <p class='orderForm__formSubheader'>{{ labelContactPerson }}</p>
         <div class='orderForm__row_contacts'>
             <div class='orderForm__row_contacts__col'>
-                <input-field :placeholder="labelName" v-model="contact_name"></input-field>
+                <input-field :placeholder="labelName" v-model="contact_name" :readonly="cannotEdit()"></input-field>
             </div>
             <div class='orderForm__row_contacts__col'>
-                <input-field :placeholder="labelPhone" v-model="contact_phone" type="tel"></input-field>
-                <input-field :placeholder="labelEmail" v-model="contact_email" type="email"></input-field>
+                <input-field :placeholder="labelPhone" v-model="contact_phone" type="tel" :readonly="cannotEdit()"></input-field>
+                <input-field :placeholder="labelEmail" v-model="contact_email" type="email" :readonly="cannotEdit()"></input-field>
             </div>
         </div>
 
@@ -77,13 +87,14 @@
             <select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
                           :label="labelCameraQuantity"
                           v-model="camerasQuantity"
+                          :disabled="cannotEdit()"
             ></select-field>
-            <checkbox-item v-model="isPublic" :green-text="true" @change="isPublicChanged">
+            <checkbox-item v-model="isPublic" :green-text="true" @change="isPublicChanged" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelAvailableToAll }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="isPrivate" :green-text="true" @change="isPrivateChanged">
+            <checkbox-item v-model="isPrivate" :green-text="true" @change="isPrivateChanged" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelPasswordRequired }}
                 </template>
@@ -92,12 +103,12 @@
 
         <div class='orderForm__row'>
             <p class='orderForm__formSubheader'>{{ titleLogistics }}</p>
-            <checkbox-item v-model="equipmentDelivery" :green-text="true">
+            <checkbox-item v-model="equipmentDelivery" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelEquipmentDelivery }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="broadcastOnPlatform" :green-text="true">
+            <checkbox-item v-model="broadcastOnPlatform" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelBroadcastOnPlatform }}
                 </template>
@@ -106,12 +117,12 @@
 
         <div class='orderForm__row'>
             <p class='orderForm__formSubheader'>{{ titleDecoration }}</p>
-            <checkbox-item v-model="makeUp" :green-text="true">
+            <checkbox-item v-model="makeUp" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelMakeup }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="graphicDesign" :green-text="true">
+            <checkbox-item v-model="graphicDesign" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelDesign }}
                 </template>
@@ -123,13 +134,14 @@
             <select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
                           :label="labelCameraQuantity"
                           v-model="finalVideoCamerasQuantity"
+                          :disabled="cannotEdit()"
             ></select-field>
-            <checkbox-item v-model="workWithLight" :green-text="true">
+            <checkbox-item v-model="workWithLight" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelVideoLight }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="workWithSound" :green-text="true">
+            <checkbox-item v-model="workWithSound" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelVideoSound }}
                 </template>
@@ -138,44 +150,44 @@
 
         <div class='orderForm__row'>
             <p class='orderForm__formSubheader'>{{ titlePostProductsion }}</p>
-            <checkbox-item v-model="socialVideo" :green-text="true">
+            <checkbox-item v-model="socialVideo" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelSocialVideo }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="reportingVideo" :green-text="true">
+            <checkbox-item v-model="reportingVideo" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelReportingVideo }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="corporateVideo" :green-text="true">
+            <checkbox-item v-model="corporateVideo" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelCorporateVideo }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="promoVideo" :green-text="true">
+            <checkbox-item v-model="promoVideo" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelPromoVideo }}
                 </template>
             </checkbox-item>
 
-            <checkbox-item v-model="conference2h" :green-text="true">
+            <checkbox-item v-model="conference2h" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelConference2h }}
                 </template>
             </checkbox-item>
 
-            <checkbox-item v-model="conference4h" :green-text="true">
+            <checkbox-item v-model="conference4h" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelConference4h }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="templateElements" :green-text="true">
+            <checkbox-item v-model="templateElements" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelTemplateElements }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="customElements" :green-text="true">
+            <checkbox-item v-model="customElements" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelCustomElements }}
                 </template>
@@ -186,33 +198,33 @@
             <p class='orderForm__formSubheader'>{{ titleLeader }}:</p>
             <div class='orderForm__row_contacts'>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelName" v-model="leader_name"></input-field>
+                    <input-field :placeholder="labelName" v-model="leader_name" :readonly="cannotEdit()"></input-field>
                 </div>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelPhone" v-model="leader_phone" type="tel"></input-field>
-                    <input-field :placeholder="labelEmail" v-model="leader_email" type="email"></input-field>
+                    <input-field :placeholder="labelPhone" v-model="leader_phone" type="tel" :readonly="cannotEdit()"></input-field>
+                    <input-field :placeholder="labelEmail" v-model="leader_email" type="email" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
             <p class='orderForm__formSubheader'>{{ titleCompany }}:</p>
             <div class='orderForm__row_contacts'>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelCompanyName" v-model="company"></input-field>
+                    <input-field :placeholder="labelCompanyName" v-model="company" :readonly="cannotEdit()"></input-field>
                 </div>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelRegistrationNumber" v-model="registration_nr"></input-field>
+                    <input-field :placeholder="labelRegistrationNumber" v-model="registration_nr" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
             <div class='orderForm__row_contacts'>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelLegalAddress" :location="true" v-model="legal_address"></input-field>
+                    <input-field :placeholder="labelLegalAddress" :location="true" v-model="legal_address" :readonly="cannotEdit()"></input-field>
                 </div>
                 <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelPhone" v-model="company_phone" type="tel"></input-field>
-                    <input-field :placeholder="labelEmail" v-model="company_email" type="email"></input-field>
+                    <input-field :placeholder="labelPhone" v-model="company_phone" type="tel" :readonly="cannotEdit()"></input-field>
+                    <input-field :placeholder="labelEmail" v-model="company_email" type="email" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
         </div>
-        <button-default type="submit" :caption="labelCreateBroadcast"></button-default>
+        <button-default type="submit" :caption="labelCreateBroadcast" v-if="!dataModel.id"></button-default>
     </form>
 </template>
 
@@ -229,7 +241,9 @@ export default {
     props: {
         dataModel: {
             type: Object,
-            default: {}
+            default() {
+                return {};
+            }
         },
         csrfToken: {
             type: String,
@@ -403,6 +417,18 @@ export default {
             type: String,
             required: true
         },
+        labelEditBroadcast: {
+            type: String,
+            required: true
+        },
+        labelCannotEdit: {
+            type: String,
+            required: true
+        },
+        labelDeclined: {
+            type: String,
+            required: true
+        },
 
     },
     data() {
@@ -466,14 +492,17 @@ export default {
         isPrivateChanged() {
             this.isPublic = !this.isPrivate;
         },
+        cannotEdit() {
+            return !!this.dataModel.id;
+        },
         submit(e) {
             e.preventDefault();
             this.error = [];
-            const url = this.dataModel.slug
-                ? '/' + window.TypiCMS.locale + '/broadcast/' + this.dataModel.slug + '/edit'
-                : '/' + window.TypiCMS.locale + '/broadcast/create'
-            axios
-                .post(url, {
+            let data = this.dataModel.slug ?
+                {
+                    title: this.title,
+                    summary: this.summary,
+                } : {
                     title: this.title,
                     summary: this.summary,
                     addresses: this.addresses,
@@ -508,7 +537,13 @@ export default {
                         templateElements: this.templateElements,
                         customElements: this.customElements,
                     }
-                }).then((response) => {
+                };
+
+            const url = this.dataModel.id
+                ? '/' + window.TypiCMS.locale + '/broadcast/' + this.dataModel.slug + '/edit'
+                : '/' + window.TypiCMS.locale + '/broadcast/create'
+            axios
+                .post(url, data).then((response) => {
                     console.log(response);
                 })
                 .catch((error) => {

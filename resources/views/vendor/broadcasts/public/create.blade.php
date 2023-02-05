@@ -60,6 +60,9 @@
                         label-registration-number="@lang('Registration number')"
                         label-legal-address="@lang('Legal address')"
                         label-create-broadcast="@lang('Create broadcast')"
+                        label-edit-broadcast="@lang('Edit broadcast')"
+                        label-cannot-edit="@lang('To make other changes please contact us')"
+                        label-declined="@lang('Your order is declined')"
                     >
                         <template slot="broadcast-description">
                             <div class='orderForm__row'>
