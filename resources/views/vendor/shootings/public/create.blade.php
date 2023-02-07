@@ -22,7 +22,7 @@
                         label-title="@lang('Shooting title')"
                         label-description="@lang('Shooting description')"
                         title-product="@lang('Product')"
-                        :products-list="{{ json_encode(\TypiCMS\Modules\Shootings\Enums\ProductEnum::forSelect()) }}"
+                        :products-list="{{ json_encode(\TypiCMS\Modules\Shootings\Enums\ProductEnum::forForm()) }}"
                         label-address="@lang('Address')"
                         label-addresses="@lang('Shooting place')"
                         label-add-address="@lang('Add address')"
@@ -67,21 +67,6 @@
                         label-cannot-edit="@lang('To make other changes please contact us')"
                         label-declined="@lang('Your order is declined')"
                     >
-                        <template slot="shooting-description">
-                            <div class='orderForm__row'>
-                                <p class='orderForm__formSubheader'>@lang('Shooting')</p>
-                                <div class='orderForm__recommendation'>
-                                    <p class='orderForm__recommendation__header'>
-                                        @lang('Shooting recommendation')
-                                    </p>
-                                    <div class='orderForm__recommendationsList'>
-                                        <p><span class='green'>@lang('1 camera')</span> – @lang('1 camera text')</p>
-                                        <p><span class='green'>@lang('2 cameras')</span> – @lang('2 cameras text')</p>
-                                        <p><span class='green'>@lang('3 cameras and more')</span> – @lang('3 cameras text')</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
                     </shooting-form>
                 </div>
             </x-layout.stream.orderForm>

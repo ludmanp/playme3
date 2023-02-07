@@ -9,8 +9,7 @@ class DateFormRequest extends AbstractFormRequest
     public function rules()
     {
         return [
-            'starts_at' => 'required|date',
-            'arrive_at' => 'required|date',
+            'date' => 'required|date',
             'shooting_id' => 'required',
         ];
     }

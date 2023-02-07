@@ -9,12 +9,21 @@ class FormRequest extends AbstractFormRequest
     public function rules()
     {
         return [
-            'image_id' => 'nullable|integer',
-            'title.*' => 'nullable|max:255',
-            'slug.*' => 'nullable|alpha_dash|max:255|required_if:status.*,1|required_with:title.*',
-            'status.*' => 'boolean',
-            'summary.*' => 'nullable',
-            'body.*' => 'nullable',
+            'title' => 'required|max:255',
+            'summary' => 'required|max:1000',
+            'addresses.*.address' => 'required|max:255',
+            'dates.*.date' => 'required|date',
+            'leader_name' => 'required|max:255',
+            'leader_phone' => 'required|max:255',
+            'leader_email' => 'required|email',
+            'company' => 'nullable|max:255',
+            'registration_nr' => 'nullable|max:255',
+            'legal_address' => 'nullable|max:255',
+            'company_phone' => 'nullable|max:255',
+            'company_email' => 'nullable|email',
+            'products' => 'required|array',
+            'think_yourself' => 'nullable|boolean',
+            'parameters' => 'array',
         ];
     }
 }

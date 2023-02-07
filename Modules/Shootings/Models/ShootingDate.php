@@ -37,7 +37,7 @@ class ShootingDate extends Base implements Sortable
     public function title(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->starts_at ? $this->starts_at->format('d.m.Y H:i') : '-',
+            get: fn () => $this->date ? $this->date->format('d.m.Y') : '-',
         );
     }
 

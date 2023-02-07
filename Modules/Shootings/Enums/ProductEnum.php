@@ -17,6 +17,15 @@ enum ProductEnum: string
     {
         $result = [];
         foreach (self::cases() as $case) {
+            $result[$case->value] = __(ucfirst($case->value));
+        }
+        return $result;
+    }
+
+    public static function forForm(): array
+    {
+        $result = [];
+        foreach (self::cases() as $case) {
             $result[] = ['key' => $case->value, 'title' => __(ucfirst($case->value))];
         }
         return $result;

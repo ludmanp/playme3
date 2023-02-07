@@ -16,11 +16,10 @@ class ApiController extends BaseApiController
     {
         $data = QueryBuilder::for(Shooting::class)
             ->selectFields($request->input('fields.shootings'))
-            ->allowedSorts(['status_translated', 'title_translated'])
+            ->allowedSorts(['status', 'title'])
             ->allowedFilters([
                 AllowedFilter::custom('title', new FilterOr()),
             ])
-            ->allowedIncludes(['image'])
             ->paginate($request->input('per_page'));
 
         return $data;

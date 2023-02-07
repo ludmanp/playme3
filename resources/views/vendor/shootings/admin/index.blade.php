@@ -9,10 +9,9 @@
     fields="id,status,title"
     table="shootings"
     title="shootings"
-    include="image"
-    :exportable="true"
+    :exportable="false"
     :searchable="['title']"
-    :sorting="['title_translated']">
+    :sorting="['title']">
 
 {{--    <template slot="add-button" v-if="$can('create shootings')">--}}
 {{--        @include('core::admin._button-create', ['module' => 'shootings'])--}}
