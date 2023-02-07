@@ -2,6 +2,8 @@
 
 namespace TypiCMS\Modules\Shootings\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -38,6 +40,7 @@ use TypiCMS\Modules\Shootings\Presenters\ModulePresenter;
  * @property ShootingAddress first_address
  * @property ShootingDate[] | Collection dates
  * @property ShootingDate first_date
+ * @property string slug
  *
  * @method ModulePresenter present()
  */
@@ -51,13 +54,43 @@ class Shooting extends Base
 
     protected $guarded = ['addresses', 'dates'];
 
-    protected $appends = [];
+    protected $appends = ['slug'];
 
     protected $casts = [
         'products' => 'array',
         'parameters' => 'array',
         'status' => StatusEnum::class,
     ];
+
+    /**
+     * @return void
+     */
+    public static function boot() {
+
+        parent::boot();
+
+        static::creating(function(self $model) {
+
+            if(!$model->user_id && auth()->check()) {
+                $model->user_id = auth()->id();
+            }
+            if(!$model->lang) {
+                $model->lang = config('app.locale');
+            }
+        });
+    }
+
+    /**
+     * Get broadcast's slug value
+     *
+     * @return Attribute
+     */
+    protected function slug(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->id,
+        );
+    }
 
     public function addresses(): HasMany
     {
@@ -78,4 +111,15 @@ class Shooting extends Base
     {
         return $this->hasOne(ShootingDate::class, 'shooting_id')->order();
     }
+
+    public function scopeWhereSlugIs($query, $slug): Builder
+    {
+        return $query->where('id', $slug);
+    }
+
+    public function scopeAuthorised($query): Builder
+    {
+        return $query->where('user_id', auth()->id());
+    }
+
 }

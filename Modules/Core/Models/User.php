@@ -25,6 +25,7 @@ use TypiCMS\Modules\Core\Notifications\ResetPassword;
 use TypiCMS\Modules\Core\Notifications\VerifyEmail;
 use TypiCMS\Modules\Core\Presenters\UsersPresenter;
 use TypiCMS\Modules\Core\Traits\Historable;
+use TypiCMS\Modules\Shootings\Models\Shooting;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, MustVerifyEmailContract, HasLocalePreference
 {
@@ -132,5 +133,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function broadcasts(): HasMany
     {
         return $this->hasMany(Broadcast::class, 'user_id')->orderBy('id', 'desc');
+    }
+
+    public function shootings(): HasMany
+    {
+        return $this->hasMany(Shooting::class, 'user_id')->orderBy('id', 'desc');
     }
 }

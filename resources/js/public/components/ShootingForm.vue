@@ -24,6 +24,10 @@
 
         <button-default type="submit" :caption="labelEditShooting" v-if="dataModel.id"></button-default>
 
+        <div class="info" v-if="dataModel.id">
+            {{ labelCannotEdit }}
+        </div>
+
         <div class='orderForm__row'>
             <p class='orderForm__formSubheader'>{{ titleProduct }}</p>
             <checkbox-item  v-for="product in productsList" v-model="products" :value="product.key" v-bind:key="product.key" :green-text="true" :disabled="cannotEdit()">
@@ -31,10 +35,6 @@
                     {{ product.title }}
                 </template>
             </checkbox-item>
-        </div>
-
-        <div class="info" v-if="dataModel.id">
-            {{ labelCannotEdit }}
         </div>
 
         <p class='orderForm__formSubheader'>{{ labelAddresses }}</p>

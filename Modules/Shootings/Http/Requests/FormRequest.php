@@ -2,6 +2,8 @@
 
 namespace TypiCMS\Modules\Shootings\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use TypiCMS\Modules\Broadcasts\Enums\StatusEnum;
 use TypiCMS\Modules\Core\Http\Requests\AbstractFormRequest;
 
 class FormRequest extends AbstractFormRequest
@@ -11,6 +13,7 @@ class FormRequest extends AbstractFormRequest
         return [
             'title' => 'required|max:255',
             'summary' => 'required|max:1000',
+            'status' => ['sometimes', Rule::in(array_keys(StatusEnum::forSelect()))],
             'addresses.*.address' => 'required|max:255',
             'dates.*.date' => 'required|date',
             'leader_name' => 'required|max:255',
