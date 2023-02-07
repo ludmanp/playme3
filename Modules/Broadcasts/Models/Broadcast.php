@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Laracasts\Presenter\PresentableTrait;
 use Ramsey\Collection\Collection;
-use TypiCMS\Modules\Broadcasts\Casts\StatusCast;
 use TypiCMS\Modules\Broadcasts\Enums\StatusEnum;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\Core\Models\File;
@@ -59,6 +59,7 @@ class Broadcast extends Base
 {
     use Historable;
     use PresentableTrait;
+    use SoftDeletes;
 
     protected $presenter = ModulePresenter::class;
 
@@ -68,7 +69,7 @@ class Broadcast extends Base
 
     protected $casts = [
         'parameters' => 'array',
-        'status' => StatusCast::class,
+        'status' => StatusEnum::class,
     ];
 
     /**

@@ -85,7 +85,7 @@
                     </x-slot>
                 </x-common.contentBlock>
                 <div class='cabinet__orderActions'>
-                    <x-common.link :withImage="true" :uppercase="true" href="#">
+                    <x-common.link :withImage="true" :uppercase="true" :href="route(config('app.locale') . '::create-shooting')">
                         <x-slot name="icon">
                             <x-icons.running></x-icons.running>
                         </x-slot>

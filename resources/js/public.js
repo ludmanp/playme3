@@ -51,6 +51,7 @@ const i18n = new VueI18n({ locale: window.TypiCMS.locale, messages });
 
 import UserButton from "./public/components/UserButton";
 import BroadcastForm from "./public/components/BroadcastForm";
+import ShootingForm from "./public/components/ShootingForm.vue";
 
 if (document.getElementById('user-button-app')) {
     new Vue({
@@ -77,4 +78,13 @@ if (document.getElementById('broadcast-form-app')) {
             BroadcastForm,
         },
     }).$mount('#broadcast-form-app');
+}
+
+if (document.getElementById('shooting-form-app')) {
+    new Vue({
+        i18n,
+        components: {
+            ShootingForm,
+        },
+    }).$mount('#shooting-form-app');
 }

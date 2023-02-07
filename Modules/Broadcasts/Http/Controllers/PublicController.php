@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Broadcasts\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use TypiCMS\Modules\Broadcasts\Http\Requests\CreateFormRequest;
+use TypiCMS\Modules\Broadcasts\Http\Requests\UpdateFormRequest;
 use TypiCMS\Modules\Broadcasts\Models\BroadcastAddress;
 use TypiCMS\Modules\Broadcasts\Models\BroadcastDate;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
@@ -56,7 +56,7 @@ class PublicController extends BasePublicController
             ->with(compact('model'));
     }
 
-    public function update(string $slug, CreateFormRequest $request): array
+    public function update(string $slug, UpdateFormRequest $request): array
     {
         /** @var Broadcast $broadcast */
         $broadcast = Broadcast::query()->whereSlugIs($slug)->authorised()->firstOrFail();

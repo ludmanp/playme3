@@ -1,10 +1,6 @@
 @extends('core::public.master')
 
-@php
-    /** @var \TypiCMS\Modules\Broadcasts\Models\Broadcast $model */
-@endphp
-
-@section('title', __('New Broadcast').' – '.$websiteTitle)
+@section('title', __('New Shooting').' – '.$websiteTitle)
 
 @section('content')
 
@@ -12,43 +8,45 @@
         <div class='stream__container'>
             <x-common.contentBlock :row="true">
                 <x-slot name="header">
-                    <h3><a href="{{ route(config('app.locale') . '::customer-profile') }}">@lang('Profile')</a></h3>
+                    <h3>@lang('Profile')</h3>
                 </x-slot>
                 <x-slot name="subheader">
-                    <h3>{{ $model->title }}</h3>
+                    <h3>@lang('Order shooting')</h3>
                 </x-slot>
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
-                <div id="broadcast-form-app">
-                    <broadcast-form
+                <div id="shooting-form-app">
+                    <shooting-form
                         csrf-token="{{ csrf_token() }}"
-                        form-title="@lang('Order broadcast')"
-                        label-title="@lang('Broadcast title')"
-                        label-description="@lang('Broadcast description')"
+                        form-title="@lang('Order shooting')"
+                        label-title="@lang('Shooting title')"
+                        label-description="@lang('Shooting description')"
+                        title-product="@lang('Product')"
+                        :products-list="{{ json_encode(\TypiCMS\Modules\Shootings\Enums\ProductEnum::forSelect()) }}"
                         label-address="@lang('Address')"
-                        label-addresses="@lang('Broadcast place')"
+                        label-addresses="@lang('Shooting place')"
                         label-add-address="@lang('Add address')"
-                        label-date="@lang('Broadcast date')"
-                        label-starts-at="@lang('Shooting start')"
-                        label-arrive-at="@lang('Arrival')"
+                        label-date="@lang('Shooting date')"
                         label-add-date="@lang('Add date')"
-                        label-contact-person="@lang('Contact person')"
                         label-name="@lang('Name')"
                         label-phone="@lang('Phone')"
                         label-email="@lang('Email')"
-                        label-camera="@lang('Camera')"
-                        label-camera-quantity="@lang('Quantity of cameras')"
-                        label-available-to-all="@lang('Available to all')"
-                        label-password-required="@lang('Password required')"
+                        title-shooting-preparation="@lang('Preproduction')"
+                        label-creative-idea="@lang('Creative Idea')"
+                        label-detailed-scenario="@lang('Detailed Scenario')"
+                        label-story-board="@lang('Story Board')"
+                        label-scenario-is-ready="@lang('Detailed Scenario is Ready')"
+
+                        title-shooting-parameters="@lang('Shooting parameters')"
+                        label-shooting-cameras="@lang('Quantity of shooting cameras')"
+                        label-photo-cameras="@lang('Quantity of photo cameras')"
+                        label-director-on-set="@lang('Director on set')"
+                        label-video-light="@lang('Work with light on set')"
+                        label-video-sound="@lang('Work with sound on set')"
+                        label-makeup="@lang('Make up')"
+
                         title-logistics="@lang('Logistics')"
                         label-equipment-delivery="@lang('Equipment delivery')"
-                        label-broadcast-on-platform="@lang('Broadcast on platform')"
-                        title-decoration="@lang('Decoration')"
-                        label-makeup="@lang('Make up')"
-                        label-design="@lang('Graphics design')"
-                        title-final-video="@lang('Final video preparation')"
-                        label-video-light="@lang('Work with light')"
-                        label-video-sound="@lang('Work with sound')"
                         title-post-Production="@lang('Post products')"
                         label-social-video="@lang('Video for social media')"
                         label-reporting-video="@lang('Reporting video')"
@@ -61,21 +59,20 @@
                         title-leader="@lang('Project contact person')"
                         title-company="@lang('Company')"
                         label-company-name="@lang('Company name')"
-                        label-registration-number="@lang('Company name')"
+                        label-registration-number="@lang('Registration number')"
                         label-legal-address="@lang('Legal address')"
-                        label-create-broadcast="@lang('Create broadcast')"
-                        label-edit-broadcast="@lang('Edit broadcast')"
+                        label-create-shooting="@lang('Create shooting')"
+                        label-edit-shooting="@lang('Edit shooting')"
+                        label-think-yourself="@lang('Figure it all out yourself')"
                         label-cannot-edit="@lang('To make other changes please contact us')"
                         label-declined="@lang('Your order is declined')"
-
-                        :data-model="{{ $model->present()->toJs() }}"
                     >
-                        <template slot="broadcast-description">
+                        <template slot="shooting-description">
                             <div class='orderForm__row'>
-                                <p class='orderForm__formSubheader'>@lang('Broadcast')</p>
+                                <p class='orderForm__formSubheader'>@lang('Shooting')</p>
                                 <div class='orderForm__recommendation'>
                                     <p class='orderForm__recommendation__header'>
-                                        @lang('Broadcast recommendation')
+                                        @lang('Shooting recommendation')
                                     </p>
                                     <div class='orderForm__recommendationsList'>
                                         <p><span class='green'>@lang('1 camera')</span> – @lang('1 camera text')</p>
@@ -85,7 +82,7 @@
                                 </div>
                             </div>
                         </template>
-                    </broadcast-form>
+                    </shooting-form>
                 </div>
             </x-layout.stream.orderForm>
         </div>

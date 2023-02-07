@@ -1,10 +1,10 @@
 @extends('core::public.master')
 
 @php
-    /** @var \TypiCMS\Modules\Broadcasts\Models\Broadcast $model */
+    /** @var \TypiCMS\Modules\Shootings\Models\Shooting $model */
 @endphp
 
-@section('title', __('New Broadcast').' – '.$websiteTitle)
+@section('title', __('New Shooting').' – '.$websiteTitle)
 
 @section('content')
 
@@ -19,16 +19,16 @@
                 </x-slot>
             </x-common.contentBlock>
             <x-layout.stream.orderForm>
-                <div id="broadcast-form-app">
-                    <broadcast-form
+                <div id="shooting-form-app">
+                    <shooting-form
                         csrf-token="{{ csrf_token() }}"
-                        form-title="@lang('Order broadcast')"
-                        label-title="@lang('Broadcast title')"
-                        label-description="@lang('Broadcast description')"
+                        form-title="@lang('Order shooting')"
+                        label-title="@lang('Shooting title')"
+                        label-description="@lang('Shooting description')"
                         label-address="@lang('Address')"
-                        label-addresses="@lang('Broadcast place')"
+                        label-addresses="@lang('Shooting place')"
                         label-add-address="@lang('Add address')"
-                        label-date="@lang('Broadcast date')"
+                        label-date="@lang('Shooting date')"
                         label-starts-at="@lang('Shooting start')"
                         label-arrive-at="@lang('Arrival')"
                         label-add-date="@lang('Add date')"
@@ -42,7 +42,7 @@
                         label-password-required="@lang('Password required')"
                         title-logistics="@lang('Logistics')"
                         label-equipment-delivery="@lang('Equipment delivery')"
-                        label-broadcast-on-platform="@lang('Broadcast on platform')"
+                        label-shooting-on-platform="@lang('Shooting on platform')"
                         title-decoration="@lang('Decoration')"
                         label-makeup="@lang('Make up')"
                         label-design="@lang('Graphics design')"
@@ -63,19 +63,19 @@
                         label-company-name="@lang('Company name')"
                         label-registration-number="@lang('Company name')"
                         label-legal-address="@lang('Legal address')"
-                        label-create-broadcast="@lang('Create broadcast')"
-                        label-edit-broadcast="@lang('Edit broadcast')"
+                        label-create-shooting="@lang('Create shooting')"
+                        label-edit-shooting="@lang('Edit shooting')"
                         label-cannot-edit="@lang('To make other changes please contact us')"
                         label-declined="@lang('Your order is declined')"
 
                         :data-model="{{ $model->present()->toJs() }}"
                     >
-                        <template slot="broadcast-description">
+                        <template slot="shooting-description">
                             <div class='orderForm__row'>
-                                <p class='orderForm__formSubheader'>@lang('Broadcast')</p>
+                                <p class='orderForm__formSubheader'>@lang('Shooting')</p>
                                 <div class='orderForm__recommendation'>
                                     <p class='orderForm__recommendation__header'>
-                                        @lang('Broadcast recommendation')
+                                        @lang('Shooting recommendation')
                                     </p>
                                     <div class='orderForm__recommendationsList'>
                                         <p><span class='green'>@lang('1 camera')</span> – @lang('1 camera text')</p>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </template>
-                    </broadcast-form>
+                    </shooting-form>
                 </div>
             </x-layout.stream.orderForm>
         </div>

@@ -23,17 +23,6 @@ class RouteServiceProvider extends ServiceProvider
         /*
          * Front office routes
          */
-//        if ($page = TypiCMS::getPageLinkedToModule('broadcasts')) {
-//            $middleware = $page->private ? ['public', 'auth'] : ['public'];
-//            foreach (locales() as $lang) {
-//                if ($page->isPublished($lang) && $uri = $page->uri($lang)) {
-//                    Route::middleware($middleware)->prefix($uri)->name($lang.'::')->group(function (Router $router) {
-//                        $router->get('/', [PublicController::class, 'index'])->name('index-broadcasts');
-//                        $router->get('{slug}', [PublicController::class, 'show'])->name('broadcast');
-//                    });
-//                }
-//            }
-//        }
         foreach (locales() as $lang) {
             Route::middleware(['public'])->prefix($lang . '/broadcast')->name($lang.'::')->group(function (Router $router) {
                 Route::middleware(['auth'])->group(function (Router $router) {

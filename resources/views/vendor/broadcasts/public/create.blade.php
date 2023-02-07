@@ -45,7 +45,7 @@
                         title-final-video="@lang('Final video preparation')"
                         label-video-light="@lang('Work with light')"
                         label-video-sound="@lang('Work with sound')"
-                        title-post-productsion="@lang('Post products')"
+                        title-post-Production="@lang('Post products')"
                         label-social-video="@lang('Video for social media')"
                         label-reporting-video="@lang('Reporting video')"
                         label-corporate-video="@lang('Corporate video')"

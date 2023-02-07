@@ -1,5 +1,5 @@
 <template>
-    <form action='' class='orderForm__form' @submit="submit">
+    <form action='' class='orderForm__form' @submit="submit" ref="form">
         <input type="hidden" name="_token" :value="csrfToken">
         <h2 class='orderForm__formHeader'>{{ formTitle }}</h2>
 
@@ -22,7 +22,16 @@
             <textarea-field v-model="summary"></textarea-field>
         </div>
 
-        <button-default type="submit" :caption="labelEditBroadcast" v-if="dataModel.id"></button-default>
+        <button-default type="submit" :caption="labelEditShooting" v-if="dataModel.id"></button-default>
+
+        <div class='orderForm__row'>
+            <p class='orderForm__formSubheader'>{{ titleProduct }}</p>
+            <checkbox-item  v-for="product in productsList" v-model="products" :value="product.key" v-bind:key="product.key" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ product.title }}
+                </template>
+            </checkbox-item>
+        </div>
 
         <div class="info" v-if="dataModel.id">
             {{ labelCannotEdit }}
@@ -47,20 +56,8 @@
                     <input-field :date="true" type="date" v-model="date.date" :readonly="cannotEdit()"></input-field>
                 </div>
             </div>
-            <div class='orderForm__col'>
-                <p class='orderForm__formSubheader'>{{ labelStartsAt }}</p>
-                <div class="inputRow" v-for="date in dates" >
-                    <input-field :time="true" type="time" v-model="date.starts_at" :readonly="cannotEdit()"></input-field>
-                </div>
-            </div>
-            <div class='orderForm__col'>
-                <p class='orderForm__formSubheader'>{{ labelArriveAt }}</p>
-                <div class="inputRow" v-for="date in dates" >
-                    <input-field :time="true" type="time" v-model="date.arrive_at" :readonly="cannotEdit()"></input-field>
-                </div>
-            </div>
         </div>
-        <button type="button" class="button button_withImage button_green" @click="addDate" v-if="!cannotEdit()">
+        <button type="button" class="button button_withImage button_green" @click="addDate" :disabled="!canAddDate" v-if="!cannotEdit()">
             <span class="link__icon">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 5.5V8.5C19 9.11875 18.4937 9.625 17.875 9.625L9.625 9.625L9.625 17.875C9.625 18.4937 9.11875 19 8.5 19H5.5C4.88125 19 4.375 18.4937 4.375 17.875L4.375 9.625H-3.875C-4.49375 9.625 -5 9.11875 -5 8.5V5.5C-5 4.88125 -4.49375 4.375 -3.875 4.375H4.375V-3.875C4.375 -4.49375 4.88125 -5 5.5 -5H8.5C9.11875 -5 9.625 -4.49375 9.625 -3.875V4.375L17.875 4.375C18.4937 4.375 19 4.88125 19 5.5Z" fill="#2AA84A"/>
@@ -69,34 +66,94 @@
             {{ labelAddDate }}
         </button>
 
-        <p class='orderForm__formSubheader'>{{ labelContactPerson }}</p>
-        <div class='orderForm__row_contacts'>
-            <div class='orderForm__row_contacts__col'>
-                <input-field :placeholder="labelName" v-model="contact_name" :readonly="cannotEdit()"></input-field>
+        <div class='orderForm__row'>
+            <p class='orderForm__formSubheader'>{{ titleLeader }}:</p>
+            <div class='orderForm__row_contacts'>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelName" v-model="leader_name" :readonly="cannotEdit()"></input-field>
+                </div>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelPhone" v-model="leader_phone" type="tel" :readonly="cannotEdit()"></input-field>
+                    <input-field :placeholder="labelEmail" v-model="leader_email" type="email" :readonly="cannotEdit()"></input-field>
+                </div>
             </div>
-            <div class='orderForm__row_contacts__col'>
-                <input-field :placeholder="labelPhone" v-model="contact_phone" type="tel" :readonly="cannotEdit()"></input-field>
-                <input-field :placeholder="labelEmail" v-model="contact_email" type="email" :readonly="cannotEdit()"></input-field>
+            <p class='orderForm__formSubheader'>{{ titleCompany }}:</p>
+            <div class='orderForm__row_contacts'>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelCompanyName" v-model="company" :readonly="cannotEdit()"></input-field>
+                </div>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelRegistrationNumber" v-model="registration_nr" :readonly="cannotEdit()"></input-field>
+                </div>
+            </div>
+            <div class='orderForm__row_contacts'>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelLegalAddress" :location="true" v-model="legal_address" :readonly="cannotEdit()"></input-field>
+                </div>
+                <div class='orderForm__row_contacts__col'>
+                    <input-field :placeholder="labelPhone" v-model="company_phone" type="tel" :readonly="cannotEdit()"></input-field>
+                    <input-field :placeholder="labelEmail" v-model="company_email" type="email" :readonly="cannotEdit()"></input-field>
+                </div>
             </div>
         </div>
 
-        <slot name="broadcast-description"></slot>
+        <p class='orderForm__formSubheader'>
+            <button-default type="button" @click="clickThinkYourself" :caption="labelThinkYourself" v-if="!dataModel.id"></button-default>
+        </p>
 
         <div class='orderForm__row'>
-            <p class='orderForm__formSubheader'>{{ labelCamera }}</p>
-            <select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
-                          :label="labelCameraQuantity"
-                          v-model="camerasQuantity"
-                          :disabled="cannotEdit()"
-            ></select-field>
-            <checkbox-item v-model="isPublic" :green-text="true" @change="isPublicChanged" :disabled="cannotEdit()">
+            <p class='orderForm__formSubheader'>{{ titleShootingPreparation }}</p>
+            <checkbox-item v-model="creativeIdea" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
-                    {{ labelAvailableToAll }}
+                    {{ labelCreativeIdea }}
                 </template>
             </checkbox-item>
-            <checkbox-item v-model="isPrivate" :green-text="true" @change="isPrivateChanged" :disabled="cannotEdit()">
+            <checkbox-item v-model="detailedScenario" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
-                    {{ labelPasswordRequired }}
+                    {{ labelDetailedScenario }}
+                </template>
+            </checkbox-item>
+            <checkbox-item v-model="storyBoard" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelStoryBoard }}
+                </template>
+            </checkbox-item>
+            <checkbox-item v-model="scenarioIsReady" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelScenarioIsReady }}
+                </template>
+            </checkbox-item>
+        </div>
+
+        <div class='orderForm__row'>
+            <p class='orderForm__formSubheader'>{{ titleShootingParameters }}</p>
+            <select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
+                          :label="labelShootingCameras"
+                          v-model="shootingCamerasQuantity"
+                          :disabled="cannotEdit()"
+            ></select-field><select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
+                          :label="labelPhotoCameras"
+                          v-model="photoCamerasQuantity"
+                          :disabled="cannotEdit()"
+            ></select-field>
+            <checkbox-item v-model="directorOnSet" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelDirectorOnSet }}
+                </template>
+            </checkbox-item>
+            <checkbox-item v-model="workWithLight" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelVideoLight }}
+                </template>
+            </checkbox-item>
+            <checkbox-item v-model="workWithSound" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelVideoSound }}
+                </template>
+            </checkbox-item>
+            <checkbox-item v-model="makeUp" :green-text="true" :disabled="cannotEdit()">
+                <template v-slot:label>
+                    {{ labelMakeup }}
                 </template>
             </checkbox-item>
         </div>
@@ -106,44 +163,6 @@
             <checkbox-item v-model="equipmentDelivery" :green-text="true" :disabled="cannotEdit()">
                 <template v-slot:label>
                     {{ labelEquipmentDelivery }}
-                </template>
-            </checkbox-item>
-            <checkbox-item v-model="broadcastOnPlatform" :green-text="true" :disabled="cannotEdit()">
-                <template v-slot:label>
-                    {{ labelBroadcastOnPlatform }}
-                </template>
-            </checkbox-item>
-        </div>
-
-        <div class='orderForm__row'>
-            <p class='orderForm__formSubheader'>{{ titleDecoration }}</p>
-            <checkbox-item v-model="makeUp" :green-text="true" :disabled="cannotEdit()">
-                <template v-slot:label>
-                    {{ labelMakeup }}
-                </template>
-            </checkbox-item>
-            <checkbox-item v-model="graphicDesign" :green-text="true" :disabled="cannotEdit()">
-                <template v-slot:label>
-                    {{ labelDesign }}
-                </template>
-            </checkbox-item>
-        </div>
-
-        <div class='orderForm__row'>
-            <p class='orderForm__formSubheader'>{{ titleFinalVideo }}</p>
-            <select-field :options="Array.from({length: 10}, (_, i) => i + 1)"
-                          :label="labelCameraQuantity"
-                          v-model="finalVideoCamerasQuantity"
-                          :disabled="cannotEdit()"
-            ></select-field>
-            <checkbox-item v-model="workWithLight" :green-text="true" :disabled="cannotEdit()">
-                <template v-slot:label>
-                    {{ labelVideoLight }}
-                </template>
-            </checkbox-item>
-            <checkbox-item v-model="workWithSound" :green-text="true" :disabled="cannotEdit()">
-                <template v-slot:label>
-                    {{ labelVideoSound }}
                 </template>
             </checkbox-item>
         </div>
@@ -194,49 +213,19 @@
             </checkbox-item>
         </div>
 
-        <div class='orderForm__row'>
-            <p class='orderForm__formSubheader'>{{ titleLeader }}:</p>
-            <div class='orderForm__row_contacts'>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelName" v-model="leader_name" :readonly="cannotEdit()"></input-field>
-                </div>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelPhone" v-model="leader_phone" type="tel" :readonly="cannotEdit()"></input-field>
-                    <input-field :placeholder="labelEmail" v-model="leader_email" type="email" :readonly="cannotEdit()"></input-field>
-                </div>
-            </div>
-            <p class='orderForm__formSubheader'>{{ titleCompany }}:</p>
-            <div class='orderForm__row_contacts'>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelCompanyName" v-model="company" :readonly="cannotEdit()"></input-field>
-                </div>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelRegistrationNumber" v-model="registration_nr" :readonly="cannotEdit()"></input-field>
-                </div>
-            </div>
-            <div class='orderForm__row_contacts'>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelLegalAddress" :location="true" v-model="legal_address" :readonly="cannotEdit()"></input-field>
-                </div>
-                <div class='orderForm__row_contacts__col'>
-                    <input-field :placeholder="labelPhone" v-model="company_phone" type="tel" :readonly="cannotEdit()"></input-field>
-                    <input-field :placeholder="labelEmail" v-model="company_email" type="email" :readonly="cannotEdit()"></input-field>
-                </div>
-            </div>
-        </div>
-        <button-default type="submit" :caption="labelCreateBroadcast" v-if="!dataModel.id"></button-default>
+        <button-default type="submit" :caption="labelCreateShooting" v-if="!dataModel.id"></button-default>
     </form>
 </template>
 
 <script>
-import InputField from "./Form/InputField";
-import TextareaField from "./Form/TextareaField";
-import SelectField from "./Form/SelectField";
-import CheckboxItem from "./Form/CheckboxItem";
-import ButtonDefault from "./Form/ButtonDefault";
+import TextareaField from "./Form/TextareaField.vue";
+import InputField from "./Form/InputField.vue";
+import CheckboxItem from "./Form/CheckboxItem.vue";
+import SelectField from "./Form/SelectField.vue";
+import ButtonDefault from "./Form/ButtonDefault.vue";
 
 export default {
-    name: "BroadcastForm",
+    name: "ShootingForm",
     components: {TextareaField, InputField, CheckboxItem, SelectField, ButtonDefault},
     props: {
         dataModel: {
@@ -261,6 +250,14 @@ export default {
             type: String,
             required: true
         },
+        titleProduct: {
+            type: String,
+            required: true
+        },
+        productsList: {
+            type: Array,
+            required: true
+        },
         labelAddresses: {
             type: String,
             required: true
@@ -277,19 +274,7 @@ export default {
             type: String,
             required: true
         },
-        labelStartsAt: {
-            type: String,
-            required: true
-        },
-        labelArriveAt: {
-            type: String,
-            required: true
-        },
         labelAddDate: {
-            type: String,
-            required: true
-        },
-        labelContactPerson: {
             type: String,
             required: true
         },
@@ -305,47 +290,41 @@ export default {
             type: String,
             required: true
         },
-        labelCamera: {
+
+        titleShootingPreparation: {
             type: String,
             required: true
         },
-        labelCameraQuantity: {
+        labelCreativeIdea: {
             type: String,
             required: true
         },
-        labelAvailableToAll: {
+        labelDetailedScenario: {
             type: String,
             required: true
         },
-        labelPasswordRequired: {
+        labelStoryBoard: {
             type: String,
             required: true
         },
-        titleLogistics: {
+        labelScenarioIsReady: {
             type: String,
             required: true
         },
-        labelEquipmentDelivery: {
+
+        titleShootingParameters: {
             type: String,
             required: true
         },
-        labelBroadcastOnPlatform: {
+        labelShootingCameras: {
             type: String,
             required: true
         },
-        titleDecoration: {
+        labelPhotoCameras: {
             type: String,
             required: true
         },
-        labelMakeup: {
-            type: String,
-            required: true
-        },
-        labelDesign: {
-            type: String,
-            required: true
-        },
-        titleFinalVideo: {
+        labelDirectorOnSet: {
             type: String,
             required: true
         },
@@ -354,6 +333,19 @@ export default {
             required: true
         },
         labelVideoSound: {
+            type: String,
+            required: true
+        },
+        labelMakeup: {
+            type: String,
+            required: true
+        },
+
+        titleLogistics: {
+            type: String,
+            required: true
+        },
+        labelEquipmentDelivery: {
             type: String,
             required: true
         },
@@ -413,11 +405,15 @@ export default {
             type: String,
             required: true
         },
-        labelCreateBroadcast: {
+        labelCreateShooting: {
             type: String,
             required: true
         },
-        labelEditBroadcast: {
+        labelEditShooting: {
+            type: String,
+            required: true
+        },
+        labelThinkYourself: {
             type: String,
             required: true
         },
@@ -429,17 +425,14 @@ export default {
             type: String,
             required: true
         },
-
     },
     data() {
         return {
             title: this.dataModel.title,
             summary: this.dataModel.summary,
+            products: this.dataModel.product_list || [],
             addresses: this.dataModel.addresses || [{'address': ''}],
-            dates: this.dataModel.dates || [{'date': '', 'starts_at': '', 'arrive_at': ''}],
-            contact_name: this.dataModel.contact_name,
-            contact_phone: this.dataModel.contact_phone,
-            contact_email: this.dataModel.contact_email,
+            dates: this.dataModel.dates || [{'date': ''}],
             leader_name: this.dataModel.leader_name,
             leader_phone: this.dataModel.leader_phone,
             leader_email: this.dataModel.leader_email,
@@ -448,16 +441,18 @@ export default {
             legal_address: this.dataModel.legal_address,
             company_phone: this.dataModel.company_phone,
             company_email: this.dataModel.company_email,
-            isPublic: typeof(this.dataModel.is_public) === 'undefined' ? true : this.dataModel.is_public,
-            isPrivate: typeof(this.dataModel.is_public) === 'undefined' ? false : !this.dataModel.is_public,
-            camerasQuantity: this.dataModel.parameters?.camerasQuantity || "1",
-            equipmentDelivery: this.dataModel.parameters?.equipmentDelivery,
-            broadcastOnPlatform: this.dataModel.parameters?.broadcastOnPlatform,
-            makeUp: this.dataModel.parameters?.makeUp,
-            graphicDesign: this.dataModel.parameters?.graphicDesign,
-            finalVideoCamerasQuantity: this.dataModel.parameters?.finalVideoCamerasQuantity || "1",
+
+            creativeIdea: this.dataModel.parameters?.creativeIdea,
+            detailedScenario: this.dataModel.parameters?.detailedScenario,
+            storyBoard: this.dataModel.parameters?.storyBoard,
+            scenarioIsReady: this.dataModel.parameters?.scenarioIsReady,
+            shootingCamerasQuantity: this.dataModel.parameters?.shootingCamerasQuantity || "1",
+            photoCamerasQuantity: this.dataModel.parameters?.photoCamerasQuantity || "1",
+            directorOnSet: this.dataModel.parameters?.directorOnSet,
             workWithLight: this.dataModel.parameters?.workWithLight,
             workWithSound: this.dataModel.parameters?.workWithSound,
+            makeUp: this.dataModel.parameters?.makeUp,
+            equipmentDelivery: this.dataModel.parameters?.equipmentDelivery,
             socialVideo: this.dataModel.parameters?.socialVideo,
             reportingVideo: this.dataModel.parameters?.reportingVideo,
             corporateVideo: this.dataModel.parameters?.corporateVideo,
@@ -467,15 +462,24 @@ export default {
             templateElements: this.dataModel.parameters?.templateElements,
             customElements: this.dataModel.parameters?.customElements,
 
+            thinkYourself: false,
+
             errors: [],
         }
     },
     computed: {
         canAddAddress() {
             if(this.addresses.length === 0) {
-               return true;
+                return true;
             }
             return !!this.addresses[this.addresses.length - 1].address;
+
+        },
+        canAddDate() {
+            if(this.dates.length === 0) {
+                return true;
+            }
+            return !!this.dates[this.dates.length - 1].date;
 
         },
     },
@@ -484,17 +488,12 @@ export default {
             this.addresses.push({'address': ''});
         },
         addDate() {
-            this.dates.push({'date': '', 'starts_at': '', 'arrive_at': ''});
-        },
-        isPublicChanged() {
-            this.isPrivate = !this.isPublic;
-        },
-        isPrivateChanged() {
-            this.isPublic = !this.isPrivate;
+            this.dates.push({'date': ''});
         },
         cannotEdit() {
             return !!this.dataModel.id;
         },
+
         submit(e) {
             e.preventDefault();
             this.errors = [];
@@ -505,11 +504,9 @@ export default {
                 } : {
                     title: this.title,
                     summary: this.summary,
+                    products: this.products,
                     addresses: this.addresses,
                     dates: this.dates,
-                    contact_name: this.contact_name,
-                    contact_phone: this.contact_phone,
-                    contact_email: this.contact_email,
                     leader_name: this.leader_name,
                     leader_phone: this.leader_phone,
                     leader_email: this.leader_email,
@@ -518,16 +515,19 @@ export default {
                     legal_address: this.legal_address,
                     company_phone: this.company_phone,
                     company_email: this.company_email,
-                    is_public: this.is_public,
+                    think_yourself: this.thinkYourself,
                     parameters: {
-                        camerasQuantity: this.camerasQuantity,
-                        equipmentDelivery: this.equipmentDelivery,
-                        broadcastOnPlatform: this.broadcastOnPlatform,
-                        makeUp: this.makeUp,
-                        graphicDesign: this.graphicDesign,
-                        finalVideoCamerasQuantity: this.finalVideoCamerasQuantity,
+                        creativeIdea: this.creativeIdea,
+                        detailedScenario: this.detailedScenario,
+                        storyBoard: this.storyBoard,
+                        scenarioIsReady: this.scenarioIsReady,
+                        shootingCamerasQuantity: this.shootingCamerasQuantity,
+                        photoCamerasQuantity: this.photoCamerasQuantity,
+                        directorOnSet: this.directorOnSet,
                         workWithLight: this.workWithLight,
                         workWithSound: this.workWithSound,
+                        makeUp: this.makeUp,
+                        equipmentDelivery: this.equipmentDelivery,
                         socialVideo: this.socialVideo,
                         reportingVideo: this.reportingVideo,
                         corporateVideo: this.corporateVideo,
@@ -540,15 +540,14 @@ export default {
                 };
 
             const url = this.dataModel.id
-                ? '/' + window.TypiCMS.locale + '/broadcast/' + this.dataModel.slug + '/edit'
-                : '/' + window.TypiCMS.locale + '/broadcast/create'
+                ? '/' + window.TypiCMS.locale + '/shooting/' + this.dataModel.slug + '/edit'
+                : '/' + window.TypiCMS.locale + '/shooting/create'
             axios
                 .post(url, data).then((response) => {
-                    console.log(response);
-                    window.location.href = '/' + window.TypiCMS.locale + '/profile';
-                })
+                window.location.href = '/' + window.TypiCMS.locale + '/profile';
+            })
                 .catch((error) => {
-                    console.log('Cannot create broadcast: ', error);
+                    console.log('Cannot create shooting: ', error);
 
                     if(error.response.data?.errors) {
                         for(var key in error.response.data.errors) {
@@ -563,9 +562,15 @@ export default {
                     }
                 })
                 .finally(() => {
+                    this.thinkYourself = false;
                     document.body.scrollIntoView({ behavior: 'smooth', block: 'start'});
                 });
+        },
+        clickThinkYourself() {
+            this.thinkYourself = true;
+            this.$refs.form.dispatchEvent(new Event("submit"))
         }
-    }
+    },
 }
 </script>
+
