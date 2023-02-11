@@ -37,6 +37,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.0",
         "ludmanp/typicms-markup": "dev-master",
+        "ludmanp/typicms-transdb": "dev-master",
         "maatwebsite/excel": "^3.1",
         "maatwebsite/laravel-sidebar": "~1.2.1",
         "msurguy/honeypot": "~1.1.5",

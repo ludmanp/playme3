@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96b420fd3361ac17b92f0ac7af9eaf60",
+    "content-hash": "12afb434918bf16a8aac9c6a35756114",
     "packages": [
         {
             "name": "bkwld/croppa",
@@ -2630,6 +2630,73 @@
                 "source": "https://github.com/ludmanp/typicms-markup/tree/master"
             },
             "time": "2022-06-07T10:07:28+00:00"
+        },
+        {
+            "name": "ludmanp/typicms-transdb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ludmanp/typicms-transdb.git",
+                "reference": "163f9ccd1f5555d8454d786d0d31bf512d0b29cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ludmanp/typicms-transdb/zipball/163f9ccd1f5555d8454d786d0d31bf512d0b29cb",
+                "reference": "163f9ccd1f5555d8454d786d0d31bf512d0b29cb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~9",
+                "illuminate/filesystem": "~9",
+                "illuminate/support": "~9",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/database": "~3.0",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TypiCMS\\Modules\\TransDB\\TranslationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TypiCMS\\Modules\\TransDB\\": "src"
+                },
+                "classmap": [
+                    "tests"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Leidman",
+                    "email": "mark@leidman.lv",
+                    "homepage": "https://ludmanp.github.io"
+                }
+            ],
+            "description": "Manage language files and DB",
+            "keywords": [
+                "DB ranslation",
+                "laravel",
+                "localization",
+                "multilingual"
+            ],
+            "support": {
+                "issues": "https://github.com/ludmanp/typicms-transdb/issues",
+                "source": "https://github.com/ludmanp/typicms-transdb/tree/master"
+            },
+            "time": "2023-02-07T21:52:30+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -10681,7 +10748,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ludmanp/typicms-markup": 20
+        "ludmanp/typicms-markup": 20,
+        "ludmanp/typicms-transdb": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
