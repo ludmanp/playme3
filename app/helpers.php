@@ -85,8 +85,12 @@ if(! file_exists('makeQuery')) {
 }
 
 if(! file_exists('currentQueryString')) {
-    function currentQueryString()
+    function currentQueryString(): string
     {
-        return str_replace(url()->current(), '', url()->full());
+        $queryString = explode('?', url()->full())[1] ?? '';
+        if($queryString) {
+            $queryString = '?'. $queryString;
+        }
+        return $queryString;
     }
 }

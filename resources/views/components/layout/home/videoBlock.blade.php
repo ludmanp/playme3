@@ -12,11 +12,11 @@
                             <p>{{ $headerText }}</p>
                         </x-slot>
                         <x-slot name="actions">
-                            <x-common.link :withImage="true" :uppercase="true">
+                            <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? ''">
                                 <x-slot name="icon">
                                     <x-icons.running></x-icons.running>
                                 </x-slot>
-                                @lang('Связаться')
+                                @lang('Contact us')
                             </x-common.link>
                         </x-slot>
                     </x-common.contentBlock>
@@ -43,10 +43,10 @@
     </x-common.container>
 </div>
 <div class='videoBlock__action_mob'>
-    <x-common.link :withImage="true" :uppercase="true">
+    <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? ''">
         <x-slot name="icon">
             <x-icons.running></x-icons.running>
         </x-slot>
-        Связаться
+        @lang('Contact us')
     </x-common.link>
 </div>
