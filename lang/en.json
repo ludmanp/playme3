@@ -8,6 +8,7 @@
     "# broadcasts": "No broadcast|1 broadcast|{count} broadcasts",
     "# categories": "No categories|1 category|{count} categories",
     "# clients": "No client|1 client|{count} clients",
+    "# contactforms": "No contactform|1 contactform|{count} contactforms",
     "# contacts": "No contacts|1 contact|{count} contacts",
     "# discussions": "No discussion|1 discussion|{count} discussions",
     "# events": "No events|1 event|{count} events",

@@ -197,6 +197,7 @@ return [
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Broadcasts\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Shootings\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Contactforms\Providers\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...
