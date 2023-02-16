@@ -34,7 +34,7 @@
                                 мы покажем в лучшем свете!
                                 Наша команда — это профессионалы в производстве видеоконтента!'"
     ></x-layout.home.videoBlock>
-    <x-layout.home.facts :title="__('Facts)">
+    <x-layout.home.facts :title="'Facts'">
         <x-slot name="text">
             <p>Нашей командой реализовано более 300+ крупнейших проектов. Мы пишем, делаем, организуем, проводим, оформляем и создаём продукт любой сложности
                 и в любых условиях!</p>
@@ -62,15 +62,15 @@
             </x-layout.home.factLink>
         </x-slot>
     </x-layout.home.facts>
-    <x-layout.home.clients :clients="[['href'=> '#', 'image'=> '../img/home/clients/coaom.svg', 'imageAlt'=> 'coaom-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/ac.svg', 'imageAlt'=> 'ac-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/am.svg', 'imageAlt'=> 'am-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/mth.svg', 'imageAlt'=> 'mth-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/m.svg', 'imageAlt'=> 'm-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/rtv.svg', 'imageAlt'=> 'rtv-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/ksc.svg', 'imageAlt'=> 'ksc-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/imf.svg', 'imageAlt'=> 'imf-img'],
-               ['href'=> '#', 'image'=> '../img/home/clients/w.svg', 'imageAlt'=> 'w-img'],
+    <x-layout.home.clients :clients="[['href'=> '#', 'image'=> '../img/clients/rubase.svg', 'imageAlt'=> 'coaom-img'],
+               ['href'=> '#', 'image'=> '../img/clients/audiomania.svg', 'imageAlt'=> 'ac-img'],
+               ['href'=> '#', 'image'=> '../img/clients/vtb.svg', 'imageAlt'=> 'am-img'],
+               ['href'=> '#', 'image'=> '../img/clients/sber.svg', 'imageAlt'=> 'mth-img'],
+               ['href'=> '#', 'image'=> '../img/clients/qiwi.svg', 'imageAlt'=> 'm-img'],
+               ['href'=> '#', 'image'=> '../img/clients/rosbank.svg', 'imageAlt'=> 'rtv-img'],
+               ['href'=> '#', 'image'=> '../img/clients/audiomania.svg', 'imageAlt'=> 'ksc-img'],
+               ['href'=> '#', 'image'=> '../img/clients/imf.svg', 'imageAlt'=> 'imf-img'],
+               ['href'=> '#', 'image'=> '../img/clients/w.svg', 'imageAlt'=> 'w-img'],
                ]"></x-layout.home.clients>
     <x-layout.home.services
             title="Сервисы"
@@ -87,11 +87,13 @@
         <x-layout.home.serviceCard :link="'#'" :header="'Подготовка к съемке'" :subheader="'Preproduction'"
                                    :image="'../img/home/services/service.jpg'" :imageAlt="'service-image'">
             <x-slot name="services">
-                <p>Создаем концепции</p>
-                <p>Оформляем проекты</p>
-                <p>Пишем сценарии</p>
-                <p>Пишем сценарии</p>
-                <p>Пишем сценарии</p>
+                <p>Режиссура</p>
+                <p>Свет</p>
+                <p>Звук</p>
+                <p>Грим</p>
+                <p>Съемка в павильоне</p>
+                <p>Выбор места съемки</p>
+                <p>Съемка</p>
             </x-slot>
 
         </x-layout.home.serviceCard>

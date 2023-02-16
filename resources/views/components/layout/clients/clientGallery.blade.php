@@ -3,7 +3,7 @@
         <div class="clientGallery__slider">
             <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
             <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
+            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/x9HPL_-ppWI'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
             <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
             <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
         </div>

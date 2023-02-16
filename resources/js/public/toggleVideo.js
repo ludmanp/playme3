@@ -1,6 +1,6 @@
 export const initToggleVideo = () => {
     const findVideos = () => {
-        let videos = document.querySelectorAll('.clientGallery__videoBlock');
+        let videos = document.querySelectorAll('.informationBlock__videoBlock');
 
         for (let i = 0; i < videos.length; i++) {
             setupVideo(videos[i]);
@@ -13,6 +13,7 @@ export const initToggleVideo = () => {
         let id = parseMediaURL(link);
 
         video.addEventListener('click', () => {
+            debugger
             let iframe = createIframe(id);
 
             link.remove();
@@ -25,7 +26,6 @@ export const initToggleVideo = () => {
     }
 
     const parseMediaURL = (media) => {
-        console.log('media-->', media)
         let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
         let match = media.href.match(regExp);
 
@@ -45,6 +45,8 @@ export const initToggleVideo = () => {
 
     const generateURL = (id) => {
         let query = '?rel=0&showinfo=0&autoplay=1';
+
+        console.log('id', id)
 
         return 'https://www.youtube.com/embed/' + id + query;
     }
