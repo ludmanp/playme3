@@ -45,6 +45,11 @@
 .servicesBlock__carousel {
     margin: 24px 68px 40px 28px;
 
+    @media screen and (max-width: 767px) {
+        display: grid;
+        grid-auto-rows: 1fr;
+    }
+
     @media screen and (min-width: 768px) and (max-width:1279px) {
         margin: 32px 80px 96px;
     }
@@ -52,6 +57,22 @@
     @media screen and (min-width: 1280px) {
         margin-top: 72px;
         margin-bottom: 128px;
+    }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+
+        & > div {
+            height: 100%;
+
+            & > div {
+                height: 100%;
+            }
+        }
     }
 
     .slick-list {

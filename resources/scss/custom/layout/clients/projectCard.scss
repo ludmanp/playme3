@@ -59,6 +59,10 @@
 
 .projectCard__tags {
     margin-bottom: 16px;
+
+    .slick-prev {
+        display: none!important;
+    }
 }
 
 .projectCard__info {
