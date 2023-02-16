@@ -13,6 +13,7 @@ import {InitModals} from './public/modal';
 import { InitDetails } from './public/details';
 import { InitToggleMenu } from './public/toggleMenu';
 import { initToggleVideo } from './public/toggleVideo';
+import { InitCopy } from './public/copy';
 
 InitCarousels();
 InitClientGallery();
@@ -20,6 +21,7 @@ InitModals();
 InitDetails();
 InitToggleMenu();
 initToggleVideo();
+InitCopy();
 
 /**
  * Axios HTTP library
@@ -48,6 +50,8 @@ const messages = { ru, en };
 const i18n = new VueI18n({ locale: window.TypiCMS.locale, messages });
 
 import UserButton from "./public/components/UserButton";
+import BroadcastForm from "./public/components/BroadcastForm";
+import ShootingForm from "./public/components/ShootingForm.vue";
 
 if (document.getElementById('user-button-app')) {
     new Vue({
@@ -56,4 +60,31 @@ if (document.getElementById('user-button-app')) {
             UserButton,
         },
     }).$mount('#user-button-app');
+}
+
+if (document.getElementById('mobile-user-button-app')) {
+    new Vue({
+        i18n,
+        components: {
+            UserButton,
+        },
+    }).$mount('#mobile-user-button-app');
+}
+
+if (document.getElementById('broadcast-form-app')) {
+    new Vue({
+        i18n,
+        components: {
+            BroadcastForm,
+        },
+    }).$mount('#broadcast-form-app');
+}
+
+if (document.getElementById('shooting-form-app')) {
+    new Vue({
+        i18n,
+        components: {
+            ShootingForm,
+        },
+    }).$mount('#shooting-form-app');
 }

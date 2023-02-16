@@ -1,28 +1,16 @@
 <div class='clientGallery__block'>
     <div class="container">
         <div class="clientGallery__slider">
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/x9HPL_-ppWI'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
-            <x-layout.clients.clientGalleryItem :clinetVideo="'https://youtu.be/kXYiU_JCYtU'" :image="'../img/clients/clientImg.jpg'" :imageAlt="'clientImg'"></x-layout.clients.clientGalleryItem>
+            @foreach(($slides ?? []) as $slide)
+            <x-layout.clients.clientGalleryItem :clinetVideo="$slide['link']" :image="$slide['image']" :imageAlt="$slide['alt']"></x-layout.clients.clientGalleryItem>
+            @endforeach
         </div>
         <div class="clientGallery__carouselDots">
+            @foreach(($slides ?? []) as $slide)
             <div class='clientGallery__carouselDot'>
-                <img src='{{ asset('img/clients/clientImg.jpg') }}' alt='test'>
+                <img src='{{ $slide['image'] }}' alt='{{ $slide['alt'] }}'>
             </div>
-            <div class='clientGallery__carouselDot'>
-                <img src='{{ asset('img/clients/clientImg.jpg') }}' alt='test'>
-            </div>
-            <div class='clientGallery__carouselDot'>
-                <img src='{{ asset('img/clients/clientImg.jpg') }}' alt='test'>
-            </div>
-            <div class='clientGallery__carouselDot'>
-                <img src='{{ asset('img/clients/clientImg.jpg') }}' alt='test'>
-            </div>
-            <div class='clientGallery__carouselDot'>
-                <img src='{{ asset('img/clients/clientImg.jpg') }}' alt='test'>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

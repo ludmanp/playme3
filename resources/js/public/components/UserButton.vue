@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="user-button">
         <a :href="profileLink" class="link" v-if="userData">
             <span class="link__label">
                 Личный кабинет

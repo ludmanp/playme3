@@ -1,6 +1,6 @@
 <div class='clientGallery__item'>
     <div class='clientGallery__videoBlock'>
-        <a class='clientGallery__videoLink' href={{$clientVideo ?? ''}}>
+        <a class='clientGallery__videoLink' href={{$clinetVideo ?? ''}}>
             <div class='informationImage'>
                 <img class='clientGallery__videoImage' src='{{ $image ?? '' }}' alt='{{ $imageAlt ?? '' }}'>
             </div>

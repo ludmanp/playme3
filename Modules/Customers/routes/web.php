@@ -27,3 +27,4 @@ foreach (locales() as $lang) {
         });
     });
 }
+    

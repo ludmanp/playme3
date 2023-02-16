@@ -78,59 +78,8 @@
                 </div>
             </form>
 
-            <div class='cabinet__orderBlock'>
-                <x-common.contentBlock :row="true">
-                    <x-slot name="header">
-                        <h3>@lang('My orders')</h3>
-                    </x-slot>
-                </x-common.contentBlock>
-                <div class='cabinet__orderActions'>
-                    <x-common.link :withImage="true" :uppercase="true" href="#">
-                        <x-slot name="icon">
-                            <x-icons.running></x-icons.running>
-                        </x-slot>
-                        @lang('Order video')
-                    </x-common.link>
-                    <x-common.link :withImage="true" :uppercase="true" href="#">
-                        <x-slot name="icon">
-                            <x-icons.running></x-icons.running>
-                        </x-slot>
-                        @lang('Order broadcast')
-                    </x-common.link>
-                </div>
-{{--                <div class='cabinet__orders'>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                    <x-layout.cabinet.cabinetOrder :date="'01.01.2021'" :location="'Локация'">--}}
-{{--                        <x-slot name="header">--}}
-{{--                            заголовок<br>--}}
-{{--                            две строчки--}}
-{{--                        </x-slot>--}}
-{{--                    </x-layout.cabinet.cabinetOrder>--}}
-{{--                </div>--}}
-{{--                <x-common.button :withImage="true" :uppercase="true">--}}
-{{--                    <x-slot name="icon">--}}
-{{--                        <x-icons.running></x-icons.running>--}}
-{{--                    </x-slot>--}}
-{{--                    показать еще--}}
-{{--                </x-common.button>--}}
-            </div>
+            @include('broadcasts::public._profile')
+            @include('shootings::public._profile')
         </div>
     </x-common.container>
 @endsection

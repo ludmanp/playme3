@@ -2,9 +2,10 @@
 
 namespace TypiCMS\Modules\Core\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use TypiCMS\Modules\Core\Models\Tag;
@@ -53,10 +54,6 @@ trait HasTags
 
         if ($tags) {
             $contentLocale = config('typicms.content_locale', config('app.locale'));
-            Log::debug('syncTags', ['typicms.content_locale' => config('typicms.content_locale'), 'app.locale' => config('app.locale')]);
-            Log::debug(Tag::whereRaw(
-                'JSON_UNQUOTE(JSON_EXTRACT(`tag`, \'$.'.$contentLocale.'\')) IN ('.collect($tags)->implode(function($t){return '"' . $t . '"';}, ',').')'
-            )->toSql());
             $foundTags = Tag::whereRaw(
                 'JSON_UNQUOTE(JSON_EXTRACT(`tag`, \'$.'.$contentLocale.'\')) IN ('.collect($tags)->implode(function($t){return '"' . $t . '"';}, ',').')'
             )->get();
@@ -90,5 +87,24 @@ trait HasTags
 
         // Assign tags to model
         $model->tags()->sync($tagIds);
+    }
+
+    public function scopeTagsFromRequest(Builder $query, Request $request)
+    {
+        $requestQuery = $request->query();
+        if(!empty($requestQuery['tag'])) {
+            if(is_array($requestQuery['tag'])) {
+                foreach ($requestQuery['tag'] as $tag) {
+                    $query->whereHas('tags', function($q) use ($tag) {
+                        $q->whereSlugIs($tag);
+                    });
+                }
+            } else {
+                $query->whereHas('tags', function ($q) use ($requestQuery) {
+                    $q->whereSlugIs($requestQuery['tag']);
+                });
+            }
+        }
+        return $query;
     }
 }

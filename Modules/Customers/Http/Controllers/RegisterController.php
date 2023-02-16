@@ -48,7 +48,7 @@ class RegisterController extends Controller
         event(new Registered($user));
 
         return [
-           'success' => true,
+            'success' => true,
             'message' => __('Your account has been created, check your email for the verification link.'),
         ];
     }

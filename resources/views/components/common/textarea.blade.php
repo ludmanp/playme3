@@ -6,5 +6,5 @@
     @if ($label ?? '')
         <label>{{ $label }}</label>
     @endif
-    <textarea placeholder='{{ $placeholder ?? 'placeholder' }}'></textarea>
+    <textarea placeholder='{{ $placeholder ?? 'placeholder' }}' id='{{ $labelFor ?? '' }}' name="{{ $name ?? '' }}" {{$attributes->except(['class'])}}>{{ $slot ?? '' }}</textarea>
 </div>

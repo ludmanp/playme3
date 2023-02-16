@@ -1,9 +1,3 @@
 <x-layout.home.clients
-    :clients="Clients::published()->order()->get()->map(function(\TypiCMS\Modules\Clients\Models\Client $client){
-    return [
-        'href'=> $client->link,
-        'image'=> $client->present()->image(),
-        'imageAlt'=> $client->title,
-    ];
-    })"
+    :clients="(new \TypiCMS\Modules\Clients\Services\ListServices)->allForList()"
 ></x-layout.home.clients>

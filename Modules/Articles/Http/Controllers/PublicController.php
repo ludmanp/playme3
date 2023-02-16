@@ -2,18 +2,19 @@
 
 namespace TypiCMS\Modules\Articles\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
-use TypiCMS\Modules\Articles\Facades\Articles;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
 use TypiCMS\Modules\Articles\Models\Article;
+use TypiCMS\Modules\Core\Http\Controllers\Traits\WithTags;
 use TypiCMS\Modules\Core\Models\Tag;
 
 class PublicController extends BasePublicController
 {
+    use WithTags;
+
     public function index(): View
     {
-        $models = $this->prepareQuery()->paginate(6)
+        $models = Article::published()->order()->with(['image', 'tags', 'author'])->tagsFromRequest(request())->paginate(6)
             ->withQueryString()->withPath(route(config('app.locale') . '::articles-page'));
 
         $tags = Tag::query()->published()->order()->get();
@@ -47,34 +48,4 @@ class PublicController extends BasePublicController
             ->with(compact('model', 'tags', 'selectedTags'));
     }
 
-    private function prepareQuery(): Builder
-    {
-        $query = Article::published()->order()->with(['image', 'tags', 'author']);
-
-        $requestQuery = request()->query();
-        if(!empty($requestQuery['tag'])) {
-            if(is_array($requestQuery['tag'])) {
-                foreach ($requestQuery['tag'] as $tag) {
-                    $query->whereHas('tags', function($q) use ($tag) {
-                        $q->whereSlugIs($tag);
-                    });
-                }
-            } else {
-                $query->whereHas('tags', function ($q) use ($requestQuery) {
-                    $q->whereSlugIs($requestQuery['tag']);
-                });
-            }
-        }
-
-        return $query;
-    }
-
-    private function selectedTags(): array
-    {
-        $selectedTags = request()->query('tag') ?? [];
-        if(!is_array($selectedTags)) {
-            $selectedTags = [$selectedTags];
-        }
-        return $selectedTags;
-    }
 }

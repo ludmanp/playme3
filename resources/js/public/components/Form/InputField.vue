@@ -1,6 +1,6 @@
 <template>
-    <div class="inputField">
-        <input :placeholder='placeholder' :type='type' :value="value" @input="onInput" >
+    <div class="inputField" :class="{'inputField_location': location, 'inputField_date': date, 'inputField_time': time}">
+        <input :placeholder='placeholder' :type='type' :value="value" @input="onInput" :readonly="readonly">
     </div>
 </template>
 
@@ -18,6 +18,19 @@ export default {
         },
         value: {
             type: String,
+        },
+        location: {
+            type: Boolean,
+        },
+        date: {
+            type: Boolean,
+        },
+        time: {
+            type: Boolean,
+        },
+        readonly: {
+            type: Boolean,
+            default: false,
         },
     },
     methods: {

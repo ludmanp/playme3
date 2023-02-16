@@ -173,6 +173,7 @@ return [
         TypiCMS\Modules\Core\Providers\TranslationsServiceProvider::class,
 
         \TypiCMS\Modules\Pageoptions\Providers\ModuleProvider::class,
+        \TypiCMS\Modules\Video\Providers\VideoServiceProvider::class,
 
         /*
          * TypiCMS Core Service Provider...
@@ -189,10 +190,14 @@ return [
         \TypiCMS\Modules\Clients\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Partners\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Teammembers\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Projects\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Authors\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Articles\Providers\ModuleServiceProvider::class,
 //        \TypiCMS\Modules\Blogcategories\Providers\ModuleServiceProvider::class,
         \TypiCMS\Modules\Customers\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Broadcasts\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Shootings\Providers\ModuleServiceProvider::class,
+        \TypiCMS\Modules\Contactforms\Providers\ModuleServiceProvider::class,
 
         /*
          * Application Service Providers...

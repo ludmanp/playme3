@@ -2,6 +2,38 @@
     background: var(--cWhite);
     border-radius: var(--sRadiusHuge);
     padding: 24px;
+    color: var(--cText);
+    text-decoration: none;
+}
+
+.cabinetOrder__block:hover {
+    text-decoration: none;
+}
+
+.cabinetOrder_headerBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cabinetOrder__label {
+    display: block;
+    padding: 8px;
+    border: 2px solid var(--cInputBorderGreen);
+    border-radius: var(--sRadiusBig);
+    text-transform: uppercase;
+}
+
+.cabinetOrder__labelAccepted {
+    color: var(--cWhite);
+    background: var(--cInputBorderGreen);
+    border: 2px solid var(--cInputBorderGreen);
+}
+
+.cabinetOrder__labelDeclined {
+    color: var(--cWhite);
+    background: var(--cError);
+    border: 2px solid var(--cError);
 }
 
 .cabinetOrder__date, .cabinetOrder__location {
@@ -19,4 +51,57 @@
     font-weight: 600;
     font-size: var(--sFontLarge);
     line-height: 1.45;
+    text-transform: uppercase;
+}
+
+.cabinetOrder__actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media screen and (min-width: 1280px) {
+        flex-direction: row;
+    }
+}
+
+.cabinetOrder_copyLinkContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    border: 2px solid var(--cInputBorderGreen);
+    border-radius: var(--sRadiusBig);
+    margin-top: 16px;
+    transition: all 0.2s ease;
+    input {
+        font-size: var(--sFontBody);
+        line-height: 1.5;
+        padding: 8px;
+        color: var(--cPrimary);
+        font-family: "Montserrat", sans-serif;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        border: none;
+        background: transparent;
+        outline: none;
+        @media screen and (max-width: 1279px) {
+            padding: 6px 8px;
+        }
+    }
+    button {
+        position: relative;
+        z-index: 2;
+    }
+
+    &.copyDone {
+        box-shadow: 0 0 3px var(--cGreen);
+    }
 }

@@ -18,7 +18,7 @@ class PublicController extends BasePublicController
 
     public function show($slug): View
     {
-        $model = Client::published()->whereSlugIs($slug)->firstOrFail();
+        $model = Client::query()->with('published_projects')->published()->whereSlugIs($slug)->firstOrFail();
 
         return view('clients::public.show')
             ->with(compact('model'));

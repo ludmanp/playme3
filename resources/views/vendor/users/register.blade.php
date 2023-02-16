@@ -1,53 +1,53 @@
-@extends('core::admin.master')
+@extends('core::public.master')
 
-@section('title', __('Register'))
-@section('bodyClass', 'auth-background')
-
-@section('page-header')
-@endsection
-@section('sidebar')
-@endsection
-@section('mainClass')
-@endsection
+@section('title', __('Register').' – '.$websiteTitle)
 
 @section('content')
 
-<div id="register" class="container-register auth">
+    <x-common.container>
+        <div class="loginForm">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class='modal__header_large'>
+                        <span>@lang('Register')</span>
+                    </div>
+                </div>
 
-    @include('users::_auth-header')
+                @include('users::_status')
 
-    {!! BootForm::open()->addClass('auth-form') !!}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-        <h1 class="auth-title">{{ __('Register') }}</h1>
+                <form method="post">
+                    @csrf()
+                    {!! Honeypot::generate('my_name', 'my_time') !!}
 
-        @include('users::_status')
+                    <x-common.input :placeholder="__('Name')" name="first_name" type="text" required autofocus value="{{ old('first_name') }}"></x-common.input>
+                    <div class='modal__row'>
+                        <x-common.input :placeholder="__('Email')" name="email" type="email" required  value="{{ old('email') }}"></x-common.input>
+                        <x-common.input :placeholder="__('Phone')" name="phone" type="tel" value="{{ old('phone') }}"></x-common.input>
+                    </div>
+                    <x-common.input :placeholder="__('Password')" name="password" type="password" required autocomplete="new-password"></x-common.input>
+                    <x-common.input :placeholder="__('Password confirmation')" name="password_confirmation" type="password" required autocomplete="new-password"></x-common.input>
 
-        {!! Honeypot::generate('my_name', 'my_time') !!}
-
-        {!! BootForm::email(__('Email'), 'email')->addClass('form-control-lg')->required()->autocomplete('username') !!}
-        <div class="row gx-3">
-            <div class="col-sm-6">
-                {!! BootForm::text(__('First name'), 'first_name')->addClass('form-control-lg')->required() !!}
-            </div>
-            <div class="col-sm-6">
-                {!! BootForm::text(__('Last name'), 'last_name')->addClass('form-control-lg')->required() !!}
+                    <div class='modal__action'>
+                        <x-common.button type='submit' :withImage="true" :uppercase="true">
+                            <x-slot name="icon">
+                                <x-icons.running></x-icons.running>
+                            </x-slot>
+                            @lang('Register')
+                        </x-common.button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row gx-3">
-            <div class="col-sm-6">
-                {!! BootForm::password(__('Password'), 'password')->addClass('form-control-lg')->required()->autocomplete('new-password') !!}
-            </div>
-            <div class="col-sm-6">
-                {!! BootForm::password(__('Password confirmation'), 'password_confirmation')->addClass('form-control-lg')->required()->autocomplete('new-password') !!}
-            </div>
-        </div>
-
-        <div class="mb-3 mt-3 d-grid">
-            {!! BootForm::submit(__('Register'), 'btn-primary')->addClass('btn-lg') !!}
-        </div>
-
-    {!! BootForm::close() !!}
-
-</div>
+    </x-common.container>
 
 @endsection

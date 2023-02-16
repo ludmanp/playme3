@@ -1,6 +1,6 @@
 export const initToggleVideo = () => {
     const findVideos = () => {
-        let videos = document.querySelectorAll('.informationBlock__videoBlock');
+        let videos = document.querySelectorAll('.clientGallery__videoBlock');
 
         for (let i = 0; i < videos.length; i++) {
             setupVideo(videos[i]);
@@ -10,19 +10,20 @@ export const initToggleVideo = () => {
     const setupVideo = (video) => {
         let link = video.querySelector('.clientGallery__videoLink');
         let button = video.querySelector('.clientGallery__videoLink');
-        let id = parseMediaURL(link);
+        if(link) {
+            let id = parseMediaURL(link);
 
-        video.addEventListener('click', () => {
-            debugger
-            let iframe = createIframe(id);
+            video.addEventListener('click', () => {
+                let iframe = createIframe(id);
 
-            link.remove();
-            button.remove();
-            video.appendChild(iframe);
-        });
+                link.remove();
+                button.remove();
+                video.appendChild(iframe);
+            });
 
-        link.removeAttribute('href');
-        video.classList.add('clientGallery__videoBlock_enabled');
+            link.removeAttribute('href');
+            video.classList.add('clientGallery__videoBlock_enabled');
+        }
     }
 
     const parseMediaURL = (media) => {
@@ -45,8 +46,6 @@ export const initToggleVideo = () => {
 
     const generateURL = (id) => {
         let query = '?rel=0&showinfo=0&autoplay=1';
-
-        console.log('id', id)
 
         return 'https://www.youtube.com/embed/' + id + query;
     }

@@ -69,6 +69,7 @@
                 </div>
 
                 {!! BootForm::email(__('Webmaster Email'), 'webmaster_email') !!}
+                {!! BootForm::text(__('Contact phone'), 'contact_phone')->type('tel') !!}
                 @if (!config('typicms.welcome_message_url'))
                     {!! BootForm::textarea(__('Administration Welcome Message'), 'welcome_message') !!}
                 @endif

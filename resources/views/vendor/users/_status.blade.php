@@ -1,5 +1,5 @@
 @if ($message = session('status'))
-    <div class="alert alert-info" role="alert">
-        {{ $message }}
+    <div class="modal__text">
+        <p>{{ $message }}</p>
     </div>
 @endif

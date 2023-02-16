@@ -58,6 +58,9 @@ class VerificationController extends Controller
     {
         if ($user = User::find($request->route('id'))) {
             $user->markEmailAsVerified();
+            $user->activated = true;
+            $user->save();
+
             event(new Verified($user));
         }
 

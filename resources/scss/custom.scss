@@ -24,6 +24,9 @@
 @import 'custom/common/header/header';
 @import 'custom/common/footer/footer';
 @import 'custom/common/selectField';
+@import 'custom/common/alert';
+@import 'custom/common/info';
+@import 'custom/common/user-button';
 
 //home
 @import 'custom/layout/home/videoBlock';
@@ -74,3 +77,6 @@
 @import 'custom/layout/stream/createStreamBlock';
 @import 'custom/layout/stream/watchStreamBlock';
 @import 'custom/layout/stream/orderForm';
+
+// user
+@import 'custom/layout/user/login';

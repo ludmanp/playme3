@@ -1,0 +1,16 @@
+<div class="header">
+    @include('core::admin._button-back', ['url' => route('admin::edit-broadcast', $broadcast), 'title' => $broadcast->title])
+    @include('core::admin._title', ['default' => __('New date')])
+    @component('core::admin._buttons-form', ['model' => $model])
+    @endcomponent
+</div>
+
+<div class="content">
+    @include('core::admin._form-errors')
+
+    {!! BootForm::hidden('id') !!}
+    {!! BootForm::hidden('broadcast_id')->value($broadcast->id) !!}
+
+    {!! BootForm::dateTimeLocal(__('Starts at'), 'starts_at') !!}
+    {!! BootForm::dateTimeLocal(__('Arrive at'), 'arrive_at') !!}
+</div>

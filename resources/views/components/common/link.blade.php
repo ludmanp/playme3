@@ -9,6 +9,7 @@
             'tag'=>$tag??false,
             'tagActive'=>$tagActive??false,
             'serviceTag'=>$serviceTag??false,
+            'serviceTab'=>$serviceTab??false,
             'tab'=>$tab??false,
             ])
         }} {{$attributes['class']}}" {{$attributes->except(['class', 'href'])}}>
