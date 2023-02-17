@@ -33,4 +33,6 @@ export const InitClientGallery = () => {
         $('.clientGallery__carouselDots .slick-slide').eq(mySlideNumber).addClass('slick-active');
     });
 
+
+
 }
