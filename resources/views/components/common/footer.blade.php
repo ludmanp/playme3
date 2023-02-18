@@ -1,6 +1,6 @@
 <footer>
     <x-common.container :flex="true">
-        <x-common.link :withImage="true">
+        <x-common.link :withImage="true" :href="TypiCMS::homeUrl()">
             <x-slot name="icon">
                 <x-icons.running></x-icons.running>
             </x-slot>
@@ -10,8 +10,8 @@
             {{ $menu ?? '' }}
         </nav>
         <div class='footer__info'>
-            <x-common.link :href="'maito:info@playme.live'">info@playme.live</x-common.link>
-            <x-common.link :href="'tel:+ 79067884874'">+ 7 906-788-48-74</x-common.link>
+            <x-common.link :href="'maito:' . config('typicms.webmaster_email')">{{ config('typicms.webmaster_email') }}</x-common.link>
+            <x-common.link :href="'tel:' . config('typicms.contact_phone')">{{ config('typicms.contact_phone') }}</x-common.link>
             <div class='footer__socialNetworks'>
                 {{ $socialMenu ?? '' }}
             </div>

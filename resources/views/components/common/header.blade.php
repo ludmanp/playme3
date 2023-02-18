@@ -4,7 +4,7 @@
             ])
         }} {{$attributes['class'] ?? ''}}">
     <x-common.container :flex="true">
-        <x-common.link :href="url('/' . config('app.locale'))" :withImage="true">
+        <x-common.link :href="TypiCMS::homeUrl()" :withImage="true">
             <x-slot name="icon">
                 <x-icons.running></x-icons.running>
             </x-slot>
