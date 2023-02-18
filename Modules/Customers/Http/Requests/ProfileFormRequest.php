@@ -14,4 +14,17 @@ class ProfileFormRequest extends FormRequest
             'first_name' => 'required|max:255',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'first_name.required' => __('Name is required'),
+            'first_name.max' => __('Name is more than 255 characters'),
+            'email.required' => __('Email is required'),
+            'email.max' => __('Email is more than 255 characters'),
+            'email.email' => __('Incorrect contact email'),
+            'phone.required' => __('Phone is required'),
+            'phone.max' => __('Phone is more than 255 characters'),
+        ];
+    }
 }

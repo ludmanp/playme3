@@ -13,4 +13,14 @@ class UpdateFormRequest extends FormRequest
             'summary' => 'required|max:1000',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => __('The title is required'),
+            'title.max' => __('The title is more than 255 characters'),
+            'summary.required' => __('The summary is required'),
+            'summary.max' => __('The title is more than 1000 characters'),
+        ];
+    }
 }
