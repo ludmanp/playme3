@@ -10,6 +10,7 @@
     table="translations"
     title="translations"
     :publishable="false"
+    :exportable="true"
     :searchable="['key,translation']"
     :sorting="['key']">
 

@@ -3,7 +3,10 @@
 namespace TypiCMS\Modules\Core\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Maatwebsite\Excel\Facades\Excel;
+use TypiCMS\Modules\Core\Exports\TranslationsExport;
 use TypiCMS\Modules\Core\Http\Requests\TranslationFormRequest;
 use TypiCMS\Modules\Core\Models\Translation;
 
@@ -12,6 +15,13 @@ class TranslationsAdminController extends BaseAdminController
     public function index(): View
     {
         return view('translations::admin.index');
+    }
+
+    public function export(Request $request)
+    {
+        $filename = date('Y-m-d').' '.config('app.name').' translations.xlsx';
+
+        return Excel::download(new TranslationsExport(), $filename);
     }
 
     public function create(): View

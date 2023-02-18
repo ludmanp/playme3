@@ -10,6 +10,7 @@ use TypiCMS\Modules\Core\Http\Controllers\TranslationsApiController;
  */
 Route::middleware('admin')->prefix('admin')->name('admin::')->group(function (Router $router) {
     $router->get('translations', [TranslationsAdminController::class, 'index'])->name('index-translations')->middleware('can:read translations');
+    $router->get('translations/export', [TranslationsAdminController::class, 'export'])->name('export-translations')->middleware('can:read translations');
     $router->get('translations/create', [TranslationsAdminController::class, 'create'])->name('create-translation')->middleware('can:create translations');
     $router->get('translations/{translation}/edit', [TranslationsAdminController::class, 'edit'])->name('edit-translation')->middleware('can:read translations');
     $router->post('translations', [TranslationsAdminController::class, 'store'])->name('store-translation')->middleware('can:create translations');
