@@ -23,9 +23,11 @@
                 >
                     <x-icons.close/>
                 </button>
+                @if ($header ?? '')
                 <div class="modal__header">
-                    {{ $header ?? '' }}
+                    {{ $header }}
                 </div>
+                @endif
                 {{$slot}}
             </div>
         </div>

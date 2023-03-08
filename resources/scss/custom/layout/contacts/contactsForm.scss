@@ -5,38 +5,42 @@
     @media screen and (min-width: 1280px) {
         max-width: 1152px;
         width: 100%;
-        padding: 0;
+        padding: 80px 0;
         margin: 0 auto;
         overflow: visible;
     }
 }
 
-.contactsForm__formBlock {
+
+.contactsForm__formContainer {
     background: var(--cWhite);
     border-radius: var(--sRadiusHuge);
     overflow: hidden;
-    margin: 48px 28px;
+    margin: 40px 28px;
 
     @media screen and (min-width:768px) {
         display: inline-flex;
     }
 
     @media screen and (min-width: 768px) and (max-width: 1279px) {
-        margin: 28px 80px 48px;
+        margin: 32px 80px 48px;
     }
 
     @media screen and (min-width: 1280px) {
-        margin-top: 164px;
+        margin: 48px 0;
     }
 }
 
-.contactsForm__form {
+.contactsForm__formBlock {
     padding: 80px 24px 24px;
+    background: radial-gradient(89.96% 254.88% at 137.53% 0%, #A8DCDE 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(96.61% 280.8% at -31.5% -51.67%, #C588DA 0%, rgba(219, 202, 225, 0) 100%) , rgba(255, 255, 255, 0.2);
+}
+
+.contactsForm__form {
     display: flex;
     flex-direction: column;
     gap: 16px;
     position: relative;
-    background: radial-gradient(89.96% 254.88% at 137.53% 0%, #A8DCDE 0%, rgba(168, 220, 222, 0) 100%), radial-gradient(96.61% 280.8% at -31.5% -51.67%, #C588DA 0%, rgba(219, 202, 225, 0) 100%) , rgba(255, 255, 255, 0.2);
 
     @media screen and (min-width: 768px) {
         width: 560px;

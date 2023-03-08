@@ -28,6 +28,13 @@ header {
     @media screen and (max-width: 1280px) {
         display: none;
     }
+
+    .link {
+        &:active, &:focus {
+            font-weight: 700;
+            text-decoration: none;
+        }
+    }
 }
 
 .header__actions {

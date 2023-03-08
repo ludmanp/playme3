@@ -52,8 +52,6 @@ export const InitCarousels = () => {
 
     const buttons = document.querySelectorAll('.blogCard__tags');
 
-
-
     if (buttons) {
         buttons.forEach((button) => {
             const carouselId = button.dataset.targetCarousel;
