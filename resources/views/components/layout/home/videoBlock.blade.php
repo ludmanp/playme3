@@ -12,7 +12,7 @@
                             <p>{{ $headerText }}</p>
                         </x-slot>
                         <x-slot name="actions">
-                            <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? ''">
+                            <x-common.link :withImage="true" :uppercase="true" :href="$contactLink  ?? '#contactsBlock'">
                                 <x-slot name="icon">
                                     <x-icons.running></x-icons.running>
                                 </x-slot>
@@ -43,7 +43,7 @@
     </div>
 </div>
 <div class='videoBlock__action_mob'>
-    <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? ''">
+    <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? '#contactsBlock'">
         <x-slot name="icon">
             <x-icons.running></x-icons.running>
         </x-slot>

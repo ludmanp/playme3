@@ -17,3 +17,17 @@
         </div>
     </x-common.container>
 @endsection
+
+@if($client)
+@push('js')
+    <script>
+        var section = document.querySelector('.clientsSearch__block');
+        if(section) {
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+@endpush
+@endif

@@ -64,6 +64,9 @@
             <user-button :allow-register="{{ trueFalseValue(config('typicms.register'))  }}">
             </user-button>
         </x-slot>
+        <x-slot name="modals">
+            @yield('modals')
+        </x-slot>
     </x-common.header>
     @show
 

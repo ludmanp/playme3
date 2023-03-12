@@ -5,7 +5,9 @@
     <div class='contacts__container'>
         <div class='contacts__mapBlock'>
             <x-layout.contacts.contactsForm>
-                @include('contactforms::public._form', ['title' => __('Contact us'), 'full' => true])
+                <div class="contactsForm__formBlock">
+                    @include('contactforms::public._form', ['title' => __('Contact us'), 'full' => true])
+                </div>
             </x-layout.contacts.contactsForm>
             <div class='contacts__map'></div>
         </div>

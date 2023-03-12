@@ -46,7 +46,7 @@
     <x-common.input :placeholder="__('Name')" type='text' name="name" :value="old('name')" required></x-common.input>
     <x-common.input :placeholder="__('Email')" type='email' name="email" :value="old('email')" required></x-common.input>
     <x-common.input :placeholder="__('Phone')" type='tel' name="phone" :value="old('phone')" required></x-common.input>
-    <x-common.textarea :placeholder="__('Phone')" name="message" required>{{ old('message') }}</x-common.textarea>
+    <x-common.textarea :placeholder="__('Message')" name="message" required>{{ old('message') }}</x-common.textarea>
     @php
         $privacyPage = Pages::find(5);
     @endphp

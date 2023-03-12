@@ -1,4 +1,4 @@
-<div class='contactsBlock'>
+<div class='contactsBlock' id="contactsBlock">
     <x-common.container>
         <div class='contactsBlock__content'>
             <div class='contactsBlock__formBlock'>

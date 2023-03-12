@@ -14,8 +14,7 @@
                     <h3>@lang('Clients')</h3>
                 </x-slot>
                 <x-slot name="subheader">
-                    <h3>@lang('Projects by hashtag')</h3>
-                    <span class="contentBlock__headerTag">#Видеосъёмкамерроприятий</span>
+                    <h3>{{ $model->title }}</h3>
                 </x-slot>
             </x-common.contentBlock>
 {{--            <div class='clientsProjects__tags'>--}}
