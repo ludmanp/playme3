@@ -71,7 +71,6 @@
     transition-timing-function: var(--tfStandart);
     width: 100%;
     box-sizing: border-box;
-    height: 624px;
 
     @media screen and (max-width: 767px) {
         margin: 0 28px;
@@ -79,7 +78,6 @@
 
     @media screen and (min-width: 768px) {
         max-width: var(--width);
-        height: 674px;
     }
 }
 

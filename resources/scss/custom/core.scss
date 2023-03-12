@@ -6,6 +6,11 @@ html, body {
     color: var(--cPrimary);
 }
 
+body {
+    &.lock_scroll {
+        overflow: hidden;
+    }
+}
 
 .page {
     display: flex;

@@ -22,9 +22,6 @@
                     </x-common.contentBlock>
                 </div>
             </div>
-            <div class='videoBlock__image'>
-                <img src='{{ asset('../img/home/videoBlock.png') }}' alt='video'>
-            </div>
             <div class='videoBlock__image_tablet'>
                 <img src='{{ asset('../img/home/videoBlock_tablet.png') }}' alt='video'>
             </div>
@@ -41,6 +38,9 @@
             </div>
         </button>
     </x-common.container>
+    <div class='videoBlock__image'>
+        <img src='{{ asset('../img/home/videoBlock.png') }}' alt='video'>
+    </div>
 </div>
 <div class='videoBlock__action_mob'>
     <x-common.link :withImage="true" :uppercase="true" :href="$contactLink ?? ''">
@@ -50,3 +50,5 @@
         @lang('Contact us')
     </x-common.link>
 </div>
+<x-contactforms::layout.home.video></x-contactforms::layout.home.video>
+

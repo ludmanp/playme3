@@ -9,9 +9,9 @@
                 </x-common.contentBlock>
                 {{ $slot }}
             </div>
-            <div class='contactsBlock__image'>
-                <img src='{{ asset('../img/home/contacts-texture.png') }}' alt=''>
-            </div>
         </div>
     </x-common.container>
+    <div class='contactsBlock__image'>
+        <img src='{{ asset('../img/home/contacts-texture.png') }}' alt=''>
+    </div>
 </div>
