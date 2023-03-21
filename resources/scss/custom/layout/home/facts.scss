@@ -1,4 +1,5 @@
 .factsBlock {
+    position: relative;
     @media screen and (max-width: 767px) {
         margin-top: 39px;
         padding: 0 28px;
@@ -67,6 +68,14 @@
         margin: auto auto;
     }
 
+}
+
+.factsBlock__arrows {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding-left: 8px;
+    justify-content: flex-end;
 }
 
 .slick-list {

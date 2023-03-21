@@ -9,3 +9,19 @@
         margin-top: 48px;
     }
 }
+
+.participantsBlock__arrows {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding-left: 8px;
+    justify-content: flex-end;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+
+    @media screen and (min-width: 1280px) {
+        right: 0;
+    }
+}

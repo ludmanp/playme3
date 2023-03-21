@@ -1,54 +1,89 @@
 export const InitCarousels = () => {
-    $(".factsBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        margin: 32,
-    });
+    const facts = document.querySelector('.factsBlock__carousel');
+    const clients = document.querySelector('.clientsBlock__carousel');
+    const services = document.querySelector('.servicesBlock__carousel');
+    const partners = document.querySelector('.partnersBlock__carousel');
+    const blogs = document.querySelector('.blogBlock__carousel');
+    const participants = document.querySelector('.participantsBlock__carousel');
+    const clientsAdditional = document.querySelector('.clientsAdditional__carousel');
+    const teamPortfolioLinks = document.querySelector('.team__portfolioLinks');
 
-    $(".clientsBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        margin: 32,
-    });
+    if (facts) {
+        const carouselId = facts.dataset.targetCarousel;
 
-    $(".servicesBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: "unslick"
-            }
-        ]
-    });
+        $(`.factsBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.factsBlock__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.factsBlock__arrows[data-target-carousel="${carouselId}"] .next`)
+        });
+    }
 
-    $(".partnersBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-    });
+    if (clients) {
+        const carouselId = clients.dataset.targetCarousel;
 
-    $(".blogBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: "unslick"
-            }
-        ]
-    });
+        $(`.clientsBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`)
+        });
+    }
 
-    // $(".blogCard__tags").slick({
-    //     variableWidth: true,
-    //     arrows:true,
-    //     infinite: false,
-    //     swipeToSlide: true,
-    // });
+    if (services) {
+        const carouselId = services.dataset.targetCarousel;
+
+        $(`.servicesBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: "unslick"
+                }
+            ]
+        });
+    }
+
+    if (partners) {
+        const carouselId = partners.dataset.targetCarousel;
+
+        $(`.partnersBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`)
+        });
+    }
+
+    if (blogs) {
+        const carouselId = blogs.dataset.targetCarousel;
+
+        $(`.blogBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: "unslick"
+                }
+            ]
+        });
+    }
 
     const buttons = document.querySelectorAll('.blogCard__tags');
 
@@ -82,45 +117,74 @@ export const InitCarousels = () => {
         ]
     });
 
-    $(".participantsBlock__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        margin: 32,
-    });
 
-    $(".clientsAdditional__carousel").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        margin: 32,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    variableWidth: false,
+    if (participants) {
+        const carouselId = participants.dataset.targetCarousel;
+
+        $(`.participantsBlock__carousel[data-target-carousel="${carouselId}"]`).slick({
+            margin: 32,
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`)
+        });
+    }
+
+    if (clientsAdditional) {
+        const carouselId = clientsAdditional.dataset.targetCarousel;
+
+        $(`.clientsAdditional__carousel[data-target-carousel="${carouselId}"]`).slick({
+            margin: 32,
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: 'unslick'
                 }
-            }
-        ]
-    });
+            ]
+        });
+    }
 
-    $(".team__portfolioLinks").slick({
-        infinite: false,
-        variableWidth: true,
-        arrows:false,
-        margin: 32,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: 'unslick'
-            }
-        ]
-    });
+    if (teamPortfolioLinks) {
+        const carouselId = teamPortfolioLinks.dataset.targetCarousel;
 
-    $(".projectCard__tags").slick({
-        variableWidth: true,
-        arrows:true,
-        infinite: false,
-        swipeToSlide: true
-    });
+        $(`.team__portfolioLinks[data-target-carousel="${carouselId}"]`).slick({
+            margin: 32,
+            variableWidth: true,
+            arrows:true,
+            infinite: false,
+            swipeToSlide: true,
+            mobileFirst: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+            responsive: [
+                {
+                    breakpoint: 320,
+                    settings: 'unslick'
+                },
+                {
+                    breakpoint: 768,
+                    settings: 'slick'
+                },
+                {
+                    breakpoint: 1280,
+                    settings: 'unslick'
+                },
+            ]
+        });
+    }
+    //
+    // $(".projectCard__tags").slick({
+    //     variableWidth: true,
+    //     arrows:true,
+    //     infinite: false,
+    //     swipeToSlide: true
+    // });
 }

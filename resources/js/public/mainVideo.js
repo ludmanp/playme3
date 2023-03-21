@@ -13,17 +13,17 @@ export const InitMainVideo = () => {
         overlay.classList.remove("show");
     }
 
-    btn.addEventListener('click', () => {
-        launchVideo();
-        body.classList.add('lock_scroll');
-    });
+    if (btn) {
+        btn.addEventListener('click', () => {
+            launchVideo();
+            body.classList.add('lock_scroll');
+        });
 
-    btnClose.addEventListener('click', () => {
-        stopVideo();
-        body.classList.remove('lock_scroll');
-        $(".video__popupVideo").attr("src", $(".video__popupVideo").attr("src"));
-    });
-
-
+        btnClose.addEventListener('click', () => {
+            stopVideo();
+            body.classList.remove('lock_scroll');
+            $(".video__popupVideo").attr("src", $(".video__popupVideo").attr("src"));
+        });
+    }
 
 }
