@@ -50,5 +50,5 @@
         @lang('Contact us')
     </x-common.link>
 </div>
-<x-contactforms::layout.home.video></x-contactforms::layout.home.video>
+<x-contactforms::layout.home.video :video-link="$videoLink ?? ''"></x-contactforms::layout.home.video>
 

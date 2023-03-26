@@ -56,6 +56,7 @@
             :subtitle="$pageOptions->present()->local('subtitle')"
             :header-text="$pageOptions->present()->local('header_text')"
             :contact-link="$pageOptions->present()->local('contact_link')"
+            :video-link="data_get($pageOptions->options, 'video_link')"
         ></x-layout.home.videoBlock>
         @include('facts::public._section')
         @include('clients::public._section')

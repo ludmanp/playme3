@@ -16,6 +16,18 @@ class VideoService
         return '';
     }
 
+    public function getId($link): string
+    {
+        switch ($this->detectType($link)){
+            case 'vimeo':
+                return $this->VimeoId($link);
+            case 'youtube':
+                return $this->YoutubeId($link);
+
+        }
+        return '';
+    }
+
     public function getEmbedCode($link){
         switch ($this->detectType($link)){
             case 'vimeo':
