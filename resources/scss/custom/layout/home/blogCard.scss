@@ -16,6 +16,11 @@
     @media screen and (min-width:1280px) {
         max-width: 856px;
     }
+
+    .slick-track {
+        display: flex;
+        gap: 8px;
+    }
 }
 
 .blogCard__image {
@@ -158,4 +163,3 @@
     position: relative;
     overflow: hidden;
 }
-

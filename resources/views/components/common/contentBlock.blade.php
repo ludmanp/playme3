@@ -30,4 +30,7 @@
         {{ $actions }}
     </div>
     @endif
+    @if ($arrows ?? '')
+        {{ $arrows }}
+    @endif
 </div>

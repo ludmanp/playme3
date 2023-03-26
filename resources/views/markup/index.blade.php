@@ -3,11 +3,11 @@
 @section('header')
     <x-common.header :mainPage="true">
         <x-slot name="menu">
-            <x-common.link :href="'#'">Услуги</x-common.link>
-            <x-common.link :href="'#'">Клиенты</x-common.link>
-            <x-common.link :href="'#'">Команда</x-common.link>
-            <x-common.link :href="'#'">Блог</x-common.link>
-            <x-common.link :href="'#'">Контакты</x-common.link>
+            <x-common.link :href="'services'">Услуги</x-common.link>
+            <x-common.link :href="'clients'">Клиенты</x-common.link>
+            <x-common.link :href="'team'">Команда</x-common.link>
+            <x-common.link :href="'blog'">Блог</x-common.link>
+            <x-common.link :href="'contacts'">Контакты</x-common.link>
         </x-slot>
         <x-slot name="langSwitcher">
             <div class='header__languages'>
@@ -34,7 +34,7 @@
                                 мы покажем в лучшем свете!
                                 Наша команда — это профессионалы в производстве видеоконтента!'"
     ></x-layout.home.videoBlock>
-    <x-layout.home.facts :title="__('Facts')">
+    <x-layout.home.facts :title="__('Facts')" :facts-block-carousel-id="'facts'">
         <x-slot name="text">
             <p>Нашей командой реализовано более 300+ крупнейших проектов. Мы пишем, делаем, организуем, проводим, оформляем и создаём продукт любой сложности
                 и в любых условиях!</p>
@@ -62,7 +62,7 @@
             </x-layout.home.factLink>
         </x-slot>
     </x-layout.home.facts>
-    <x-layout.home.clients :clients="[['href'=> '#', 'image'=> '../img/home/clients/coaom.svg', 'imageAlt'=> 'coaom-img'],
+    <x-layout.home.clients :carousel-id="'clients'" :clients="[['href'=> '#', 'image'=> '../img/home/clients/coaom.svg', 'imageAlt'=> 'coaom-img'],
                ['href'=> '#', 'image'=> '../img/home/clients/ac.svg', 'imageAlt'=> 'ac-img'],
                ['href'=> '#', 'image'=> '../img/home/clients/am.svg', 'imageAlt'=> 'am-img'],
                ['href'=> '#', 'image'=> '../img/home/clients/mth.svg', 'imageAlt'=> 'mth-img'],
@@ -72,9 +72,7 @@
                ['href'=> '#', 'image'=> '../img/home/clients/imf.svg', 'imageAlt'=> 'imf-img'],
                ['href'=> '#', 'image'=> '../img/home/clients/w.svg', 'imageAlt'=> 'w-img'],
                ]"></x-layout.home.clients>
-    <x-layout.home.services
-            title="Сервисы"
-    >
+    <x-layout.home.services title="Сервисы" :carousel-id="'services'">
         <x-layout.home.serviceCard :link="'#'" :header="'Подготовка к съемке'" :subheader="'Preproduction'"
                                    :image="'../img/home/services/service.jpg'" :imageAlt="'service-image'">
             <x-slot name="services">
@@ -105,11 +103,11 @@
 
         </x-layout.home.serviceCard>
     </x-layout.home.services>
-    <x-layout.home.partners :partners="[['href'=> '#', 'image'=> '../img/home/partners/sh.svg', 'imageAlt'=> 'sh-img'],
+    <x-layout.home.partners :carousel-id="'partners'" :partners="[['href'=> '#', 'image'=> '../img/home/partners/sh.svg', 'imageAlt'=> 'sh-img'],
                ['href'=> '#', 'image'=> '../img/home/partners/p.svg', 'imageAlt'=> 'p-img'],
                ['href'=> '#', 'image'=> '../img/home/partners/r.svg', 'imageAlt'=> 'r-img'],
                ]"></x-layout.home.partners>
-    <x-layout.home.blog></x-layout.home.blog>
+    <x-layout.home.blog :carousel-id="'blog'"></x-layout.home.blog>
     <x-layout.home.contacts>
         <form class='contactsBlock__form' action=''>
             <h3 class='contactsBlock__formHeader'>Не нашли, что искали?</h3>

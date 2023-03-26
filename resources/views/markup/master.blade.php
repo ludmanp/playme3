@@ -48,11 +48,11 @@
     @section('header')
         <x-common.header>
             <x-slot name="menu">
-                <x-common.link :href="'#'">Услуги</x-common.link>
-                <x-common.link :href="'#'">Клиенты</x-common.link>
-                <x-common.link :href="'#'">Команда</x-common.link>
-                <x-common.link :href="'#'">Блог</x-common.link>
-                <x-common.link :href="'#'">Контакты</x-common.link>
+                <x-common.link :href="'services'">Услуги</x-common.link>
+                <x-common.link :href="'clients'">Клиенты</x-common.link>
+                <x-common.link :href="'team'">Команда</x-common.link>
+                <x-common.link :href="'blog'">Блог</x-common.link>
+                <x-common.link :href="'contacts'">Контакты</x-common.link>
             </x-slot>
             <x-slot name="langSwitcher">
                 <div class='header__languages'>

@@ -16,7 +16,15 @@
 {{--                </x-common.link>--}}
 {{--            </x-slot>--}}
         </x-common.contentBlock>
-        <div class='factsBlock__carousel'>
+        <div class='carousel__arrows factsBlock__arrows' data-target-carousel='{{ $factsBlockCarouselId ?? '' }}'>
+            <button class='previous'>
+                <x-icons.arrowLeft></x-icons.arrowLeft>
+            </button>
+            <button class='next'>
+                <x-icons.arrowRight></x-icons.arrowRight>
+            </button>
+        </div>
+        <div class='factsBlock__carousel' data-target-carousel='{{ $factsBlockCarouselId ?? '' }}'>
             {{ $facts }}
         </div>
     </x-common.container>

@@ -2,6 +2,7 @@
     padding-left: 104px;
     display: flex;
     flex-direction:column;
+    position: relative;
 
     @media screen and (min-width: 768px) and (max-width: 1279px) {
         padding-left: 130px;
@@ -56,6 +57,7 @@
         margin: 0;
         font-weight: 600;
         text-transform: uppercase;
+        line-height: 1.5;
 
         @media screen and (max-width: 1279px) {
             font-size: var(--sFontBody);
