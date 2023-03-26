@@ -272,7 +272,6 @@
     transition: 1s;
     position: relative;
     width: 100%;
-    max-width: 900px;
     height: 0;
     padding-bottom: 56.25%;
 }
@@ -333,3 +332,16 @@
     }
 }
 
+.video__popupBlock {
+    width: 320px;
+
+    @media screen and (min-width: 768px) {
+        width: 600px;
+        height: 500px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 1000px;
+        height: 600px;
+    }
+}

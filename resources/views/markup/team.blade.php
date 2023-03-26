@@ -82,8 +82,18 @@
                     <x-slot name="header">
                         <h3>портфолио</h3>
                     </x-slot>
+                    <x-slot name="arrows">
+                        <div class='carousel__arrows team__arrows' data-target-carousel='teamporfolio'>
+                            <button class='previous'>
+                                <x-icons.arrowLeft></x-icons.arrowLeft>
+                            </button>
+                            <button class='next'>
+                                <x-icons.arrowRight></x-icons.arrowRight>
+                            </button>
+                        </div>
+                    </x-slot>
                 </x-common.contentBlock>
-                <div class='team__portfolioLinks'>
+                <div class='team__portfolioLinks'  data-target-carousel='teamporfolio'>
                     <x-layout.team.portfolioLink :link="'#'" :imageAlt="'portfolio-img'"
                                                  :image="'../img/team/portfolio.jpg'">
                     </x-layout.team.portfolioLink>

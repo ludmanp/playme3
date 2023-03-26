@@ -155,3 +155,23 @@
         margin-bottom: 80px;
     }
 }
+
+.team__arrows {
+    display: none;
+
+    @media screen and (min-width: 767px) {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding-left: 8px;
+        justify-content: flex-end;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: none;
+    }
+}

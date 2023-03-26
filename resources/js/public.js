@@ -15,6 +15,7 @@ import { InitToggleMenu } from './public/toggleMenu';
 import { initToggleVideo } from './public/toggleVideo';
 import { InitCopy } from './public/copy';
 import {InitMainVideo} from "./public/mainVideo";
+import {InitToggleNavLink} from "./public/toggleNavLink";
 
 InitCarousels();
 InitClientGallery();
@@ -24,6 +25,7 @@ InitToggleMenu();
 initToggleVideo();
 InitCopy();
 InitMainVideo();
+InitToggleNavLink();
 
 /**
  * Axios HTTP library

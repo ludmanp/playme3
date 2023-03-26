@@ -2,10 +2,19 @@ export const InitToggleNavLink = () => {
     const navLinks = document.querySelectorAll('.header__navigation .link');
     const currentLink = window.location.pathname;
 
-    navLinks.forEach(link => {
-        const linkInnerText = link.innerText.split(' ')[0].toLowerCase();
+    const getLastPart = (url) => {
+        const parts = url.split('/');
+        return parts.at(-1);
+    }
 
-        if (currentLink.includes(linkInnerText)) {
+    const lastPartOfLink = getLastPart(currentLink);
+
+    navLinks.forEach(link => {
+        const anchorLink = link.href;
+
+        const navLink = getLastPart(anchorLink);
+
+        if (lastPartOfLink.includes(navLink)) {
             link.classList.add('active');
         }
 
