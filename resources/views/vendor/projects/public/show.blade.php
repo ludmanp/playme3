@@ -61,13 +61,23 @@
                 </div>
             </div>
             @if($model->team_members->count())
-            <x-layout.clients.participants>
+            <x-layout.clients.participants :carousel-id="'participants'">
                 <x-slot name="header">
                     <x-common.contentBlock>
                         <x-slot name="header">
                             <h3>@lang('Project participants')</h3>
                         </x-slot>
                     </x-common.contentBlock>
+                </x-slot>
+                <x-slot name="arrows">
+                    <div class='carousel__arrows participantsBlock__arrows' data-target-carousel='participants'>
+                        <button class='previous'>
+                            <x-icons.arrowLeft></x-icons.arrowLeft>
+                        </button>
+                        <button class='next'>
+                            <x-icons.arrowRight></x-icons.arrowRight>
+                        </button>
+                    </div>
                 </x-slot>
                 <x-slot name="participant">
                     @foreach($model->team_members as $teamMember)
@@ -84,7 +94,7 @@
             </x-layout.clients.participants>
             @endif
             @if($otherProjects->count())
-            <x-layout.clients.clientsAdditional>
+            <x-layout.clients.clientsAdditional :carousel-id="'clientsAdditional'">
                 <x-slot name="title">
                     @if(count($selectedTags))
                         @lang('Other with hashtag')

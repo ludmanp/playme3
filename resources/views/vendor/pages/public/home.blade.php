@@ -64,7 +64,7 @@
 
 
         @include('partners::public._section')
-        <x-layout.home.blog></x-layout.home.blog>
+        <x-layout.home.blog :carousel-id="'blog'"></x-layout.home.blog>
         <x-layout.home.contacts>
             @include('contactforms::public._form', ['title' => __('Did not find what you were looking for?'), 'subtitle' => __('Write to us and we will call you back as soon as possible')])
         </x-layout.home.contacts>

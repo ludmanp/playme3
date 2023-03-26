@@ -9,7 +9,7 @@ $qString = (empty($qString) ? '' : '?') . http_build_query($qString);
                             :author="$article->author ? $article->author->title : ''" :date="$article->publishedDate"
                             :authorImage="optional($article->author)->image ? $article->author->present()->image(24, 24) : ''"
                             :authorImageAlt="optional($article->author)->image ? $article->author->image->alt_attribute : ''"
-                            :header="$article->title">
+                            :header="$article->title" :carousel-id="'blogCardCarousel-' . $article->id">
         <x-slot name="text">
             {!! $article->summary !!}
         </x-slot>

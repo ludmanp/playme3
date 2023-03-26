@@ -54,7 +54,7 @@
                         <h3>@lang('Portfolio')</h3>
                     </x-slot>
                 </x-common.contentBlock>
-                <div class='team__portfolioLinks'>
+                <div class='team__portfolioLinks' data-target-carousel='teamporfolio'>
                     @foreach($model->projects as $project)
                     <x-layout.team.portfolioLink :link="url($project->uri())" :imageAlt="optional($project->image)->alt_attribute ?? $project->title"
                                                  :image="$project->present()->image()">

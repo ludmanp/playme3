@@ -3,7 +3,7 @@
 @section('content')
         <div class='contacts__container'>
             <div class='contacts__mapBlock'>
-                <x-layout.contacts.contactsForm>
+                <x-layout.contacts.contactsForm :title="'Contacts'">
                     <div class="contactsForm__formBlock">
                         <form class='contactsForm__form' action=''>
                             <h3>Связаться с нами</h3>

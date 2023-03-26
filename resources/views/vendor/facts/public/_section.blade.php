@@ -1,4 +1,4 @@
-<x-layout.home.facts :title="$pageOptions->present()->local('facts_title')">
+<x-layout.home.facts :title="$pageOptions->present()->local('facts_title')" :facts-block-carousel-id="'facts'">
     <x-slot name="text">
         <p>{{ $pageOptions->present()->local('facts_text') }}</p>
     </x-slot>
