@@ -7,6 +7,7 @@ export const InitCarousels = () => {
     const participants = document.querySelector('.participantsBlock__carousel');
     const clientsAdditional = document.querySelector('.clientsAdditional__carousel');
     const teamPortfolioLinks = document.querySelector('.team__portfolioLinks');
+    const projects = document.querySelector('.projectCard__tags');
 
     if (facts) {
         const carouselId = facts.dataset.targetCarousel;
@@ -180,11 +181,18 @@ export const InitCarousels = () => {
             ]
         });
     }
-    //
-    // $(".projectCard__tags").slick({
-    //     variableWidth: true,
-    //     arrows:true,
-    //     infinite: false,
-    //     swipeToSlide: true
-    // });
+
+    if (projects) {
+        const carouselId = projects.dataset.targetCarousel;
+
+        $(".projectCard__tags").slick({
+            variableWidth: true,
+            arrows: true,
+            infinite: false,
+            swipeToSlide: true,
+            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+
+        });
+    }
 }

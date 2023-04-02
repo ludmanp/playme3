@@ -9,7 +9,7 @@
         </div>
     @endif
     <div class='projectCard__content'>
-        <div class='projectCard__tags' >
+        <div class='projectCard__tags' data-target-carousel='{{ $carouselId ?? '' }}'>
             {{ $tags ?? '' }}
         </div>
         <div class='projectCard__info'>

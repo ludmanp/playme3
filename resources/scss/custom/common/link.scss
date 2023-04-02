@@ -57,6 +57,7 @@
     display: inline-flex!important;
     padding: 8px 24px;
     line-height: 1.5;
+    white-space: nowrap;
 
     @media screen and (max-width:767px) {
         font-size: var(--sFontMedium);

@@ -8,6 +8,7 @@
     :logo="optional($project->client)->image ? $project->client->present()->image() : ''"
     :logoAlt="optional(optional($project->client)->image)->alt_attribute ?? optional($project->client)->title"
     :projectName="$project->title"
+    :carousel-id="'projectCardCarousel-' . $project->id"
 >
     <x-slot name="tags">
         @foreach($project->tags as $tag)
