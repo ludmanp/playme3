@@ -44,6 +44,7 @@ class Client extends Base implements Sortable
     public $translatable = [
         'title',
         'status',
+        'link',
     ];
 
     protected function thumb(): Attribute

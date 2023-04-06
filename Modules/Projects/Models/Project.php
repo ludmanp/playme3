@@ -95,6 +95,6 @@ class Project extends Base
 
     public function videos()
     {
-        return $this->hasMany(ProjectVideo::class, 'project_id');
+        return $this->hasMany(ProjectVideo::class, 'project_id')->order();
     }
 }
