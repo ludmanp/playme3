@@ -29,6 +29,9 @@
 
 .contentBlock__header {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
     &::before {
         position: absolute;
@@ -37,12 +40,10 @@
         height: 2px;
         width: 48px;
         background: var(--cGreen);
-        top: 9px;
 
         @media screen and (min-width: 768px) and (max-width: 1279px) {
             left: -48px;
             width: 32px;
-            top: 9px;
         }
 
         @media screen and (min-width: 1280px) {
@@ -158,7 +159,7 @@
 }
 
 .contentBlock__headerImage {
-    vertical-align: top;
+    display: flex;
 }
 
 .contentBlock__content {

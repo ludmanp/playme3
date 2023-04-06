@@ -183,16 +183,22 @@ export const InitCarousels = () => {
     }
 
     if (projects) {
-        const carouselId = projects.dataset.targetCarousel;
+        const projectTags = document.querySelectorAll('.projectCard__tags');
 
-        $(".projectCard__tags").slick({
-            variableWidth: true,
-            arrows: true,
-            infinite: false,
-            swipeToSlide: true,
-            prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
-            nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`),
+        if (projectTags) {
+            projectTags.forEach((projectTag) => {
+                const carouselId = projectTag.dataset.targetCarousel;
 
-        });
+                $(`.projectCard__tags[data-target-carousel="${carouselId}"]`).slick({
+                    variableWidth: true,
+                    arrows:true,
+                    infinite: false,
+                    swipeToSlide: true,
+                    prevArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .previous`),
+                    nextArrow:  $(`.carousel__arrows[data-target-carousel="${carouselId}"] .next`)
+                });
+
+            });
+        }
     }
 }
