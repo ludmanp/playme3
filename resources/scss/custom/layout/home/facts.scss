@@ -28,13 +28,11 @@
         &::before {
             @media screen and (max-width: 1279px) {
                 width: 32px;
-                top: 9px;
                 left: -44px;
             }
 
             @media screen and (max-width: 767px) {
                 width: 48px;
-                top: 9px;
                 left: -72px;
             }
         }

@@ -9,8 +9,18 @@
         </div>
     @endif
     <div class='projectCard__content'>
-        <div class='projectCard__tags' data-target-carousel='{{ $carouselId ?? '' }}'>
-            {{ $tags ?? '' }}
+        <div class="projectCard__actions">
+            <div class='projectCard__tags' data-target-carousel='{{ $carouselId ?? '' }}'>
+                {{ $tags ?? '' }}
+            </div>
+            <div class='projectCard__arrows carousel__arrows' data-target-carousel='{{ $carouselId ?? '' }}'>
+                <button class='previous'>
+                    <x-icons.arrowLeft></x-icons.arrowLeft>
+                </button>
+                <button class='next'>
+                    <x-icons.arrowRight></x-icons.arrowRight>
+                </button>
+            </div>
         </div>
         <div class='projectCard__info'>
             @if(($location ?? false) || ($date ?? false))

@@ -36,7 +36,7 @@
                     </div>
                 </x-slot>
 
-                <x-layout.clients.projectCard :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
+                <x-layout.clients.projectCard :carouselId="'test'" :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
                                               :logo="'../img/clients/rusbase-small.svg'" :logoAlt="'rubase'" :projectName="'Rosbank Tech.Madness'">
                     <x-slot name="tags">
                         <x-common.link :tag="true">
@@ -64,7 +64,7 @@
                         </x-common.link>
                     </x-slot>
                 </x-layout.clients.projectCard>
-                <x-layout.clients.projectCard :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
+                <x-layout.clients.projectCard :carouselId="'test1'" :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
                                               :logo="'../img/clients/rusbase-small.svg'" :logoAlt="'rubase'" :projectName="'Rosbank Tech.Madness'">
                     <x-slot name="tags">
                         <x-common.link :tag="true">
@@ -89,7 +89,7 @@
                         </x-common.link>
                     </x-slot>
                 </x-layout.clients.projectCard>
-                <x-layout.clients.projectCard :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
+                <x-layout.clients.projectCard :carouselId="'test2'" :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
                                               :logo="'../img/clients/rusbase-small.svg'" :logoAlt="'rubase'" :projectName="'Rosbank Tech.Madness'">
                     <x-slot name="tags">
                         <x-common.link :tag="true">
@@ -118,7 +118,7 @@
                         </x-common.link>
                     </x-slot>
                 </x-layout.clients.projectCard>
-                <x-layout.clients.projectCard :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
+                <x-layout.clients.projectCard :carouselId="'test3'" :image="'../img/clients/project.jpg'" :imageAlt="'project'" :date="'01.01.2021'"
                                               :logo="'../img/clients/rusbase-small.svg'" :logoAlt="'rubase'" :projectName="'Rosbank Tech.Madness'">
                     <x-slot name="tags">
                         <x-common.link :tag="true">
