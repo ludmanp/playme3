@@ -69,10 +69,8 @@ class Client extends Base implements Sortable
         return $this->projects()->published()->order();
     }
 
-    public function link(): Attribute
+    public function getLinkAttribute(): string
     {
-        return  new Attribute(
-            get: fn () => Route::has($route = config('app.locale') . '::client-projects') ? route($route, ['client' => $this]) : url('/')
-        );
+        return Route::has($route = config('app.locale') . '::client-projects') ? route($route, ['client' => $this]) : url('/');
     }
 }

@@ -2,6 +2,7 @@
     <x-common.contentBlock>
         <x-slot name="header">
             <h3>{{ $title }}</h3>
+            {{ $titleImage ?? '' }}
         </x-slot>
     </x-common.contentBlock>
     <div class='clientsSearch__cards'>
