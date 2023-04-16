@@ -83,6 +83,9 @@
 
 .projectCard__logo {
     flex-basis: 30%;
+    img {
+        max-width: 148px;
+    }
 }
 
 .projectCard__date {
