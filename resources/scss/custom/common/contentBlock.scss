@@ -159,6 +159,9 @@
 
 .contentBlock__headerImage {
     display: flex;
+    img {
+        max-width: 148px;
+    }
 }
 
 .contentBlock__content {
