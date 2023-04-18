@@ -22,6 +22,10 @@
             letter-spacing: inherit;
             margin: 0 0 24px;
         }
+
+        @media screen and (max-width: 520px) {
+            max-width: 70%;
+        }
     }
 
     h2 {
@@ -29,7 +33,18 @@
         font-size: var(--sFontBody);
         font-weight: 600;
         line-height: 1.75;
+
+        @media screen and (max-width: 520px) {
+            max-width: 60%;
+        }
     }
+
+    @media screen and (max-width: 520px) {
+        .contentBlock__content {
+            margin-right: 5%;
+        }
+    }
+
 }
 
 .videoBlock__content {
@@ -234,8 +249,8 @@
 
         @media screen and (max-width: 767px) {
             svg {
-                width: 100px;
-                height: 100px;
+                width: 200px;
+                height: 200px;
             }
         }
     }
