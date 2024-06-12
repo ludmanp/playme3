@@ -65,20 +65,8 @@ if(! file_exists('makeQuery')) {
         if($query->has('tag') === null) {
             $query->forget('tag');
         }
-        $query->put('tag', $tag);
-//        $tagQuery = $query->get('tag') ?? [];
-//        if(($k = array_search($tag->slug, $tagQuery)) !== false) {
-//            unset($tagQuery[$k]);
-//        } else {
-//            $tagQuery = $query->get('tag') ?? [];
-//            $tagQuery[] = $tag->slug;
-//            sort($tagQuery);
-//        }
-//        if(empty($tagQuery)) {
-//            $query->forget('tag');
-//        } else {
-//            $query->put('tag', $tagQuery);
-//        }
+        $query->put('tag', $tag->slug);
+
         if(!empty($queryString = $query->all())) {
             $queryString = '?' . http_build_query($queryString);
         } else {
