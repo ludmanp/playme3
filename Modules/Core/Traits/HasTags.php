@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use TypiCMS\Modules\Core\Models\Tag;
@@ -94,16 +95,14 @@ trait HasTags
         $requestQuery = $request->query();
         if(!empty($requestQuery['tag'])) {
             if(is_array($requestQuery['tag'])) {
-                foreach ($requestQuery['tag'] as $tag) {
-                    $query->whereHas('tags', function($q) use ($tag) {
-                        $q->whereSlugIs($tag);
-                    });
-                }
+                $tag = Arr::first($requestQuery['tag']);
             } else {
-                $query->whereHas('tags', function ($q) use ($requestQuery) {
-                    $q->whereSlugIs($requestQuery['tag']);
-                });
+                $tag = $requestQuery['tag'];
             }
+            $query->whereHas('tags', function ($q) use ($tag) {
+                $q->whereSlugIs($tag);
+            });
+
         }
         return $query;
     }
